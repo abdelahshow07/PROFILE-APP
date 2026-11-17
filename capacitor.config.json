@@ -1,0 +1,26 @@
+{
+  "appId": "com.profitpulse.tracker",
+  "appName": "ProfitPulse",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "backgroundColor": "#0b0f19",
+  "server": {
+    "androidScheme": "https",
+    "cleartext": true
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": true,
+    "backgroundColor": "#0b0f19"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 1200,
+      "launchAutoHide": true,
+      "backgroundColor": "#0b0f19",
+      "androidScaleType": "CENTER_CROP",
+      "showSpinner": false
+    }
+  }
+}

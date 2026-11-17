@@ -1,0 +1,2469 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ProfitPulse" />
+  <meta name="theme-color" content="#0b0f19" id="metaThemeColor" />
+  <title>ProfitPulse — Mobile E-Commerce Profit Tracker</title>
+  <style>
+    :root,
+    [data-theme="dark"] {
+      --bg-primary: #0b0f19;
+      --bg-secondary: #111827;
+      --bg-card: #161f33;
+      --bg-card-hover: #1c2740;
+      --bg-input: #0f172a;
+      --border-color: #26334d;
+      --border-focus: #6366f1;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --accent-soft: rgba(99, 102, 241, 0.16);
+      --success: #10b981;
+      --success-bg: rgba(16, 185, 129, 0.15);
+      --success-border: rgba(16, 185, 129, 0.35);
+      --danger: #ef4444;
+      --danger-bg: rgba(239, 68, 68, 0.15);
+      --danger-border: rgba(239, 68, 68, 0.35);
+      --warning: #f59e0b;
+      --warning-bg: rgba(245, 158, 11, 0.15);
+      --info: #3b82f6;
+      --info-bg: rgba(59, 130, 246, 0.15);
+      --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.45);
+      --radius-sm: 10px;
+      --radius-md: 14px;
+      --radius-lg: 18px;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f1f5f9;
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f8fafc;
+      --bg-input: #f8fafc;
+      --border-color: #e2e8f0;
+      --border-focus: #4f46e5;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --accent: #4f46e5;
+      --accent-hover: #4338ca;
+      --accent-soft: rgba(79, 70, 229, 0.12);
+      --success: #059669;
+      --success-bg: rgba(5, 150, 105, 0.12);
+      --success-border: rgba(5, 150, 105, 0.3);
+      --danger: #dc2626;
+      --danger-bg: rgba(220, 38, 38, 0.1);
+      --danger-border: rgba(220, 38, 38, 0.3);
+      --warning: #d97706;
+      --warning-bg: rgba(217, 119, 6, 0.12);
+      --info: #2563eb;
+      --info-bg: rgba(37, 99, 235, 0.12);
+      --shadow-sm: 0 1px 4px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans Arabic", "Tahoma", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.5;
+      min-height: 100vh;
+      padding-bottom: calc(82px + env(safe-area-inset-bottom, 0px));
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    body.phone-preview-mode {
+      background-color: #050811;
+      display: flex;
+      justify-content: center;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .app-shell {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      transition: max-width 0.25s ease;
+    }
+
+    body.phone-preview-mode .app-shell {
+      max-width: 440px;
+      background-color: var(--bg-primary);
+      border: 6px solid #26334d;
+      border-radius: 36px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75);
+      overflow-x: hidden;
+      min-height: 92vh;
+      position: relative;
+      padding-bottom: 85px;
+    }
+
+    .app-header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #10b981 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+      flex-shrink: 0;
+    }
+
+    .brand-text h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .brand-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.12rem 0.45rem;
+      border-radius: 999px;
+      background-color: var(--accent-soft);
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .brand-text p {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+
+    .control-group {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      background-color: var(--bg-input);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.38rem 0.55rem;
+      min-height: 38px;
+    }
+
+    .control-group svg {
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .control-select {
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .control-select option {
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+    }
+
+    .icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      background-color: var(--bg-input);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.42rem 0.7rem;
+      min-height: 38px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .icon-btn:hover,
+    .icon-btn.active {
+      border-color: var(--accent);
+      background-color: var(--accent-soft);
+    }
+
+    @media (max-width: 640px) {
+      .hide-on-mobile {
+        display: none !important;
+      }
+      .header-inner {
+        padding: 0.65rem 0.85rem;
+      }
+      .header-controls {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .control-group {
+        flex: 1;
+        justify-content: center;
+      }
+    }
+
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 900px) {
+      body:not(.phone-preview-mode) .kpi-grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+
+    .kpi-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.55rem;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    @media (max-width: 899px) {
+      .kpi-card.featured-mobile {
+        grid-column: 1 / -1;
+        background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-hover) 100%);
+        border-color: var(--accent);
+      }
+    }
+
+    body.phone-preview-mode .kpi-card.featured-mobile {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-hover) 100%);
+      border-color: var(--accent);
+    }
+
+    .kpi-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+    }
+
+    .kpi-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    .kpi-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .kpi-icon.revenue { background-color: var(--info-bg); color: var(--info); }
+    .kpi-icon.orders { background-color: var(--accent-soft); color: var(--accent); }
+    .kpi-icon.expenses { background-color: var(--warning-bg); color: var(--warning); }
+    .kpi-icon.profit { background-color: var(--success-bg); color: var(--success); }
+    .kpi-icon.margin { background-color: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
+
+    .kpi-value {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+    .kpi-card.featured-mobile .kpi-value {
+      font-size: 1.65rem;
+    }
+
+    .kpi-sub {
+      font-size: 0.73rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      border-top: 1px dashed var(--border-color);
+      padding-top: 0.45rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .status-badge.positive {
+      background-color: var(--success-bg);
+      color: var(--success);
+      border: 1px solid var(--success-border);
+    }
+
+    .status-badge.negative {
+      background-color: var(--danger-bg);
+      color: var(--danger);
+      border: 1px solid var(--danger-border);
+    }
+
+    .status-badge.neutral {
+      background-color: var(--bg-input);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+    }
+
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.15rem;
+      align-items: start;
+    }
+
+    @media (min-width: 1024px) {
+      body:not(.phone-preview-mode) .workspace-grid {
+        grid-template-columns: 380px 1fr;
+      }
+    }
+
+    .panel {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .panel-header {
+      padding: 1rem 1.15rem;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .panel-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.98rem;
+      font-weight: 800;
+    }
+
+    .panel-title svg {
+      color: var(--accent);
+    }
+
+    .panel-body {
+      padding: 1.15rem;
+    }
+
+    .entry-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .form-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .currency-hint {
+      font-size: 0.74rem;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .form-input {
+      width: 100%;
+      min-height: 46px;
+      background-color: var(--bg-input);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.65rem 0.8rem;
+      color: var(--text-primary);
+      font-size: 16px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .form-input:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    .live-preview {
+      background-color: var(--bg-input);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.4rem;
+      text-align: center;
+    }
+
+    .preview-item span {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+    }
+
+    .preview-item strong {
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .form-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 46px;
+      padding: 0.7rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.32);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      background-color: var(--bg-input);
+      color: var(--text-primary);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      background-color: var(--bg-card-hover);
+    }
+
+    .btn-danger-outline {
+      background-color: transparent;
+      color: var(--danger);
+      border-color: var(--danger-border);
+      min-height: 40px;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.82rem;
+    }
+
+    .btn-danger-outline:hover {
+      background-color: var(--danger-bg);
+    }
+
+    .table-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .search-wrapper {
+      position: relative;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .search-wrapper svg {
+      position: absolute;
+      top: 50%;
+      inset-inline-start: 0.8rem;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      min-height: 42px;
+      background-color: var(--bg-input);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.55rem 0.8rem;
+      padding-inline-start: 2.35rem;
+      color: var(--text-primary);
+      font-size: 16px;
+      font-family: inherit;
+      outline: none;
+    }
+
+    .search-input:focus {
+      border-color: var(--border-focus);
+    }
+
+    .toolbar-buttons {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .toolbar-buttons .btn {
+      min-height: 40px;
+      padding: 0.5rem 0.8rem;
+      font-size: 0.82rem;
+    }
+
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .ledger-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: start;
+      font-size: 0.84rem;
+    }
+
+    .ledger-table th,
+    .ledger-table td {
+      padding: 0.8rem 0.85rem;
+      border-bottom: 1px solid var(--border-color);
+      white-space: nowrap;
+      text-align: start;
+    }
+
+    .ledger-table th {
+      background-color: var(--bg-input);
+      color: var(--text-secondary);
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .ledger-table tbody tr:hover {
+      background-color: var(--bg-card-hover);
+    }
+
+    @media (max-width: 680px) {
+      .ledger-table thead {
+        display: none;
+      }
+      .ledger-table,
+      .ledger-table tbody,
+      .ledger-table tr,
+      .ledger-table td {
+        display: block;
+        width: 100%;
+      }
+      .ledger-table tr {
+        padding: 0.9rem 1rem;
+        border-bottom: 1px solid var(--border-color);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.45rem 0.75rem;
+        align-items: center;
+      }
+      .ledger-table td {
+        padding: 0;
+        border: none;
+        white-space: normal;
+        font-size: 0.84rem;
+      }
+      .ledger-table td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.7rem;
+        color: var(--text-secondary);
+        font-weight: 600;
+      }
+      .ledger-table td.product-cell {
+        grid-column: 1 / -1;
+        font-size: 0.95rem;
+        max-width: 100%;
+        padding-bottom: 0.2rem;
+        border-bottom: 1px dashed var(--border-color);
+      }
+      .ledger-table td.product-cell::before {
+        display: none;
+      }
+      .ledger-table td.action-cell {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .ledger-table td.action-cell::before {
+        display: none;
+      }
+    }
+
+    body.phone-preview-mode .ledger-table thead {
+      display: none;
+    }
+    body.phone-preview-mode .ledger-table,
+    body.phone-preview-mode .ledger-table tbody,
+    body.phone-preview-mode .ledger-table tr,
+    body.phone-preview-mode .ledger-table td {
+      display: block;
+      width: 100%;
+    }
+    body.phone-preview-mode .ledger-table tr {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.45rem 0.75rem;
+      align-items: center;
+    }
+    body.phone-preview-mode .ledger-table td {
+      padding: 0;
+      border: none;
+      white-space: normal;
+      font-size: 0.84rem;
+    }
+    body.phone-preview-mode .ledger-table td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+    body.phone-preview-mode .ledger-table td.product-cell {
+      grid-column: 1 / -1;
+      font-size: 0.95rem;
+      max-width: 100%;
+      padding-bottom: 0.2rem;
+      border-bottom: 1px dashed var(--border-color);
+    }
+    body.phone-preview-mode .ledger-table td.product-cell::before {
+      display: none;
+    }
+    body.phone-preview-mode .ledger-table td.action-cell {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    body.phone-preview-mode .ledger-table td.action-cell::before {
+      display: none;
+    }
+
+    .product-cell {
+      font-weight: 700;
+      color: var(--text-primary);
+      max-width: 220px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .date-cell {
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+    }
+
+    .num-positive {
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .num-negative {
+      color: var(--danger);
+      font-weight: 700;
+    }
+
+    .delete-row-btn {
+      background-color: var(--danger-bg);
+      color: var(--danger);
+      border: 1px solid var(--danger-border);
+      border-radius: var(--radius-sm);
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .delete-row-btn:hover {
+      background-color: var(--danger);
+      color: #ffffff;
+    }
+
+    .empty-state {
+      padding: 2.5rem 1.25rem;
+      text-align: center;
+      color: var(--text-secondary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .empty-state svg {
+      color: var(--text-muted);
+      opacity: 0.65;
+    }
+
+    .mobile-bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 70;
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0.4rem 0.5rem calc(0.4rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    body.phone-preview-mode .mobile-bottom-nav {
+      max-width: 428px;
+      margin: 0 auto;
+      bottom: 16px;
+      border-radius: 0 0 30px 30px;
+    }
+
+    .nav-tab {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-family: inherit;
+      font-size: 0.72rem;
+      font-weight: 700;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.22rem;
+      padding: 0.35rem 0.25rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .nav-tab.active,
+    .nav-tab:hover {
+      color: var(--accent);
+      background-color: var(--accent-soft);
+    }
+
+    .toast-container {
+      position: fixed;
+      bottom: 5rem;
+      inset-inline-end: 1rem;
+      inset-inline-start: 1rem;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      pointer-events: none;
+    }
+
+    .toast {
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      border: 1px solid var(--accent);
+      border-inline-start: 4px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1.1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      box-shadow: var(--shadow-md);
+      animation: slideIn 0.2s ease forwards;
+      max-width: 380px;
+      width: 100%;
+      text-align: center;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-inner">
+        <div class="brand">
+          <div class="brand-logo" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+              <polyline points="16 7 22 7 22 13"></polyline>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <h1>
+              <span>ProfitPulse</span>
+              <span class="brand-badge">Mobile</span>
+            </h1>
+            <p id="txtAppSubtitle">متتبع أرباح التجارة الإلكترونية</p>
+          </div>
+        </div>
+
+        <div class="header-controls">
+          <!-- Language Switcher -->
+          <div class="control-group" title="Language">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <select id="langSelect" class="control-select" aria-label="Language Switcher">
+              <option value="ar">العربية (AR)</option>
+              <option value="en">English (EN)</option>
+              <option value="fr">Français (FR)</option>
+              <option value="es">Español (ES)</option>
+              <option value="de">Deutsch (DE)</option>
+              <option value="pt">Português (PT)</option>
+              <option value="tr">Türkçe (TR)</option>
+              <option value="zh">中文 (ZH)</option>
+            </select>
+          </div>
+
+          <!-- Currency Switcher -->
+          <div class="control-group" title="Currency">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            <select id="currencySelect" class="control-select" aria-label="Currency Switcher">
+              <option value="MAD">MAD (د.م)</option>
+              <option value="USD">USD ($)</option>
+              <option value="EUR">EUR (€)</option>
+              <option value="GBP">GBP (£)</option>
+              <option value="SAR">SAR (ر.س)</option>
+              <option value="AED">AED (د.إ)</option>
+              <option value="EGP">EGP (ج.م)</option>
+              <option value="TRY">TRY (₺)</option>
+            </select>
+          </div>
+
+          <!-- Phone View Toggle -->
+          <button type="button" id="phoneFrameBtn" class="icon-btn hide-on-mobile" title="Toggle Smartphone View">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+            <span id="txtPhoneView">وضع الهاتف</span>
+          </button>
+
+          <!-- Theme Toggle -->
+          <button type="button" id="themeToggleBtn" class="icon-btn">
+            <span id="themeIconWrap" style="display:inline-flex;align-items:center;"></span>
+            <span id="txtThemeToggle">الوضع النهاري</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+      <!-- KPI Summary Cards -->
+      <section id="secKpi" class="kpi-grid" aria-label="Key Performance Indicators">
+        <!-- Net Profit -->
+        <article class="kpi-card featured-mobile">
+          <div class="kpi-top">
+            <span class="kpi-title" id="txtKpiNetProfit">صافي الربح</span>
+            <div class="kpi-icon profit">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi-value" id="valNetProfit">0.00</div>
+          <div class="kpi-sub">
+            <span id="txtProfitStatusLabel">الحالة المالية</span>
+            <span class="status-badge neutral" id="badgeNetProfit">--</span>
+          </div>
+        </article>
+
+        <!-- Total Revenue -->
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-title" id="txtKpiRevenue">إجمالي الإيرادات</span>
+            <div class="kpi-icon revenue">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                <line x1="2" y1="10" x2="22" y2="10"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi-value" id="valTotalRevenue">0.00</div>
+          <div class="kpi-sub">
+            <span id="txtKpiRevenueSub">عدد السجلات</span>
+            <strong id="valEntriesCount">0</strong>
+          </div>
+        </article>
+
+        <!-- Delivered Orders -->
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-title" id="txtKpiOrders">الطلبات المسلمة</span>
+            <div class="kpi-icon orders">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi-value" id="valDeliveredOrders">0</div>
+          <div class="kpi-sub">
+            <span id="txtKpiOrdersSub">متوسط الطلب</span>
+            <strong id="valAvgOrderValue">0.00</strong>
+          </div>
+        </article>
+
+        <!-- Total Expenses -->
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-title" id="txtKpiExpenses">إجمالي المصاريف</span>
+            <div class="kpi-icon expenses">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi-value" id="valTotalExpenses">0.00</div>
+          <div class="kpi-sub">
+            <span><span id="txtBreakdownCogs">المنتجات</span>: <strong id="valTotalCogs">0.00</strong></span>
+            <span><span id="txtBreakdownAds">الإعلانات</span>: <strong id="valTotalAds">0.00</strong></span>
+          </div>
+        </article>
+
+        <!-- Net Profit Margin (%) -->
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-title" id="txtKpiMargin">هامش الربح الصافي (%)</span>
+            <div class="kpi-icon margin">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="5" x2="5" y2="19"></line>
+                <circle cx="6.5" cy="6.5" r="2.5"></circle>
+                <circle cx="17.5" cy="17.5" r="2.5"></circle>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi-value" id="valNetMargin">0.0%</div>
+          <div class="kpi-sub">
+            <span id="txtRoasLabel">العائد (ROAS)</span>
+            <strong id="valRoas">0.00x</strong>
+          </div>
+        </article>
+      </section>
+
+      <!-- Workspace: Daily Entry Form + Interactive Ledger -->
+      <div class="workspace-grid">
+        <!-- Daily Entry Form Panel -->
+        <section id="secForm" class="panel" aria-labelledby="txtFormTitle">
+          <div class="panel-header">
+            <h2 class="panel-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="16"></line>
+                <line x1="8" y1="12" x2="16" y2="12"></line>
+              </svg>
+              <span id="txtFormTitle">إضافة سجل يومي جديد</span>
+            </h2>
+          </div>
+          <div class="panel-body">
+            <form id="entryForm" class="entry-form" autocomplete="off">
+              <div class="form-group">
+                <label class="form-label" for="inpProduct">
+                  <span id="lblProduct">اسم المنتج / الحملة</span>
+                </label>
+                <input type="text" id="inpProduct" class="form-input" required placeholder="مثال: ساعة ذكية برو - حملة تيك توك" />
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="inpSellingPrice">
+                    <span id="lblSellingPrice">سعر بيع الوحدة</span>
+                    <span class="currency-hint" data-currency-hint>د.م</span>
+                  </label>
+                  <input type="number" inputmode="decimal" id="inpSellingPrice" class="form-input" step="0.01" min="0" required placeholder="299" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="inpUnitCost">
+                    <span id="lblUnitCost">تكلفة الوحدة (COGS)</span>
+                    <span class="currency-hint" data-currency-hint>د.م</span>
+                  </label>
+                  <input type="number" inputmode="decimal" id="inpUnitCost" class="form-input" step="0.01" min="0" required placeholder="95" />
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="inpQuantity">
+                    <span id="lblQuantity">الطلبات المسلمة</span>
+                  </label>
+                  <input type="number" inputmode="numeric" id="inpQuantity" class="form-input" step="1" min="0" required placeholder="25" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="inpAdSpend">
+                    <span id="lblAdSpend">الإنفاق الإعلاني اليومي</span>
+                    <span class="currency-hint" data-currency-hint>د.م</span>
+                  </label>
+                  <input type="number" inputmode="decimal" id="inpAdSpend" class="form-input" step="0.01" min="0" required placeholder="1200" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="inpDate">
+                  <span id="lblDate">التاريخ</span>
+                </label>
+                <input type="date" id="inpDate" class="form-input" required />
+              </div>
+
+              <!-- Live Calculation Preview -->
+              <div class="live-preview" aria-live="polite">
+                <div class="preview-item">
+                  <span id="txtPrevRevenue">الإيرادات</span>
+                  <strong id="prevRevenueVal">0.00</strong>
+                </div>
+                <div class="preview-item">
+                  <span id="txtPrevCost">التكلفة الكلية</span>
+                  <strong id="prevCostVal">0.00</strong>
+                </div>
+                <div class="preview-item">
+                  <span id="txtPrevProfit">صافي الربح</span>
+                  <strong id="prevProfitVal">0.00</strong>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary" id="btnAddEntry">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  <span id="txtBtnAdd">إضافة السجل</span>
+                </button>
+
+                <button type="button" class="btn btn-secondary" id="btnLoadSample">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+                  <span id="txtBtnSample">تحميل بيانات تجريبية</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- Interactive Ledger Table Panel -->
+        <section id="secLedger" class="panel" aria-labelledby="txtLedgerTitle">
+          <div class="panel-header">
+            <h2 class="panel-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+              </svg>
+              <span id="txtLedgerTitle">دفتر العمليات والأرباح</span>
+            </h2>
+
+            <div class="table-toolbar">
+              <div class="search-wrapper">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="search" id="searchInput" class="search-input" placeholder="ابحث عن منتج أو حملة أو تاريخ..." />
+              </div>
+
+              <div class="toolbar-buttons">
+                <button type="button" class="btn btn-secondary" id="btnExportCsv">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  <span id="txtBtnExportCsv">تصدير CSV</span>
+                </button>
+
+                <button type="button" class="btn btn-danger-outline" id="btnClearAll">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  </svg>
+                  <span id="txtBtnClearAll">مسح الكل</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table class="ledger-table">
+              <thead>
+                <tr>
+                  <th id="thDate">التاريخ</th>
+                  <th id="thProduct">المنتج / الحملة</th>
+                  <th id="thOrders">الطلبات</th>
+                  <th id="thRevenue">الإيرادات</th>
+                  <th id="thTotalCost">إجمالي التكلفة</th>
+                  <th id="thNetProfit">صافي الربح</th>
+                  <th id="thMargin">الهامش %</th>
+                  <th id="thActions">إجراء</th>
+                </tr>
+              </thead>
+              <tbody id="ledgerTableBody"></tbody>
+            </table>
+
+            <div id="emptyState" class="empty-state" style="display:none;">
+              <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              <strong id="txtEmptyTitle">لا توجد سجلات مطابقة حتى الآن</strong>
+              <span id="txtEmptySub">أضف عملية جديدة من النموذج أو اضغط على "تحميل بيانات تجريبية" للبدء.</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Smartphone Bottom App Navigation Bar -->
+    <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+      <button type="button" class="nav-tab active" data-scroll-target="secKpi">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        <span id="txtNavSummary">الملخص</span>
+      </button>
+
+      <button type="button" class="nav-tab" data-scroll-target="secForm">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="16"></line>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </svg>
+        <span id="txtNavAdd">إضافة سجل</span>
+      </button>
+
+      <button type="button" class="nav-tab" data-scroll-target="secLedger">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        <span id="txtNavLedger">السجل</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const STORAGE_KEYS = {
+        ENTRIES: "profitpulse_entries_v1",
+        THEME: "profitpulse_theme_v1",
+        LANG: "profitpulse_lang_v1",
+        CURRENCY: "profitpulse_currency_v1",
+        PHONE_FRAME: "profitpulse_phone_frame_v1"
+      };
+
+      const CURRENCIES = {
+        MAD: { symbol: "د.م", code: "MAD", position: "after" },
+        USD: { symbol: "$", code: "USD", position: "before" },
+        EUR: { symbol: "€", code: "EUR", position: "before" },
+        GBP: { symbol: "£", code: "GBP", position: "before" },
+        SAR: { symbol: "ر.س", code: "SAR", position: "after" },
+        AED: { symbol: "د.إ", code: "AED", position: "after" },
+        EGP: { symbol: "ج.م", code: "EGP", position: "after" },
+        TRY: { symbol: "₺", code: "TRY", position: "before" }
+      };
+
+      const TRANSLATIONS = {
+        ar: {
+          dir: "rtl",
+          subtitle: "تطبيق تتبع أرباح التجارة الإلكترونية",
+          lightMode: "الوضع النهاري",
+          darkMode: "الوضع الليلي",
+          phoneView: "وضع الهاتف",
+          kpiRevenue: "إجمالي الإيرادات",
+          kpiRevenueSub: "عدد السجلات",
+          kpiOrders: "الطلبات المسلمة",
+          kpiOrdersSub: "متوسط الطلب",
+          kpiExpenses: "إجمالي المصاريف",
+          breakdownCogs: "المنتجات",
+          breakdownAds: "الإعلانات",
+          kpiNetProfit: "صافي الربح",
+          profitStatusLabel: "الحالة المالية",
+          statusProfitable: "رابح",
+          statusLoss: "خاسر",
+          statusBreakEven: "متعادل",
+          kpiMargin: "هامش الربح الصافي (%)",
+          roasLabel: "العائد (ROAS)",
+          formTitle: "إضافة سجل يومي جديد",
+          lblProduct: "اسم المنتج / الحملة",
+          phProduct: "مثال: ساعة ذكية برو - حملة تيك توك",
+          lblSellingPrice: "سعر بيع الوحدة",
+          lblUnitCost: "تكلفة الوحدة (COGS)",
+          lblQuantity: "الطلبات المسلمة",
+          lblAdSpend: "الإنفاق الإعلاني اليومي",
+          lblDate: "التاريخ",
+          prevRevenue: "الإيرادات",
+          prevCost: "التكلفة الكلية",
+          prevProfit: "صافي الربح",
+          btnAdd: "إضافة السجل",
+          btnSample: "تحميل بيانات تجريبية",
+          ledgerTitle: "دفتر العمليات والأرباح",
+          searchPlaceholder: "ابحث عن منتج أو حملة أو تاريخ...",
+          btnExportCsv: "تصدير CSV",
+          btnClearAll: "مسح الكل",
+          thDate: "التاريخ",
+          thProduct: "المنتج / الحملة",
+          thOrders: "الطلبات",
+          thRevenue: "الإيرادات",
+          thTotalCost: "إجمالي التكلفة",
+          thNetProfit: "صافي الربح",
+          thMargin: "الهامش %",
+          thActions: "إجراء",
+          navSummary: "الملخص",
+          navAdd: "إضافة سجل",
+          navLedger: "السجل",
+          emptyTitle: "لا توجد سجلات مطابقة حتى الآن",
+          emptySub: "أضف عملية جديدة من النموذج أو اضغط على \"تحميل بيانات تجريبية\" للبدء.",
+          toastAdded: "تمت إضافة السجل بنجاح",
+          toastSampleLoaded: "تم تحميل البيانات التجريبية بنجاح",
+          toastDeleted: "تم حذف السجل",
+          toastCleared: "تم مسح جميع السجلات",
+          toastExported: "تم تصدير ملف CSV بنجاح",
+          toastNoDataExport: "لا توجد بيانات لتصديرها"
+        },
+        en: {
+          dir: "ltr",
+          subtitle: "Mobile E-Commerce Profit Tracker",
+          lightMode: "Light",
+          darkMode: "Dark",
+          phoneView: "Phone UI",
+          kpiRevenue: "Total Revenue",
+          kpiRevenueSub: "Records",
+          kpiOrders: "Delivered Orders",
+          kpiOrdersSub: "Avg. Order",
+          kpiExpenses: "Total Expenses",
+          breakdownCogs: "COGS",
+          breakdownAds: "Ads",
+          kpiNetProfit: "Net Profit",
+          profitStatusLabel: "Status",
+          statusProfitable: "Profitable",
+          statusLoss: "Loss",
+          statusBreakEven: "Break-Even",
+          kpiMargin: "Net Margin (%)",
+          roasLabel: "Blended ROAS",
+          formTitle: "Add Daily Entry",
+          lblProduct: "Product / Campaign Name",
+          phProduct: "e.g. Smart Watch Pro - TikTok Ads",
+          lblSellingPrice: "Unit Selling Price",
+          lblUnitCost: "Unit Cost (COGS)",
+          lblQuantity: "Delivered Orders Qty",
+          lblAdSpend: "Daily Ad Spend",
+          lblDate: "Date",
+          prevRevenue: "Revenue",
+          prevCost: "Total Cost",
+          prevProfit: "Net Profit",
+          btnAdd: "Add Entry",
+          btnSample: "Load Sample Data",
+          ledgerTitle: "Interactive Profit Ledger",
+          searchPlaceholder: "Search product, campaign, or date...",
+          btnExportCsv: "Export CSV",
+          btnClearAll: "Clear All",
+          thDate: "Date",
+          thProduct: "Product / Campaign",
+          thOrders: "Orders",
+          thRevenue: "Revenue",
+          thTotalCost: "Total Cost",
+          thNetProfit: "Net Profit",
+          thMargin: "Margin %",
+          thActions: "Action",
+          navSummary: "Summary",
+          navAdd: "Add Entry",
+          navLedger: "Ledger",
+          emptyTitle: "No matching entries found",
+          emptySub: "Add a daily entry using the form or tap 'Load Sample Data'.",
+          toastAdded: "Entry added successfully",
+          toastSampleLoaded: "Sample data loaded",
+          toastDeleted: "Entry removed",
+          toastCleared: "All entries cleared",
+          toastExported: "CSV exported successfully",
+          toastNoDataExport: "No entries available to export"
+        },
+        fr: {
+          dir: "ltr",
+          subtitle: "Suivi Mobile de Profit E-Commerce",
+          lightMode: "Clair",
+          darkMode: "Sombre",
+          phoneView: "Mode Mobile",
+          kpiRevenue: "Chiffre d'Affaires",
+          kpiRevenueSub: "Entrées",
+          kpiOrders: "Commandes Livrées",
+          kpiOrdersSub: "Panier Moyen",
+          kpiExpenses: "Dépenses Totales",
+          breakdownCogs: "Produit",
+          breakdownAds: "Pub",
+          kpiNetProfit: "Bénéfice Net",
+          profitStatusLabel: "Statut",
+          statusProfitable: "Rentable",
+          statusLoss: "En Perte",
+          statusBreakEven: "Équilibre",
+          kpiMargin: "Marge Nette (%)",
+          roasLabel: "ROAS Global",
+          formTitle: "Ajouter une Entrée",
+          lblProduct: "Produit / Campagne",
+          phProduct: "ex. Montre Connectée Pro - FB Ads",
+          lblSellingPrice: "Prix de Vente Unitaire",
+          lblUnitCost: "Coût Unitaire (COGS)",
+          lblQuantity: "Commandes Livrées",
+          lblAdSpend: "Budget Pub Quotidien",
+          lblDate: "Date",
+          prevRevenue: "Revenu",
+          prevCost: "Coût Total",
+          prevProfit: "Profit Net",
+          btnAdd: "Ajouter l'Entrée",
+          btnSample: "Charger Données Test",
+          ledgerTitle: "Journal des Profits",
+          searchPlaceholder: "Rechercher produit, campagne ou date...",
+          btnExportCsv: "Exporter CSV",
+          btnClearAll: "Tout Effacer",
+          thDate: "Date",
+          thProduct: "Produit / Campagne",
+          thOrders: "Commandes",
+          thRevenue: "Revenu",
+          thTotalCost: "Coût Total",
+          thNetProfit: "Bénéfice Net",
+          thMargin: "Marge %",
+          thActions: "Action",
+          navSummary: "Résumé",
+          navAdd: "Ajouter",
+          navLedger: "Journal",
+          emptyTitle: "Aucune entrée trouvée",
+          emptySub: "Ajoutez une opération ou appuyez sur « Charger Données Test ».",
+          toastAdded: "Entrée ajoutée avec succès",
+          toastSampleLoaded: "Données de démonstration chargées",
+          toastDeleted: "Entrée supprimée",
+          toastCleared: "Toutes les entrées ont été effacées",
+          toastExported: "Fichier CSV exporté",
+          toastNoDataExport: "Aucune donnée à exporter"
+        },
+        es: {
+          dir: "ltr",
+          subtitle: "Control Móvil de Beneficios E-Commerce",
+          lightMode: "Claro",
+          darkMode: "Oscuro",
+          phoneView: "Vista Móvil",
+          kpiRevenue: "Ingresos Totales",
+          kpiRevenueSub: "Registros",
+          kpiOrders: "Pedidos Entregados",
+          kpiOrdersSub: "Ticket Prom.",
+          kpiExpenses: "Gastos Totales",
+          breakdownCogs: "Producto",
+          breakdownAds: "Ads",
+          kpiNetProfit: "Beneficio Neto",
+          profitStatusLabel: "Estado",
+          statusProfitable: "Rentable",
+          statusLoss: "Pérdida",
+          statusBreakEven: "Equilibrio",
+          kpiMargin: "Margen Neto (%)",
+          roasLabel: "ROAS Global",
+          formTitle: "Nuevo Registro Diario",
+          lblProduct: "Producto / Campaña",
+          phProduct: "ej. Reloj Inteligente Pro - TikTok",
+          lblSellingPrice: "Precio de Venta Unitario",
+          lblUnitCost: "Costo Unitario (COGS)",
+          lblQuantity: "Pedidos Entregados",
+          lblAdSpend: "Gasto Publicitario Diario",
+          lblDate: "Fecha",
+          prevRevenue: "Ingresos",
+          prevCost: "Costo Total",
+          prevProfit: "Beneficio Neto",
+          btnAdd: "Añadir Registro",
+          btnSample: "Cargar Datos de Prueba",
+          ledgerTitle: "Libro de Operaciones",
+          searchPlaceholder: "Buscar producto, campaña o fecha...",
+          btnExportCsv: "Exportar CSV",
+          btnClearAll: "Borrar Todo",
+          thDate: "Fecha",
+          thProduct: "Producto / Campaña",
+          thOrders: "Pedidos",
+          thRevenue: "Ingresos",
+          thTotalCost: "Costo Total",
+          thNetProfit: "Beneficio Neto",
+          thMargin: "Margen %",
+          thActions: "Acción",
+          navSummary: "Resumen",
+          navAdd: "Añadir",
+          navLedger: "Historial",
+          emptyTitle: "No hay registros disponibles",
+          emptySub: "Añade un registro en el formulario o carga los datos de prueba.",
+          toastAdded: "Registro añadido correctamente",
+          toastSampleLoaded: "Datos de prueba cargados",
+          toastDeleted: "Registro eliminado",
+          toastCleared: "Todos los registros fueron borrados",
+          toastExported: "CSV exportado correctamente",
+          toastNoDataExport: "No hay datos para exportar"
+        },
+        de: {
+          dir: "ltr",
+          subtitle: "Mobiler E-Commerce Gewinn-Tracker",
+          lightMode: "Hell",
+          darkMode: "Dunkel",
+          phoneView: "Handy-Ansicht",
+          kpiRevenue: "Gesamtumsatz",
+          kpiRevenueSub: "Einträge",
+          kpiOrders: "Gelieferte Best.",
+          kpiOrdersSub: "Ø Bestellwert",
+          kpiExpenses: "Gesamtausgaben",
+          breakdownCogs: "COGS",
+          breakdownAds: "Ads",
+          kpiNetProfit: "Nettogewinn",
+          profitStatusLabel: "Status",
+          statusProfitable: "Profitabel",
+          statusLoss: "Verlust",
+          statusBreakEven: "Break-Even",
+          kpiMargin: "Nettomarge (%)",
+          roasLabel: "Gesamt-ROAS",
+          formTitle: "Täglichen Eintrag hinzufügen",
+          lblProduct: "Produkt / Kampagne",
+          phProduct: "z.B. Smartwatch Pro - Meta Ads",
+          lblSellingPrice: "Verkaufspreis pro Einheit",
+          lblUnitCost: "Stückkosten (COGS)",
+          lblQuantity: "Gelieferte Bestellungen",
+          lblAdSpend: "Tägliche Werbeausgaben",
+          lblDate: "Datum",
+          prevRevenue: "Umsatz",
+          prevCost: "Gesamtkosten",
+          prevProfit: "Nettogewinn",
+          btnAdd: "Eintrag hinzufügen",
+          btnSample: "Beispieldaten laden",
+          ledgerTitle: "Interaktives Gewinn-Journal",
+          searchPlaceholder: "Produkt, Kampagne oder Datum suchen...",
+          btnExportCsv: "CSV exportieren",
+          btnClearAll: "Alle löschen",
+          thDate: "Datum",
+          thProduct: "Produkt / Kampagne",
+          thOrders: "Bestellungen",
+          thRevenue: "Umsatz",
+          thTotalCost: "Gesamtkosten",
+          thNetProfit: "Nettogewinn",
+          thMargin: "Marge %",
+          thActions: "Aktion",
+          navSummary: "Übersicht",
+          navAdd: "Neu",
+          navLedger: "Journal",
+          emptyTitle: "Keine Einträge gefunden",
+          emptySub: "Fügen Sie einen Eintrag hinzu oder laden Sie Beispieldaten.",
+          toastAdded: "Eintrag erfolgreich hinzugefügt",
+          toastSampleLoaded: "Beispieldaten geladen",
+          toastDeleted: "Eintrag gelöscht",
+          toastCleared: "Alle Einträge gelöscht",
+          toastExported: "CSV erfolgreich exportiert",
+          toastNoDataExport: "Keine Daten zum Exportieren"
+        },
+        pt: {
+          dir: "ltr",
+          subtitle: "Rastreador Mobile de Lucro E-Commerce",
+          lightMode: "Claro",
+          darkMode: "Escuro",
+          phoneView: "Modo Celular",
+          kpiRevenue: "Receita Total",
+          kpiRevenueSub: "Registros",
+          kpiOrders: "Pedidos Entregues",
+          kpiOrdersSub: "Ticket Médio",
+          kpiExpenses: "Despesas Totais",
+          breakdownCogs: "Produto",
+          breakdownAds: "Ads",
+          kpiNetProfit: "Lucro Líquido",
+          profitStatusLabel: "Status",
+          statusProfitable: "Lucrativo",
+          statusLoss: "Prejuízo",
+          statusBreakEven: "Equilíbrio",
+          kpiMargin: "Margem Líquida (%)",
+          roasLabel: "ROAS Geral",
+          formTitle: "Adicionar Registro Diário",
+          lblProduct: "Produto / Campanha",
+          phProduct: "ex. Smartwatch Pro - TikTok Ads",
+          lblSellingPrice: "Preço de Venda Unitário",
+          lblUnitCost: "Custo Unitário (COGS)",
+          lblQuantity: "Qtd. Pedidos Entregues",
+          lblAdSpend: "Gasto Diário em Ads",
+          lblDate: "Data",
+          prevRevenue: "Receita",
+          prevCost: "Custo Total",
+          prevProfit: "Lucro Líquido",
+          btnAdd: "Adicionar Registro",
+          btnSample: "Carregar Dados Exemplo",
+          ledgerTitle: "Livro Razão de Lucros",
+          searchPlaceholder: "Pesquisar produto, campanha ou data...",
+          btnExportCsv: "Exportar CSV",
+          btnClearAll: "Limpar Tudo",
+          thDate: "Data",
+          thProduct: "Produto / Campanha",
+          thOrders: "Pedidos",
+          thRevenue: "Receita",
+          thTotalCost: "Custo Total",
+          thNetProfit: "Lucro Líquido",
+          thMargin: "Margem %",
+          thActions: "Ação",
+          navSummary: "Resumo",
+          navAdd: "Adicionar",
+          navLedger: "Extrato",
+          emptyTitle: "Nenhum registro encontrado",
+          emptySub: "Adicione um lançamento ou toque em 'Carregar Dados Exemplo'.",
+          toastAdded: "Registro adicionado com sucesso",
+          toastSampleLoaded: "Dados de exemplo carregados",
+          toastDeleted: "Registro removido",
+          toastCleared: "Todos os registros foram limpos",
+          toastExported: "CSV exportado com sucesso",
+          toastNoDataExport: "Sem dados para exportar"
+        },
+        tr: {
+          dir: "ltr",
+          subtitle: "Mobil E-Ticaret Kâr Takip Uygulaması",
+          lightMode: "Açık",
+          darkMode: "Koyu",
+          phoneView: "Telefon Modu",
+          kpiRevenue: "Toplam Ciro",
+          kpiRevenueSub: "Kayıt",
+          kpiOrders: "Teslim Sipariş",
+          kpiOrdersSub: "Ort. Sepet",
+          kpiExpenses: "Toplam Giderler",
+          breakdownCogs: "Maliyet",
+          breakdownAds: "Reklam",
+          kpiNetProfit: "Net Kâr",
+          profitStatusLabel: "Durum",
+          statusProfitable: "Kârlı",
+          statusLoss: "Zarar",
+          statusBreakEven: "Başabaş",
+          kpiMargin: "Net Kâr Marjı (%)",
+          roasLabel: "Genel ROAS",
+          formTitle: "Günlük Kayıt Ekle",
+          lblProduct: "Ürün / Kampanya Adı",
+          phProduct: "örn. Akıllı Saat Pro - Instagram",
+          lblSellingPrice: "Birim Satış Fiyatı",
+          lblUnitCost: "Birim Maliyet (COGS)",
+          lblQuantity: "Teslim Edilen Sipariş",
+          lblAdSpend: "Günlük Reklam Harcaması",
+          lblDate: "Tarih",
+          prevRevenue: "Ciro",
+          prevCost: "Toplam Maliyet",
+          prevProfit: "Net Kâr",
+          btnAdd: "Kayıt Ekle",
+          btnSample: "Örnek Veri Yükle",
+          ledgerTitle: "Kâr ve İşlem Defteri",
+          searchPlaceholder: "Ürün, kampanya veya tarih ara...",
+          btnExportCsv: "CSV İndir",
+          btnClearAll: "Tümünü Temizle",
+          thDate: "Tarih",
+          thProduct: "Ürün / Kampanya",
+          thOrders: "Sipariş",
+          thRevenue: "Ciro",
+          thTotalCost: "Toplam Maliyet",
+          thNetProfit: "Net Kâr",
+          thMargin: "Marj %",
+          thActions: "İşlem",
+          navSummary: "Özet",
+          navAdd: "Kayıt Ekle",
+          navLedger: "Defter",
+          emptyTitle: "Henüz kayıt bulunamadı",
+          emptySub: "Formdan yeni bir kayıt ekleyin veya 'Örnek Veri Yükle' butonuna dokunun.",
+          toastAdded: "Kayıt başarıyla eklendi",
+          toastSampleLoaded: "Örnek veriler yüklendi",
+          toastDeleted: "Kayıt silindi",
+          toastCleared: "Tüm kayıtlar temizlendi",
+          toastExported: "CSV dosyası dışa aktarıldı",
+          toastNoDataExport: "Dışa aktarılacak veri yok"
+        },
+        zh: {
+          dir: "ltr",
+          subtitle: "移动电商利润与ROI追踪应用",
+          lightMode: "浅色",
+          darkMode: "深色",
+          phoneView: "手机视图",
+          kpiRevenue: "总营业额",
+          kpiRevenueSub: "记录数",
+          kpiOrders: "妥投订单",
+          kpiOrdersSub: "平均客单价",
+          kpiExpenses: "总支出",
+          breakdownCogs: "商品",
+          breakdownAds: "广告",
+          kpiNetProfit: "净利润",
+          profitStatusLabel: "经营状态",
+          statusProfitable: "盈利",
+          statusLoss: "亏损",
+          statusBreakEven: "持平",
+          kpiMargin: "净利润率 (%)",
+          roasLabel: "综合 ROAS",
+          formTitle: "添加每日经营记录",
+          lblProduct: "商品 / 广告系列名称",
+          phProduct: "例如：智能手表 Pro - TikTok 广告",
+          lblSellingPrice: "单品售价",
+          lblUnitCost: "单品成本 (COGS)",
+          lblQuantity: "妥投订单数量",
+          lblAdSpend: "当日广告支出",
+          lblDate: "日期",
+          prevRevenue: "预计营收",
+          prevCost: "总成本",
+          prevProfit: "预计净利",
+          btnAdd: "添加记录",
+          btnSample: "加载示例数据",
+          ledgerTitle: "每日利润明细账本",
+          searchPlaceholder: "搜索商品、广告系列或日期...",
+          btnExportCsv: "导出 CSV",
+          btnClearAll: "清空全部",
+          thDate: "日期",
+          thProduct: "商品 / 广告系列",
+          thOrders: "订单数",
+          thRevenue: "营业额",
+          thTotalCost: "总成本",
+          thNetProfit: "净利润",
+          thMargin: "利润率 %",
+          thActions: "操作",
+          navSummary: "总览",
+          navAdd: "记一笔",
+          navLedger: "账本",
+          emptyTitle: "暂无匹配的记录",
+          emptySub: "请在表单添加数据，或点击“加载示例数据”快速体验。",
+          toastAdded: "记录已成功添加",
+          toastSampleLoaded: "示例数据已加载",
+          toastDeleted: "记录已删除",
+          toastCleared: "全部记录已清空",
+          toastExported: "CSV 导出成功",
+          toastNoDataExport: "暂无可导出的数据"
+        }
+      };
+
+      const SAMPLE_DATA = [
+        {
+          id: "smp-1",
+          product: "Smart Watch Ultra Series 9 — TikTok Ads",
+          sellingPrice: 349,
+          unitCost: 110,
+          quantity: 42,
+          adSpend: 3100,
+          date: "2026-11-13"
+        },
+        {
+          id: "smp-2",
+          product: "عطر عود ملكي فاخر 100ml — Meta Conversion",
+          sellingPrice: 280,
+          unitCost: 75,
+          quantity: 58,
+          adSpend: 3850,
+          date: "2026-11-14"
+        },
+        {
+          id: "smp-3",
+          product: "Portable Espresso Maker Pro — Reels Campaign",
+          sellingPrice: 450,
+          unitCost: 165,
+          quantity: 19,
+          adSpend: 2400,
+          date: "2026-11-15"
+        },
+        {
+          id: "smp-4",
+          product: "جهاز مساج الرقبة الحراري — Google Shopping",
+          sellingPrice: 220,
+          unitCost: 85,
+          quantity: 12,
+          adSpend: 1950,
+          date: "2026-11-16"
+        },
+        {
+          id: "smp-5",
+          product: "Wireless Noise-Canceling Earbuds — Snap Ads",
+          sellingPrice: 310,
+          unitCost: 92,
+          quantity: 64,
+          adSpend: 4200,
+          date: "2026-11-17"
+        }
+      ];
+
+      const state = {
+        entries: [],
+        theme: "dark",
+        lang: "ar",
+        currency: "MAD",
+        searchQuery: "",
+        phoneFrame: true
+      };
+
+      function loadStorage(key, fallback) {
+        try {
+          const raw = window.localStorage.getItem(key);
+          return raw !== null ? JSON.parse(raw) : fallback;
+        } catch (_err) {
+          return fallback;
+        }
+      }
+
+      function saveStorage(key, value) {
+        try {
+          window.localStorage.setItem(key, JSON.stringify(value));
+        } catch (_err) {
+          // Ignore private mode restrictions
+        }
+      }
+
+      const el = {
+        metaThemeColor: document.getElementById("metaThemeColor"),
+        langSelect: document.getElementById("langSelect"),
+        currencySelect: document.getElementById("currencySelect"),
+        phoneFrameBtn: document.getElementById("phoneFrameBtn"),
+        txtPhoneView: document.getElementById("txtPhoneView"),
+        themeToggleBtn: document.getElementById("themeToggleBtn"),
+        themeIconWrap: document.getElementById("themeIconWrap"),
+        txtThemeToggle: document.getElementById("txtThemeToggle"),
+        txtAppSubtitle: document.getElementById("txtAppSubtitle"),
+        txtKpiRevenue: document.getElementById("txtKpiRevenue"),
+        txtKpiRevenueSub: document.getElementById("txtKpiRevenueSub"),
+        txtKpiOrders: document.getElementById("txtKpiOrders"),
+        txtKpiOrdersSub: document.getElementById("txtKpiOrdersSub"),
+        txtKpiExpenses: document.getElementById("txtKpiExpenses"),
+        txtBreakdownCogs: document.getElementById("txtBreakdownCogs"),
+        txtBreakdownAds: document.getElementById("txtBreakdownAds"),
+        txtKpiNetProfit: document.getElementById("txtKpiNetProfit"),
+        txtProfitStatusLabel: document.getElementById("txtProfitStatusLabel"),
+        txtKpiMargin: document.getElementById("txtKpiMargin"),
+        txtRoasLabel: document.getElementById("txtRoasLabel"),
+        valTotalRevenue: document.getElementById("valTotalRevenue"),
+        valEntriesCount: document.getElementById("valEntriesCount"),
+        valDeliveredOrders: document.getElementById("valDeliveredOrders"),
+        valAvgOrderValue: document.getElementById("valAvgOrderValue"),
+        valTotalExpenses: document.getElementById("valTotalExpenses"),
+        valTotalCogs: document.getElementById("valTotalCogs"),
+        valTotalAds: document.getElementById("valTotalAds"),
+        valNetProfit: document.getElementById("valNetProfit"),
+        badgeNetProfit: document.getElementById("badgeNetProfit"),
+        valNetMargin: document.getElementById("valNetMargin"),
+        valRoas: document.getElementById("valRoas"),
+        txtFormTitle: document.getElementById("txtFormTitle"),
+        lblProduct: document.getElementById("lblProduct"),
+        lblSellingPrice: document.getElementById("lblSellingPrice"),
+        lblUnitCost: document.getElementById("lblUnitCost"),
+        lblQuantity: document.getElementById("lblQuantity"),
+        lblAdSpend: document.getElementById("lblAdSpend"),
+        lblDate: document.getElementById("lblDate"),
+        inpProduct: document.getElementById("inpProduct"),
+        inpSellingPrice: document.getElementById("inpSellingPrice"),
+        inpUnitCost: document.getElementById("inpUnitCost"),
+        inpQuantity: document.getElementById("inpQuantity"),
+        inpAdSpend: document.getElementById("inpAdSpend"),
+        inpDate: document.getElementById("inpDate"),
+        txtPrevRevenue: document.getElementById("txtPrevRevenue"),
+        txtPrevCost: document.getElementById("txtPrevCost"),
+        txtPrevProfit: document.getElementById("txtPrevProfit"),
+        prevRevenueVal: document.getElementById("prevRevenueVal"),
+        prevCostVal: document.getElementById("prevCostVal"),
+        prevProfitVal: document.getElementById("prevProfitVal"),
+        entryForm: document.getElementById("entryForm"),
+        txtBtnAdd: document.getElementById("txtBtnAdd"),
+        btnLoadSample: document.getElementById("btnLoadSample"),
+        txtBtnSample: document.getElementById("txtBtnSample"),
+        txtLedgerTitle: document.getElementById("txtLedgerTitle"),
+        searchInput: document.getElementById("searchInput"),
+        btnExportCsv: document.getElementById("btnExportCsv"),
+        txtBtnExportCsv: document.getElementById("txtBtnExportCsv"),
+        btnClearAll: document.getElementById("btnClearAll"),
+        txtBtnClearAll: document.getElementById("txtBtnClearAll"),
+        thDate: document.getElementById("thDate"),
+        thProduct: document.getElementById("thProduct"),
+        thOrders: document.getElementById("thOrders"),
+        thRevenue: document.getElementById("thRevenue"),
+        thTotalCost: document.getElementById("thTotalCost"),
+        thNetProfit: document.getElementById("thNetProfit"),
+        thMargin: document.getElementById("thMargin"),
+        thActions: document.getElementById("thActions"),
+        txtNavSummary: document.getElementById("txtNavSummary"),
+        txtNavAdd: document.getElementById("txtNavAdd"),
+        txtNavLedger: document.getElementById("txtNavLedger"),
+        ledgerTableBody: document.getElementById("ledgerTableBody"),
+        emptyState: document.getElementById("emptyState"),
+        txtEmptyTitle: document.getElementById("txtEmptyTitle"),
+        txtEmptySub: document.getElementById("txtEmptySub"),
+        toastContainer: document.getElementById("toastContainer")
+      };
+
+      function computeRowMetrics(entry) {
+        const sellingPrice = Number(entry.sellingPrice) || 0;
+        const unitCost = Number(entry.unitCost) || 0;
+        const quantity = Number(entry.quantity) || 0;
+        const adSpend = Number(entry.adSpend) || 0;
+
+        const revenue = sellingPrice * quantity;
+        const productCost = unitCost * quantity;
+        const totalCost = productCost + adSpend;
+        const netProfit = revenue - totalCost;
+        const margin = revenue > 0 ? (netProfit / revenue) * 100 : (totalCost > 0 ? -100 : 0);
+
+        return {
+          revenue,
+          productCost,
+          adSpend,
+          totalCost,
+          netProfit,
+          margin
+        };
+      }
+
+      function formatCurrency(value) {
+        const num = Number(value) || 0;
+        const cur = CURRENCIES[state.currency] || CURRENCIES.MAD;
+        const absFormatted = Math.abs(num).toLocaleString("en-US", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+        const sign = num < 0 ? "-" : "";
+        if (cur.position === "before") {
+          return `${sign}${cur.symbol}${absFormatted}`;
+        }
+        return `${sign}${absFormatted} ${cur.symbol}`;
+      }
+
+      function formatInt(value) {
+        return (Number(value) || 0).toLocaleString("en-US");
+      }
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function showToast(message) {
+        const toast = document.createElement("div");
+        toast.className = "toast";
+        toast.textContent = message;
+        el.toastContainer.appendChild(toast);
+        setTimeout(() => {
+          toast.remove();
+        }, 2600);
+      }
+
+      function applyPhoneFrameMode() {
+        const isSmallScreen = window.innerWidth <= 680;
+        if (!isSmallScreen && state.phoneFrame) {
+          document.body.classList.add("phone-preview-mode");
+          el.phoneFrameBtn.classList.add("active");
+        } else {
+          document.body.classList.remove("phone-preview-mode");
+          el.phoneFrameBtn.classList.remove("active");
+        }
+      }
+
+      function applyTheme() {
+        document.documentElement.setAttribute("data-theme", state.theme);
+        if (el.metaThemeColor) {
+          el.metaThemeColor.setAttribute("content", state.theme === "dark" ? "#0b0f19" : "#ffffff");
+        }
+        const t = TRANSLATIONS[state.lang] || TRANSLATIONS.ar;
+        if (state.theme === "dark") {
+          el.txtThemeToggle.textContent = t.lightMode;
+          el.themeIconWrap.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+        } else {
+          el.txtThemeToggle.textContent = t.darkMode;
+          el.themeIconWrap.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+        }
+      }
+
+      function applyTranslations() {
+        const t = TRANSLATIONS[state.lang] || TRANSLATIONS.ar;
+        document.documentElement.lang = state.lang;
+        document.documentElement.dir = t.dir;
+
+        el.txtAppSubtitle.textContent = t.subtitle;
+        el.txtPhoneView.textContent = t.phoneView;
+        el.txtKpiRevenue.textContent = t.kpiRevenue;
+        el.txtKpiRevenueSub.textContent = t.kpiRevenueSub;
+        el.txtKpiOrders.textContent = t.kpiOrders;
+        el.txtKpiOrdersSub.textContent = t.kpiOrdersSub;
+        el.txtKpiExpenses.textContent = t.kpiExpenses;
+        el.txtBreakdownCogs.textContent = t.breakdownCogs;
+        el.txtBreakdownAds.textContent = t.breakdownAds;
+        el.txtKpiNetProfit.textContent = t.kpiNetProfit;
+        el.txtProfitStatusLabel.textContent = t.profitStatusLabel;
+        el.txtKpiMargin.textContent = t.kpiMargin;
+        el.txtRoasLabel.textContent = t.roasLabel;
+
+        el.txtFormTitle.textContent = t.formTitle;
+        el.lblProduct.textContent = t.lblProduct;
+        el.inpProduct.placeholder = t.phProduct;
+        el.lblSellingPrice.textContent = t.lblSellingPrice;
+        el.lblUnitCost.textContent = t.lblUnitCost;
+        el.lblQuantity.textContent = t.lblQuantity;
+        el.lblAdSpend.textContent = t.lblAdSpend;
+        el.lblDate.textContent = t.lblDate;
+
+        el.txtPrevRevenue.textContent = t.prevRevenue;
+        el.txtPrevCost.textContent = t.prevCost;
+        el.txtPrevProfit.textContent = t.prevProfit;
+        el.txtBtnAdd.textContent = t.btnAdd;
+        el.txtBtnSample.textContent = t.btnSample;
+
+        el.txtLedgerTitle.textContent = t.ledgerTitle;
+        el.searchInput.placeholder = t.searchPlaceholder;
+        el.txtBtnExportCsv.textContent = t.btnExportCsv;
+        el.txtBtnClearAll.textContent = t.btnClearAll;
+
+        el.thDate.textContent = t.thDate;
+        el.thProduct.textContent = t.thProduct;
+        el.thOrders.textContent = t.thOrders;
+        el.thRevenue.textContent = t.thRevenue;
+        el.thTotalCost.textContent = t.thTotalCost;
+        el.thNetProfit.textContent = t.thNetProfit;
+        el.thMargin.textContent = t.thMargin;
+        el.thActions.textContent = t.thActions;
+
+        el.txtNavSummary.textContent = t.navSummary;
+        el.txtNavAdd.textContent = t.navAdd;
+        el.txtNavLedger.textContent = t.navLedger;
+
+        el.txtEmptyTitle.textContent = t.emptyTitle;
+        el.txtEmptySub.textContent = t.emptySub;
+
+        applyTheme();
+      }
+
+      function updateCurrencyHints() {
+        const cur = CURRENCIES[state.currency] || CURRENCIES.MAD;
+        document.querySelectorAll("[data-currency-hint]").forEach((node) => {
+          node.textContent = cur.symbol;
+        });
+      }
+
+      function updateFormPreview() {
+        const previewMetrics = computeRowMetrics({
+          sellingPrice: el.inpSellingPrice.value,
+          unitCost: el.inpUnitCost.value,
+          quantity: el.inpQuantity.value,
+          adSpend: el.inpAdSpend.value
+        });
+
+        el.prevRevenueVal.textContent = formatCurrency(previewMetrics.revenue);
+        el.prevCostVal.textContent = formatCurrency(previewMetrics.totalCost);
+        el.prevProfitVal.textContent = formatCurrency(previewMetrics.netProfit);
+        el.prevProfitVal.className =
+          previewMetrics.netProfit > 0
+            ? "num-positive"
+            : previewMetrics.netProfit < 0
+            ? "num-negative"
+            : "";
+      }
+
+      function getFilteredEntries() {
+        const q = state.searchQuery.trim().toLowerCase();
+        if (!q) return state.entries;
+        return state.entries.filter((item) => {
+          return (
+            String(item.product).toLowerCase().includes(q) ||
+            String(item.date).toLowerCase().includes(q)
+          );
+        });
+      }
+
+      function renderDashboard() {
+        updateCurrencyHints();
+        updateFormPreview();
+
+        const t = TRANSLATIONS[state.lang] || TRANSLATIONS.ar;
+        const filtered = getFilteredEntries();
+
+        let totalRevenue = 0;
+        let totalOrders = 0;
+        let totalCogs = 0;
+        let totalAds = 0;
+        let totalExpenses = 0;
+        let totalNetProfit = 0;
+
+        filtered.forEach((item) => {
+          const m = computeRowMetrics(item);
+          totalRevenue += m.revenue;
+          totalOrders += Number(item.quantity) || 0;
+          totalCogs += m.productCost;
+          totalAds += m.adSpend;
+          totalExpenses += m.totalCost;
+          totalNetProfit += m.netProfit;
+        });
+
+        const netMargin =
+          totalRevenue > 0
+            ? (totalNetProfit / totalRevenue) * 100
+            : totalExpenses > 0
+            ? -100
+            : 0;
+        const aov = totalOrders > 0 ? totalRevenue / totalOrders : 0;
+        const roas = totalAds > 0 ? totalRevenue / totalAds : 0;
+
+        el.valTotalRevenue.textContent = formatCurrency(totalRevenue);
+        el.valEntriesCount.textContent = formatInt(filtered.length);
+        el.valDeliveredOrders.textContent = formatInt(totalOrders);
+        el.valAvgOrderValue.textContent = formatCurrency(aov);
+        el.valTotalExpenses.textContent = formatCurrency(totalExpenses);
+        el.valTotalCogs.textContent = formatCurrency(totalCogs);
+        el.valTotalAds.textContent = formatCurrency(totalAds);
+
+        el.valNetProfit.textContent = formatCurrency(totalNetProfit);
+        el.valNetProfit.className =
+          "kpi-value " +
+          (totalNetProfit > 0
+            ? "num-positive"
+            : totalNetProfit < 0
+            ? "num-negative"
+            : "");
+
+        if (totalNetProfit > 0) {
+          el.badgeNetProfit.className = "status-badge positive";
+          el.badgeNetProfit.textContent = `▲ ${t.statusProfitable}`;
+        } else if (totalNetProfit < 0) {
+          el.badgeNetProfit.className = "status-badge negative";
+          el.badgeNetProfit.textContent = `▼ ${t.statusLoss}`;
+        } else {
+          el.badgeNetProfit.className = "status-badge neutral";
+          el.badgeNetProfit.textContent = `● ${t.statusBreakEven}`;
+        }
+
+        el.valNetMargin.textContent = `${netMargin.toFixed(1)}%`;
+        el.valNetMargin.className =
+          "kpi-value " +
+          (netMargin > 0 ? "num-positive" : netMargin < 0 ? "num-negative" : "");
+        el.valRoas.textContent = `${roas.toFixed(2)}x`;
+
+        if (filtered.length === 0) {
+          el.ledgerTableBody.innerHTML = "";
+          el.emptyState.style.display = "flex";
+        } else {
+          el.emptyState.style.display = "none";
+          const rowsHtml = filtered
+            .map((entry) => {
+              const m = computeRowMetrics(entry);
+              const profitClass =
+                m.netProfit > 0
+                  ? "num-positive"
+                  : m.netProfit < 0
+                  ? "num-negative"
+                  : "";
+              const badgeClass =
+                m.margin > 0
+                  ? "positive"
+                  : m.margin < 0
+                  ? "negative"
+                  : "neutral";
+
+              return `
+                <tr data-id="${escapeHtml(entry.id)}">
+                  <td class="product-cell" data-label="${escapeHtml(t.thProduct)}" title="${escapeHtml(entry.product)}">${escapeHtml(entry.product)}</td>
+                  <td class="date-cell" data-label="${escapeHtml(t.thDate)}">${escapeHtml(entry.date)}</td>
+                  <td data-label="${escapeHtml(t.thOrders)}">${formatInt(entry.quantity)}</td>
+                  <td data-label="${escapeHtml(t.thRevenue)}">${formatCurrency(m.revenue)}</td>
+                  <td data-label="${escapeHtml(t.thTotalCost)}" title="${escapeHtml(t.breakdownCogs)}: ${formatCurrency(m.productCost)} | ${escapeHtml(t.breakdownAds)}: ${formatCurrency(m.adSpend)}">${formatCurrency(m.totalCost)}</td>
+                  <td data-label="${escapeHtml(t.thNetProfit)}" class="${profitClass}">${formatCurrency(m.netProfit)}</td>
+                  <td data-label="${escapeHtml(t.thMargin)}"><span class="status-badge ${badgeClass}">${m.margin.toFixed(1)}%</span></td>
+                  <td class="action-cell" data-label="${escapeHtml(t.thActions)}">
+                    <button type="button" class="delete-row-btn" data-action="delete-entry" data-id="${escapeHtml(entry.id)}" aria-label="Delete">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              `;
+            })
+            .join("");
+          el.ledgerTableBody.innerHTML = rowsHtml;
+        }
+      }
+
+      function exportToCsv() {
+        const t = TRANSLATIONS[state.lang] || TRANSLATIONS.ar;
+        const filtered = getFilteredEntries();
+        if (filtered.length === 0) {
+          showToast(t.toastNoDataExport);
+          return;
+        }
+
+        const headers = [
+          "Date",
+          "Product / Campaign",
+          "Unit Selling Price",
+          "Unit Cost (COGS)",
+          "Delivered Orders",
+          "Product Cost Total",
+          "Daily Ad Spend",
+          "Total Revenue",
+          "Total Expenses",
+          "Net Profit",
+          "Net Margin (%)",
+          "Currency"
+        ];
+
+        const escapeCsvCell = (val) => {
+          const str = String(val ?? "");
+          if (/[",\n\r]/.test(str)) {
+            return `"${str.replace(/"/g, '""')}"`;
+          }
+          return str;
+        };
+
+        const lines = [headers.map(escapeCsvCell).join(",")];
+
+        filtered.forEach((entry) => {
+          const m = computeRowMetrics(entry);
+          const row = [
+            entry.date,
+            entry.product,
+            Number(entry.sellingPrice).toFixed(2),
+            Number(entry.unitCost).toFixed(2),
+            Number(entry.quantity),
+            m.productCost.toFixed(2),
+            m.adSpend.toFixed(2),
+            m.revenue.toFixed(2),
+            m.totalCost.toFixed(2),
+            m.netProfit.toFixed(2),
+            m.margin.toFixed(2),
+            state.currency
+          ];
+          lines.push(row.map(escapeCsvCell).join(","));
+        });
+
+        const csvContent = "\uFEFF" + lines.join("\r\n");
+        const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        const dateStamp = new Date().toISOString().slice(0, 10);
+        link.href = url;
+        link.setAttribute("download", `ProfitPulse_Ledger_${dateStamp}.csv`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+
+        showToast(t.toastExported);
+      }
+
+      function setDefaultDate() {
+        const today = new Date().toISOString().slice(0, 10);
+        el.inpDate.value = today;
+      }
+
+      function bindEvents() {
+        el.langSelect.addEventListener("change", (e) => {
+          const newLang = e.target.value;
+          if (TRANSLATIONS[newLang]) {
+            state.lang = newLang;
+            saveStorage(STORAGE_KEYS.LANG, state.lang);
+            applyTranslations();
+            renderDashboard();
+          }
+        });
+
+        el.currencySelect.addEventListener("change", (e) => {
+          const newCur = e.target.value;
+          if (CURRENCIES[newCur]) {
+            state.currency = newCur;
+            saveStorage(STORAGE_KEYS.CURRENCY, state.currency);
+            renderDashboard();
+          }
+        });
+
+        el.phoneFrameBtn.addEventListener("click", () => {
+          state.phoneFrame = !state.phoneFrame;
+          saveStorage(STORAGE_KEYS.PHONE_FRAME, state.phoneFrame);
+          applyPhoneFrameMode();
+        });
+
+        window.addEventListener("resize", applyPhoneFrameMode);
+
+        el.themeToggleBtn.addEventListener("click", () => {
+          state.theme = state.theme === "dark" ? "light" : "dark";
+          saveStorage(STORAGE_KEYS.THEME, state.theme);
+          applyTheme();
+        });
+
+        [el.inpSellingPrice, el.inpUnitCost, el.inpQuantity, el.inpAdSpend].forEach(
+          (input) => {
+            input.addEventListener("input", updateFormPreview);
+          }
+        );
+
+        el.entryForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const product = el.inpProduct.value.trim();
+          const sellingPrice = parseFloat(el.inpSellingPrice.value);
+          const unitCost = parseFloat(el.inpUnitCost.value);
+          const quantity = parseInt(el.inpQuantity.value, 10);
+          const adSpend = parseFloat(el.inpAdSpend.value);
+          const date = el.inpDate.value || new Date().toISOString().slice(0, 10);
+
+          if (
+            !product ||
+            Number.isNaN(sellingPrice) ||
+            Number.isNaN(unitCost) ||
+            Number.isNaN(quantity) ||
+            Number.isNaN(adSpend)
+          ) {
+            return;
+          }
+
+          const newEntry = {
+            id: "ent-" + Date.now() + "-" + Math.random().toString(36).slice(2, 7),
+            product,
+            sellingPrice,
+            unitCost,
+            quantity,
+            adSpend,
+            date
+          };
+
+          state.entries.unshift(newEntry);
+          saveStorage(STORAGE_KEYS.ENTRIES, state.entries);
+
+          el.inpProduct.value = "";
+          el.inpSellingPrice.value = "";
+          el.inpUnitCost.value = "";
+          el.inpQuantity.value = "";
+          el.inpAdSpend.value = "";
+          setDefaultDate();
+          renderDashboard();
+
+          const t = TRANSLATIONS[state.lang] || TRANSLATIONS.ar;
+          showToast(t.toastAdded);
+        });
+
+        el.btnLoadSample.addEventListener("click", () => {
+          const clonedSamples = SAMPLE_DATA.map((item, idx) => ({
+            ...item,
+            id: "smp-" + Date.now() + "-" + idx
+          }));
+          state.entries = [...clonedSamples, ...state.entries];
+          saveStorage(STORAGE_KEYS.ENTRIES, state.entries);
+          renderDashboard();
+          const t = TRANSLATIONS[state.lang] || TRANSLATIONS.ar;
+          showToast(t.toastSampleLoaded);
+        });
+
+        el.searchInput.addEventListener("input", (e) => {
+          state.searchQuery = e.target.value;
+          renderDashboard();
+        });
+
+        el.ledgerTableBody.addEventListener("click", (e) => {
+          const btn = e.target.closest("[data-action='delete-entry']");
+          if (!btn) return;
+          const id = btn.getAttribute("data-id");
+          state.entries = state.entries.filter((item) => item.id !== id);
+          saveStorage(STORAGE_KEYS.ENTRIES, state.entries);
+          renderDashboard();
+          const t = TRANSLATIONS[state.lang] || TRANSLATIONS.ar;
+          showToast(t.toastDeleted);
+        });
+
+        el.btnExportCsv.addEventListener("click", exportToCsv);
+
+        el.btnClearAll.addEventListener("click", () => {
+          if (state.entries.length === 0) return;
+          state.entries = [];
+          saveStorage(STORAGE_KEYS.ENTRIES, state.entries);
+          renderDashboard();
+          const t = TRANSLATIONS[state.lang] || TRANSLATIONS.ar;
+          showToast(t.toastCleared);
+        });
+
+        document.querySelectorAll(".nav-tab[data-scroll-target]").forEach((tab) => {
+          tab.addEventListener("click", () => {
+            document.querySelectorAll(".nav-tab").forEach((t) => t.classList.remove("active"));
+            tab.classList.add("active");
+            const targetId = tab.getAttribute("data-scroll-target");
+            const targetEl = document.getElementById(targetId);
+            if (targetEl) {
+              targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          });
+        });
+      }
+
+      function init() {
+        const savedTheme = loadStorage(STORAGE_KEYS.THEME, "dark");
+        state.theme = savedTheme === "light" ? "light" : "dark";
+
+        const savedLang = loadStorage(STORAGE_KEYS.LANG, "ar");
+        state.lang = TRANSLATIONS[savedLang] ? savedLang : "ar";
+
+        const savedCur = loadStorage(STORAGE_KEYS.CURRENCY, "MAD");
+        state.currency = CURRENCIES[savedCur] ? savedCur : "MAD";
+
+        const savedPhoneFrame = loadStorage(STORAGE_KEYS.PHONE_FRAME, true);
+        state.phoneFrame = Boolean(savedPhoneFrame);
+
+        const savedEntries = loadStorage(STORAGE_KEYS.ENTRIES, null);
+        if (Array.isArray(savedEntries)) {
+          state.entries = savedEntries;
+        } else {
+          state.entries = SAMPLE_DATA.map((item) => ({ ...item }));
+          saveStorage(STORAGE_KEYS.ENTRIES, state.entries);
+        }
+
+        el.langSelect.value = state.lang;
+        el.currencySelect.value = state.currency;
+
+        setDefaultDate();
+        applyPhoneFrameMode();
+        applyTranslations();
+        renderDashboard();
+        bindEvents();
+      }
+
+      init();
+    })();
+  </script>
+</body>
+</html>

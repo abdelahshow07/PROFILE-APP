@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="55%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="220" fill="url(#bgGrad)" />
+  <rect x="64" y="64" width="896" height="896" rx="180" fill="none" stroke="url(#accentGrad)" stroke-width="18" opacity="0.45" />
+  <rect x="210" y="560" width="95" height="230" rx="24" fill="#6366f1" opacity="0.35" />
+  <rect x="370" y="450" width="95" height="340" rx="24" fill="#8b5cf6" opacity="0.45" />
+  <rect x="530" y="360" width="95" height="430" rx="24" fill="#10b981" opacity="0.55" />
+  <rect x="690" y="250" width="95" height="540" rx="24" fill="#10b981" opacity="0.85" />
+  <path d="M180 650 L380 460 L515 555 L810 230" fill="none" stroke="url(#accentGrad)" stroke-width="64" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M640 230 L810 230 L810 400" fill="none" stroke="#10b981" stroke-width="64" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
