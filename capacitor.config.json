@@ -1,0 +1,17 @@
+﻿{
+  "appId": "com.profitpulse.tracker",
+  "appName": "ProfitPulse",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "backgroundColor": "#0b1220",
+  "server": {
+    "androidScheme": "https",
+    "cleartext": true
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": true,
+    "backgroundColor": "#0b1220"
+  }
+}

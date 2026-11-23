@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="ProfitPulse" />
+  <meta name="theme-color" content="#0b1220" id="metaThemeColor" />
+  <title>ProfitPulse</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='0.5' stop-color='%238b5cf6'/%3E%3Cstop offset='1' stop-color='%2310b981'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpolyline points='54 22 37 39 27 29 10 46' fill='none' stroke='white' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpolyline points='42 22 54 22 54 34' fill='none' stroke='white' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <style>
+    /* ---------- Palette ---------- */
+    :root,
+    [data-theme="dark"] {
+      --bg: #0b1220;
+      --surface: #0f1729;
+      --card: #141e33;
+      --card-2: #18243d;
+      --input: #0d1526;
+      --border: rgba(148, 163, 184, 0.14);
+      --border-strong: rgba(148, 163, 184, 0.26);
+      --text: #e7ecf5;
+      --text-2: #9aa6bf;
+      --text-3: #6b7894;
+      --primary: #10b981;
+      --primary-ink: #052e22;
+      --primary-soft: rgba(16, 185, 129, 0.14);
+      --pos: #34d399;
+      --pos-soft: rgba(52, 211, 153, 0.13);
+      --neg: #fb7185;
+      --neg-soft: rgba(251, 113, 133, 0.13);
+      --info: #60a5fa;
+      --info-soft: rgba(96, 165, 250, 0.13);
+      --warn: #fbbf24;
+      --warn-soft: rgba(251, 191, 36, 0.13);
+      --violet: #a78bfa;
+      --violet-soft: rgba(167, 139, 250, 0.14);
+      --shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 8px 24px rgba(2, 6, 23, 0.35);
+      --focus: rgba(16, 185, 129, 0.35);
+    }
+
+    [data-theme="light"] {
+      --bg: #f6f4ef;
+      --surface: #fbfaf7;
+      --card: #ffffff;
+      --card-2: #fdfcf9;
+      --input: #faf9f6;
+      --border: #e6e3dc;
+      --border-strong: #d6d3cb;
+      --text: #141a26;
+      --text-2: #4c5566;
+      --text-3: #7a8394;
+      --primary: #059669;
+      --primary-ink: #ffffff;
+      --primary-soft: rgba(5, 150, 105, 0.1);
+      --pos: #047857;
+      --pos-soft: rgba(4, 120, 87, 0.09);
+      --neg: #be123c;
+      --neg-soft: rgba(190, 18, 60, 0.08);
+      --info: #1d4ed8;
+      --info-soft: rgba(29, 78, 216, 0.08);
+      --warn: #b45309;
+      --warn-soft: rgba(180, 83, 9, 0.09);
+      --violet: #6d28d9;
+      --violet-soft: rgba(109, 40, 217, 0.08);
+      --shadow: 0 1px 2px rgba(20, 26, 38, 0.04), 0 6px 18px rgba(20, 26, 38, 0.05);
+      --focus: rgba(5, 150, 105, 0.25);
+    }
+
+    /* ---------- Typography ---------- */
+    :root {
+      --font-ar: "IBM Plex Sans Arabic", "Cairo", "Tajawal", "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+      --font-latin: "Plus Jakarta Sans", "Inter", "Segoe UI", "Helvetica Neue", Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --font-num: "Plus Jakarta Sans", "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      --r-sm: 10px;
+      --r-md: 14px;
+      --r-lg: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+    body {
+      font-family: var(--font-ar);
+      font-size: 15px;
+      line-height: 1.6;
+      letter-spacing: 0;
+      font-weight: 400;
+      color: var(--text);
+      background: var(--bg);
+      min-height: 100vh;
+      padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    html:not([lang="ar"]) body { font-family: var(--font-latin); letter-spacing: -0.005em; }
+
+    .num {
+      font-family: var(--font-num);
+      font-variant-numeric: tabular-nums lining-nums;
+      font-feature-settings: "tnum" 1, "lnum" 1;
+      direction: ltr;
+      unicode-bidi: isolate;
+      display: inline-block;
+      letter-spacing: -0.01em;
+    }
+
+    button, input, select { font: inherit; color: inherit; }
+
+    /* ---------- Header ---------- */
+    .app-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      backdrop-filter: saturate(140%) blur(10px);
+      -webkit-backdrop-filter: saturate(140%) blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+
+    .header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0.8rem 1rem;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .header-side { min-width: 0; display: flex; }
+    .header-side.end { justify-content: flex-end; }
+
+    .brand { display: flex; align-items: center; gap: 0.7rem; }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 13px;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #10b981 100%);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(99, 102, 241, 0.32);
+      flex-shrink: 0;
+    }
+
+    .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+
+    .brand-text h1 {
+      font-family: var(--font-latin);
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-text p { font-size: 0.72rem; color: var(--text-2); font-weight: 500; margin-top: 0.15rem; }
+
+    .currency-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--input);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.4rem 0.3rem 0.65rem;
+      min-height: 36px;
+      max-width: 100%;
+    }
+
+    [dir="rtl"] .currency-pill { padding: 0.3rem 0.65rem 0.3rem 0.4rem; }
+
+    .currency-symbol {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .currency-select {
+      background: transparent;
+      border: none;
+      outline: none;
+      font-family: var(--font-num);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      min-width: 0;
+    }
+
+    .currency-select option, .field-select option { background: var(--card); color: var(--text); }
+
+    @media (max-width: 400px) {
+      .currency-symbol { display: none; }
+      .brand-text h1 { font-size: 1.25rem; }
+      .brand-logo { width: 38px; height: 38px; border-radius: 11px; }
+      .brand-text p { display: none; }
+    }
+
+    /* ---------- Layout / Pages ---------- */
+    .main { max-width: 720px; margin: 0 auto; padding: 1.1rem 1rem 1.5rem; }
+
+    .page[hidden] { display: none !important; }
+
+    .page { animation: pageIn 0.22s ease both; }
+
+    @keyframes pageIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-head { margin-bottom: 1rem; }
+    .page-head h2 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; }
+    .page-head p { font-size: 0.84rem; color: var(--text-2); margin-top: 0.15rem; }
+
+    html:not([lang="ar"]) .page-head h2 { letter-spacing: -0.02em; }
+
+    /* ---------- KPI Cards ---------- */
+    .kpi-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+
+    .kpi {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      min-width: 0;
+    }
+
+    .kpi.hero {
+      grid-column: 1 / -1;
+      background: linear-gradient(160deg, var(--card-2) 0%, var(--card) 70%);
+      border-color: var(--border-strong);
+      padding: 1.2rem;
+    }
+
+    .kpi-top { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+    .kpi-title { font-size: 0.8rem; font-weight: 600; color: var(--text-2); }
+
+    .kpi-icon { width: 32px; height: 32px; border-radius: 9px; display: grid; place-items: center; flex-shrink: 0; }
+    .kpi-icon.i-rev { background: var(--info-soft); color: var(--info); }
+    .kpi-icon.i-ord { background: var(--violet-soft); color: var(--violet); }
+    .kpi-icon.i-exp { background: var(--warn-soft); color: var(--warn); }
+    .kpi-icon.i-pro { background: var(--pos-soft); color: var(--pos); }
+    .kpi-icon.i-mar { background: var(--primary-soft); color: var(--primary); }
+
+    .kpi-value { font-size: 1.32rem; font-weight: 700; line-height: 1.2; word-break: break-word; }
+    .kpi.hero .kpi-value { font-size: 2rem; font-weight: 800; }
+
+    .kpi-sub {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.3rem 0.6rem;
+      font-size: 0.75rem;
+      color: var(--text-2);
+      border-top: 1px dashed var(--border);
+      padding-top: 0.55rem;
+    }
+
+    .kpi-sub strong { color: var(--text); font-weight: 600; }
+
+    .pos { color: var(--pos) !important; }
+    .neg { color: var(--neg) !important; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      background: var(--input);
+      color: var(--text-2);
+      border: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    .badge.pos { background: var(--pos-soft); border-color: transparent; }
+    .badge.neg { background: var(--neg-soft); border-color: transparent; }
+
+    /* ---------- Panels / Form ---------- */
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow);
+      padding: 1.1rem;
+    }
+
+    .form { display: flex; flex-direction: column; gap: 0.95rem; }
+    .row-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+
+    .field { display: flex; flex-direction: column; gap: 0.38rem; min-width: 0; }
+
+    .field-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-2);
+    }
+
+    .field-label .hint { font-size: 0.72rem; color: var(--primary); font-weight: 700; }
+
+    .input, .field-select {
+      width: 100%;
+      min-height: 48px;
+      background: var(--input);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 0.65rem 0.85rem;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .input[type="number"], .input[type="date"] { font-family: var(--font-num); font-variant-numeric: tabular-nums; }
+    .input::placeholder { color: var(--text-3); }
+
+    .input:focus, .field-select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--focus); }
+
+    .preview {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.4rem;
+      background: var(--input);
+      border: 1px dashed var(--border-strong);
+      border-radius: var(--r-md);
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+    }
+
+    .preview span:first-child { display: block; font-size: 0.7rem; color: var(--text-2); font-weight: 500; }
+    .preview .num { font-size: 0.86rem; font-weight: 700; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 48px;
+      padding: 0.7rem 1.1rem;
+      border-radius: var(--r-sm);
+      border: 1px solid transparent;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.08s ease, background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn:active { transform: scale(0.98); }
+    .btn-primary { background: var(--primary); color: var(--primary-ink); box-shadow: 0 6px 16px rgba(16, 185, 129, 0.22); }
+    .btn-primary:hover { filter: brightness(1.05); }
+    .btn-ghost { background: var(--input); border-color: var(--border); }
+    .btn-ghost:hover { border-color: var(--border-strong); }
+    .btn-danger { background: var(--neg-soft); color: var(--neg); border-color: transparent; }
+    .btn-danger:hover { filter: brightness(1.08); }
+
+    /* ---------- Ledger ---------- */
+    .toolbar { display: flex; gap: 0.6rem; margin-bottom: 0.9rem; flex-wrap: wrap; }
+
+    .search { position: relative; flex: 1 1 220px; }
+
+    .search svg {
+      position: absolute;
+      top: 50%;
+      inset-inline-start: 0.85rem;
+      transform: translateY(-50%);
+      color: var(--text-3);
+      pointer-events: none;
+    }
+
+    .search .input { padding-inline-start: 2.5rem; min-height: 46px; }
+    .toolbar .btn { min-height: 46px; }
+
+    .ledger-meta { font-size: 0.78rem; color: var(--text-3); margin-bottom: 0.6rem; }
+
+    .entries { display: flex; flex-direction: column; gap: 0.7rem; }
+
+    .entry {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow);
+      padding: 0.9rem 1rem;
+    }
+
+    .entry-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.6rem;
+      padding-bottom: 0.65rem;
+      margin-bottom: 0.65rem;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .entry-title { min-width: 0; }
+    .entry-title strong { display: block; font-size: 0.95rem; font-weight: 600; overflow-wrap: anywhere; }
+    .entry-title .num { font-size: 0.76rem; color: var(--text-3); margin-top: 0.1rem; }
+
+    .icon-del {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      background: var(--neg-soft);
+      color: var(--neg);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .icon-del:hover { border-color: var(--neg); }
+
+    .entry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(104px, 1fr)); gap: 0.55rem 0.8rem; }
+    .entry-grid > div { display: flex; flex-direction: column; min-width: 0; }
+    .entry-grid .lbl { font-size: 0.7rem; color: var(--text-3); font-weight: 500; }
+    .entry-grid .num { font-size: 0.88rem; font-weight: 600; }
+
+    .empty {
+      text-align: center;
+      padding: 2.4rem 1.25rem;
+      background: var(--card);
+      border: 1px dashed var(--border-strong);
+      border-radius: var(--r-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-2);
+    }
+
+    .empty[hidden] { display: none; }
+
+    .empty-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      margin-bottom: 0.3rem;
+    }
+
+    .empty strong { color: var(--text); font-size: 1rem; font-weight: 700; }
+    .empty p { font-size: 0.85rem; max-width: 300px; }
+    .empty .btn { margin-top: 0.6rem; }
+
+    /* ---------- Settings ---------- */
+    .settings { display: flex; flex-direction: column; gap: 0.9rem; }
+
+    .set-group {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .set-group h3 {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.85rem 1rem 0;
+    }
+
+    [lang="ar"] .set-group h3 { letter-spacing: 0; text-transform: none; font-size: 0.8rem; }
+
+    .set-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem 1rem;
+    }
+
+    .set-row + .set-row { border-top: 1px solid var(--border); }
+    .set-row.stack { flex-direction: column; align-items: stretch; gap: 0.6rem; }
+
+    .set-text { min-width: 0; }
+    .set-text strong { display: block; font-size: 0.93rem; font-weight: 600; }
+    .set-text span { display: block; font-size: 0.78rem; color: var(--text-2); }
+
+    .switch { position: relative; width: 50px; height: 30px; flex-shrink: 0; }
+    .switch input { position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; z-index: 2; }
+
+    .switch .track {
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      background: var(--border-strong);
+      transition: background-color 0.2s ease;
+    }
+
+    .switch .track::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease;
+    }
+
+    .switch input:checked + .track { background: var(--primary); }
+    .switch input:checked + .track::after { transform: translateX(20px); }
+    .switch input:focus-visible + .track { box-shadow: 0 0 0 3px var(--focus); }
+
+    .app-foot { text-align: center; font-size: 0.74rem; color: var(--text-3); padding-top: 0.4rem; }
+
+    /* ---------- Bottom Nav ---------- */
+    .bottom-nav {
+      position: fixed;
+      inset-inline: 0;
+      bottom: 0;
+      z-index: 60;
+      background: color-mix(in srgb, var(--surface) 94%, transparent);
+      backdrop-filter: saturate(140%) blur(12px);
+      -webkit-backdrop-filter: saturate(140%) blur(12px);
+      border-top: 1px solid var(--border);
+      padding: 0.4rem 0.5rem calc(0.4rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    .nav-inner { max-width: 720px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.25rem; }
+
+    .nav-tab {
+      background: transparent;
+      border: none;
+      color: var(--text-3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      padding: 0.45rem 0.2rem;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .nav-tab.active { color: var(--primary); background: var(--primary-soft); }
+    .nav-tab:not(.active):hover { color: var(--text-2); }
+
+    /* ---------- Toast ---------- */
+    .toasts {
+      position: fixed;
+      inset-inline: 1rem;
+      bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      pointer-events: none;
+    }
+
+    .toast {
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--border-strong);
+      border-inline-start: 4px solid var(--primary);
+      border-radius: 12px;
+      padding: 0.7rem 1rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(2, 6, 23, 0.3);
+      max-width: 380px;
+      width: 100%;
+      text-align: center;
+      animation: toastIn 0.2s ease both;
+    }
+
+    .toast.warn { border-inline-start-color: var(--neg); }
+
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (min-width: 640px) {
+      .kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .kpi.hero { grid-column: span 3; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="header-side" aria-hidden="true"></div>
+
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+            <polyline points="16 7 22 7 22 13"></polyline>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>ProfitPulse</h1>
+          <p data-i18n="subtitle">متتبع أرباح التجارة الإلكترونية</p>
+        </div>
+      </div>
+
+      <div class="header-side end">
+        <label class="currency-pill" for="currencySelect">
+          <span class="currency-symbol" id="currencySymbol">د.م</span>
+          <select id="currencySelect" class="currency-select" aria-label="Currency">
+            <option value="MAD">MAD</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="SAR">SAR</option>
+            <option value="AED">AED</option>
+            <option value="EGP">EGP</option>
+            <option value="TRY">TRY</option>
+          </select>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- ================= PAGE 1: SUMMARY ================= -->
+    <section class="page" data-page="summary" aria-labelledby="hSummary">
+      <div class="page-head">
+        <h2 id="hSummary" data-i18n="summaryTitle">ملخص الأداء</h2>
+        <p data-i18n="summarySub">نظرة سريعة على أرباحك ومصاريفك</p>
+      </div>
+
+      <div class="kpi-grid">
+        <article class="kpi hero">
+          <div class="kpi-top">
+            <span class="kpi-title" data-i18n="kpiProfit">صافي الربح</span>
+            <span class="kpi-icon i-pro" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+            </span>
+          </div>
+          <div class="kpi-value"><span class="num" id="valProfit">0.00</span></div>
+          <div class="kpi-sub">
+            <span data-i18n="kpiStatus">الحالة</span>
+            <span class="badge" id="badgeProfit">—</span>
+          </div>
+        </article>
+
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-title" data-i18n="kpiRevenue">إجمالي الإيرادات</span>
+            <span class="kpi-icon i-rev" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+            </span>
+          </div>
+          <div class="kpi-value"><span class="num" id="valRevenue">0.00</span></div>
+          <div class="kpi-sub">
+            <span data-i18n="kpiRecords">عدد السجلات</span>
+            <strong class="num" id="valCount">0</strong>
+          </div>
+        </article>
+
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-title" data-i18n="kpiOrders">الطلبات المسلّمة</span>
+            <span class="kpi-icon i-ord" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            </span>
+          </div>
+          <div class="kpi-value"><span class="num" id="valOrders">0</span></div>
+          <div class="kpi-sub">
+            <span data-i18n="kpiAov">متوسط قيمة الطلب</span>
+            <strong class="num" id="valAov">0.00</strong>
+          </div>
+        </article>
+
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-title" data-i18n="kpiExpenses">إجمالي المصاريف</span>
+            <span class="kpi-icon i-exp" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </span>
+          </div>
+          <div class="kpi-value"><span class="num" id="valExpenses">0.00</span></div>
+          <div class="kpi-sub">
+            <span><span data-i18n="cogs">تكلفة المنتجات</span>: <strong class="num" id="valCogs">0.00</strong></span>
+            <span><span data-i18n="ads">الإعلانات</span>: <strong class="num" id="valAds">0.00</strong></span>
+          </div>
+        </article>
+
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-title" data-i18n="kpiMargin">هامش الربح الصافي</span>
+            <span class="kpi-icon i-mar" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+            </span>
+          </div>
+          <div class="kpi-value"><span class="num" id="valMargin">0.0%</span></div>
+          <div class="kpi-sub">
+            <span data-i18n="roas">العائد على الإعلان</span>
+            <strong class="num" id="valRoas">0.00x</strong>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= PAGE 2: ADD ENTRY ================= -->
+    <section class="page" data-page="add" aria-labelledby="hAdd" hidden>
+      <div class="page-head">
+        <h2 id="hAdd" data-i18n="addTitle">سجل يومي جديد</h2>
+        <p data-i18n="addSub">أدخل بيانات المنتج أو الحملة لهذا اليوم</p>
+      </div>
+
+      <div class="panel">
+        <form id="entryForm" class="form" autocomplete="off" novalidate>
+          <div class="field">
+            <label class="field-label" for="inpProduct"><span data-i18n="lblProduct">اسم المنتج / الحملة</span></label>
+            <input class="input" type="text" id="inpProduct" maxlength="120" required data-i18n-ph="phProduct" />
+          </div>
+
+          <div class="row-2">
+            <div class="field">
+              <label class="field-label" for="inpPrice"><span data-i18n="lblPrice">سعر بيع الوحدة</span><span class="hint" data-currency-hint>د.م</span></label>
+              <input class="input" type="number" inputmode="decimal" id="inpPrice" min="0" step="0.01" required placeholder="0.00" />
+            </div>
+            <div class="field">
+              <label class="field-label" for="inpCost"><span data-i18n="lblCost">تكلفة الوحدة (COGS)</span><span class="hint" data-currency-hint>د.م</span></label>
+              <input class="input" type="number" inputmode="decimal" id="inpCost" min="0" step="0.01" required placeholder="0.00" />
+            </div>
+          </div>
+
+          <div class="row-2">
+            <div class="field">
+              <label class="field-label" for="inpQty"><span data-i18n="lblQty">الطلبات المسلّمة</span></label>
+              <input class="input" type="number" inputmode="numeric" id="inpQty" min="0" step="1" required placeholder="0" />
+            </div>
+            <div class="field">
+              <label class="field-label" for="inpAds"><span data-i18n="lblAds">الإنفاق الإعلاني اليومي</span><span class="hint" data-currency-hint>د.م</span></label>
+              <input class="input" type="number" inputmode="decimal" id="inpAds" min="0" step="0.01" required placeholder="0.00" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="inpDate"><span data-i18n="lblDate">التاريخ</span></label>
+            <input class="input" type="date" id="inpDate" required />
+          </div>
+
+          <div class="preview" aria-live="polite">
+            <div><span data-i18n="prevRevenue">الإيرادات</span><span class="num" id="prevRevenue">0.00</span></div>
+            <div><span data-i18n="prevCost">التكلفة الكلية</span><span class="num" id="prevCost">0.00</span></div>
+            <div><span data-i18n="prevProfit">صافي الربح</span><span class="num" id="prevProfit">0.00</span></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span data-i18n="btnAdd">حفظ السجل</span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================= PAGE 3: LEDGER ================= -->
+    <section class="page" data-page="ledger" aria-labelledby="hLedger" hidden>
+      <div class="page-head">
+        <h2 id="hLedger" data-i18n="ledgerTitle">سجل العمليات</h2>
+        <p data-i18n="ledgerSub">كل السجلات المحفوظة على هذا الجهاز</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="search">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input class="input" type="search" id="searchInput" data-i18n-ph="phSearch" />
+        </div>
+        <button type="button" class="btn btn-ghost" id="btnExport">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span data-i18n="exportCsv">تصدير CSV</span>
+        </button>
+      </div>
+
+      <div class="ledger-meta" id="ledgerMeta"></div>
+      <div class="entries" id="entryList"></div>
+
+      <div class="empty" id="emptyState" hidden>
+        <div class="empty-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+        </div>
+        <strong data-i18n="emptyTitle">لا توجد سجلات بعد</strong>
+        <p data-i18n="emptySub">ابدأ بإضافة أول سجل يومي لتتبع أرباحك.</p>
+        <button type="button" class="btn btn-primary" data-goto="add">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <span data-i18n="emptyCta">إضافة أول سجل</span>
+        </button>
+      </div>
+
+      <div class="empty" id="noResults" hidden>
+        <strong data-i18n="noResults">لا توجد نتائج مطابقة لبحثك.</strong>
+      </div>
+    </section>
+
+    <!-- ================= PAGE 4: SETTINGS ================= -->
+    <section class="page" data-page="settings" aria-labelledby="hSettings" hidden>
+      <div class="page-head">
+        <h2 id="hSettings" data-i18n="settingsTitle">الإعدادات</h2>
+        <p data-i18n="settingsSub">خصّص التطبيق حسب تفضيلاتك</p>
+      </div>
+
+      <div class="settings">
+        <div class="set-group">
+          <h3 data-i18n="language">اللغة</h3>
+          <div class="set-row stack">
+            <div class="set-text"><span data-i18n="languageHint">لغة الواجهة واتجاه الكتابة</span></div>
+            <select id="langSelect" class="field-select" aria-label="Language">
+              <option value="ar">العربية</option>
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+              <option value="es">Español</option>
+              <option value="de">Deutsch</option>
+              <option value="pt">Português</option>
+              <option value="tr">Türkçe</option>
+              <option value="zh">中文</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="set-group">
+          <h3 data-i18n="appearance">المظهر</h3>
+          <div class="set-row">
+            <div class="set-text">
+              <strong data-i18n="darkMode">الوضع الليلي</strong>
+              <span data-i18n="darkModeHint">إيقافه يفعّل الوضع النهاري</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="themeSwitch" role="switch" aria-label="Dark mode" checked />
+              <span class="track"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="set-group">
+          <h3 data-i18n="dataTitle">البيانات</h3>
+          <div class="set-row stack">
+            <div class="set-text">
+              <strong data-i18n="clearAll">مسح جميع البيانات</strong>
+              <span data-i18n="clearHint">حذف كل السجلات المحفوظة على هذا الجهاز نهائياً</span>
+            </div>
+            <button type="button" class="btn btn-danger" id="btnClearAll">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+              <span data-i18n="clearAll">مسح جميع البيانات</span>
+            </button>
+          </div>
+        </div>
+
+        <p class="app-foot">ProfitPulse · <span class="num">v2.0</span></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= BOTTOM NAV ================= -->
+  <nav class="bottom-nav" aria-label="Main">
+    <div class="nav-inner" id="bottomNav">
+      <button type="button" class="nav-tab active" data-page="summary" aria-current="page">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"></rect><rect x="14" y="3" width="7" height="5" rx="1.5"></rect><rect x="14" y="12" width="7" height="9" rx="1.5"></rect><rect x="3" y="16" width="7" height="5" rx="1.5"></rect></svg>
+        <span data-i18n="navSummary">الملخص</span>
+      </button>
+      <button type="button" class="nav-tab" data-page="add">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+        <span data-i18n="navAdd">إضافة سجل</span>
+      </button>
+      <button type="button" class="nav-tab" data-page="ledger">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+        <span data-i18n="navLedger">السجل</span>
+      </button>
+      <button type="button" class="nav-tab" data-page="settings">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+        <span data-i18n="navSettings">الإعدادات</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const KEYS = {
+        entries: "profitpulse_entries_v2",
+        theme: "profitpulse_theme_v2",
+        lang: "profitpulse_lang_v2",
+        currency: "profitpulse_currency_v2",
+        page: "profitpulse_page_v2"
+      };
+
+      const PAGES = ["summary", "add", "ledger", "settings"];
+
+      const CURRENCIES = {
+        MAD: { symbol: "د.م", before: false },
+        USD: { symbol: "$", before: true },
+        EUR: { symbol: "€", before: true },
+        GBP: { symbol: "£", before: true },
+        SAR: { symbol: "ر.س", before: false },
+        AED: { symbol: "د.إ", before: false },
+        EGP: { symbol: "ج.م", before: false },
+        TRY: { symbol: "₺", before: true }
+      };
+
+      const I18N = {
+        ar: {
+          subtitle: "متتبع أرباح التجارة الإلكترونية",
+          navSummary: "الملخص", navAdd: "إضافة سجل", navLedger: "السجل", navSettings: "الإعدادات",
+          summaryTitle: "ملخص الأداء", summarySub: "نظرة سريعة على أرباحك ومصاريفك",
+          kpiRevenue: "إجمالي الإيرادات", kpiRecords: "عدد السجلات", kpiOrders: "الطلبات المسلّمة", kpiAov: "متوسط قيمة الطلب",
+          kpiExpenses: "إجمالي المصاريف", cogs: "تكلفة المنتجات", ads: "الإعلانات",
+          kpiProfit: "صافي الربح", kpiStatus: "الحالة", profitable: "رابح", loss: "خاسر", breakEven: "متعادل",
+          kpiMargin: "هامش الربح الصافي", roas: "العائد على الإعلان",
+          addTitle: "سجل يومي جديد", addSub: "أدخل بيانات المنتج أو الحملة لهذا اليوم",
+          lblProduct: "اسم المنتج / الحملة", phProduct: "مثال: ساعة ذكية — حملة تيك توك",
+          lblPrice: "سعر بيع الوحدة", lblCost: "تكلفة الوحدة (COGS)", lblQty: "الطلبات المسلّمة", lblAds: "الإنفاق الإعلاني اليومي", lblDate: "التاريخ",
+          prevRevenue: "الإيرادات", prevCost: "التكلفة الكلية", prevProfit: "صافي الربح", btnAdd: "حفظ السجل",
+          ledgerTitle: "سجل العمليات", ledgerSub: "كل السجلات المحفوظة على هذا الجهاز",
+          phSearch: "ابحث بالاسم أو التاريخ...", exportCsv: "تصدير CSV",
+          orders: "الطلبات", revenue: "الإيرادات", totalCost: "التكلفة الكلية", netProfit: "صافي الربح", margin: "الهامش",
+          emptyTitle: "لا توجد سجلات بعد", emptySub: "ابدأ بإضافة أول سجل يومي لتتبع أرباحك.", emptyCta: "إضافة أول سجل",
+          noResults: "لا توجد نتائج مطابقة لبحثك.", deleteLabel: "حذف", shown: "معروض",
+          settingsTitle: "الإعدادات", settingsSub: "خصّص التطبيق حسب تفضيلاتك",
+          language: "اللغة", languageHint: "لغة الواجهة واتجاه الكتابة",
+          appearance: "المظهر", darkMode: "الوضع الليلي", darkModeHint: "إيقافه يفعّل الوضع النهاري",
+          dataTitle: "البيانات", clearAll: "مسح جميع البيانات", clearHint: "حذف كل السجلات المحفوظة على هذا الجهاز نهائياً",
+          confirmClear: "هل أنت متأكد من حذف جميع السجلات؟ لا يمكن التراجع عن هذا الإجراء.",
+          invalid: "يرجى ملء جميع الحقول بقيم صحيحة",
+          toastAdded: "تم حفظ السجل بنجاح", toastDeleted: "تم حذف السجل", toastCleared: "تم مسح جميع البيانات",
+          toastExported: "تم تصدير ملف CSV", toastNoData: "لا توجد بيانات للتصدير", toastNothing: "لا توجد بيانات لمسحها"
+        },
+        en: {
+          subtitle: "E-Commerce Profit Tracker",
+          navSummary: "Summary", navAdd: "Add Entry", navLedger: "Ledger", navSettings: "Settings",
+          summaryTitle: "Performance Summary", summarySub: "A quick look at your profit and spending",
+          kpiRevenue: "Total Revenue", kpiRecords: "Records", kpiOrders: "Delivered Orders", kpiAov: "Avg. order value",
+          kpiExpenses: "Total Expenses", cogs: "Product cost", ads: "Ad spend",
+          kpiProfit: "Net Profit", kpiStatus: "Status", profitable: "Profitable", loss: "Loss", breakEven: "Break-even",
+          kpiMargin: "Net Profit Margin", roas: "Return on ad spend",
+          addTitle: "New Daily Entry", addSub: "Log today's product or campaign numbers",
+          lblProduct: "Product / Campaign name", phProduct: "e.g. Smart Watch — TikTok campaign",
+          lblPrice: "Unit selling price", lblCost: "Unit cost (COGS)", lblQty: "Delivered orders", lblAds: "Daily ad spend", lblDate: "Date",
+          prevRevenue: "Revenue", prevCost: "Total cost", prevProfit: "Net profit", btnAdd: "Save Entry",
+          ledgerTitle: "Ledger", ledgerSub: "All records saved on this device",
+          phSearch: "Search by name or date...", exportCsv: "Export CSV",
+          orders: "Orders", revenue: "Revenue", totalCost: "Total cost", netProfit: "Net profit", margin: "Margin",
+          emptyTitle: "No records yet", emptySub: "Add your first daily entry to start tracking your profit.", emptyCta: "Add first entry",
+          noResults: "No records match your search.", deleteLabel: "Delete", shown: "shown",
+          settingsTitle: "Settings", settingsSub: "Personalize the app to your liking",
+          language: "Language", languageHint: "Interface language and text direction",
+          appearance: "Appearance", darkMode: "Dark mode", darkModeHint: "Turn off to use light mode",
+          dataTitle: "Data", clearAll: "Clear All Data", clearHint: "Permanently delete every record stored on this device",
+          confirmClear: "Delete all records? This action cannot be undone.",
+          invalid: "Please fill in all fields with valid values",
+          toastAdded: "Entry saved", toastDeleted: "Entry deleted", toastCleared: "All data cleared",
+          toastExported: "CSV exported", toastNoData: "No data to export", toastNothing: "There is no data to clear"
+        },
+        fr: {
+          subtitle: "Suivi des bénéfices e-commerce",
+          navSummary: "Résumé", navAdd: "Ajouter", navLedger: "Journal", navSettings: "Réglages",
+          summaryTitle: "Résumé des performances", summarySub: "Un aperçu rapide de vos bénéfices et dépenses",
+          kpiRevenue: "Chiffre d'affaires", kpiRecords: "Entrées", kpiOrders: "Commandes livrées", kpiAov: "Panier moyen",
+          kpiExpenses: "Dépenses totales", cogs: "Coût produits", ads: "Publicité",
+          kpiProfit: "Bénéfice net", kpiStatus: "Statut", profitable: "Rentable", loss: "Perte", breakEven: "Équilibre",
+          kpiMargin: "Marge nette", roas: "Retour sur pub (ROAS)",
+          addTitle: "Nouvelle entrée", addSub: "Saisissez les chiffres du jour pour un produit ou une campagne",
+          lblProduct: "Produit / Campagne", phProduct: "ex. Montre connectée — campagne TikTok",
+          lblPrice: "Prix de vente unitaire", lblCost: "Coût unitaire (COGS)", lblQty: "Commandes livrées", lblAds: "Budget pub du jour", lblDate: "Date",
+          prevRevenue: "Revenu", prevCost: "Coût total", prevProfit: "Bénéfice net", btnAdd: "Enregistrer",
+          ledgerTitle: "Journal", ledgerSub: "Toutes les entrées enregistrées sur cet appareil",
+          phSearch: "Rechercher par nom ou date...", exportCsv: "Exporter CSV",
+          orders: "Commandes", revenue: "Revenu", totalCost: "Coût total", netProfit: "Bénéfice net", margin: "Marge",
+          emptyTitle: "Aucune entrée pour l'instant", emptySub: "Ajoutez votre première entrée pour suivre vos bénéfices.", emptyCta: "Ajouter une entrée",
+          noResults: "Aucun résultat pour cette recherche.", deleteLabel: "Supprimer", shown: "affichées",
+          settingsTitle: "Réglages", settingsSub: "Personnalisez l'application",
+          language: "Langue", languageHint: "Langue de l'interface et sens d'écriture",
+          appearance: "Apparence", darkMode: "Mode sombre", darkModeHint: "Désactivez pour passer en mode clair",
+          dataTitle: "Données", clearAll: "Effacer toutes les données", clearHint: "Supprime définitivement toutes les entrées de cet appareil",
+          confirmClear: "Supprimer toutes les entrées ? Cette action est irréversible.",
+          invalid: "Veuillez remplir tous les champs avec des valeurs valides",
+          toastAdded: "Entrée enregistrée", toastDeleted: "Entrée supprimée", toastCleared: "Toutes les données ont été effacées",
+          toastExported: "CSV exporté", toastNoData: "Aucune donnée à exporter", toastNothing: "Aucune donnée à effacer"
+        },
+        es: {
+          subtitle: "Control de beneficios e-commerce",
+          navSummary: "Resumen", navAdd: "Añadir", navLedger: "Registro", navSettings: "Ajustes",
+          summaryTitle: "Resumen de rendimiento", summarySub: "Un vistazo rápido a tus beneficios y gastos",
+          kpiRevenue: "Ingresos totales", kpiRecords: "Registros", kpiOrders: "Pedidos entregados", kpiAov: "Ticket medio",
+          kpiExpenses: "Gastos totales", cogs: "Coste producto", ads: "Publicidad",
+          kpiProfit: "Beneficio neto", kpiStatus: "Estado", profitable: "Rentable", loss: "Pérdida", breakEven: "Equilibrio",
+          kpiMargin: "Margen neto", roas: "Retorno publicitario (ROAS)",
+          addTitle: "Nuevo registro diario", addSub: "Introduce los datos de hoy de un producto o campaña",
+          lblProduct: "Producto / Campaña", phProduct: "ej. Reloj inteligente — campaña TikTok",
+          lblPrice: "Precio de venta unitario", lblCost: "Coste unitario (COGS)", lblQty: "Pedidos entregados", lblAds: "Gasto publicitario diario", lblDate: "Fecha",
+          prevRevenue: "Ingresos", prevCost: "Coste total", prevProfit: "Beneficio neto", btnAdd: "Guardar registro",
+          ledgerTitle: "Registro", ledgerSub: "Todos los registros guardados en este dispositivo",
+          phSearch: "Buscar por nombre o fecha...", exportCsv: "Exportar CSV",
+          orders: "Pedidos", revenue: "Ingresos", totalCost: "Coste total", netProfit: "Beneficio neto", margin: "Margen",
+          emptyTitle: "Aún no hay registros", emptySub: "Añade tu primer registro diario para empezar a seguir tus beneficios.", emptyCta: "Añadir primer registro",
+          noResults: "Ningún registro coincide con tu búsqueda.", deleteLabel: "Eliminar", shown: "mostrados",
+          settingsTitle: "Ajustes", settingsSub: "Personaliza la aplicación a tu gusto",
+          language: "Idioma", languageHint: "Idioma de la interfaz y dirección del texto",
+          appearance: "Apariencia", darkMode: "Modo oscuro", darkModeHint: "Desactívalo para usar el modo claro",
+          dataTitle: "Datos", clearAll: "Borrar todos los datos", clearHint: "Elimina permanentemente todos los registros de este dispositivo",
+          confirmClear: "¿Eliminar todos los registros? Esta acción no se puede deshacer.",
+          invalid: "Completa todos los campos con valores válidos",
+          toastAdded: "Registro guardado", toastDeleted: "Registro eliminado", toastCleared: "Todos los datos se han borrado",
+          toastExported: "CSV exportado", toastNoData: "No hay datos para exportar", toastNothing: "No hay datos que borrar"
+        },
+        de: {
+          subtitle: "E-Commerce Gewinn-Tracker",
+          navSummary: "Übersicht", navAdd: "Eintrag", navLedger: "Journal", navSettings: "Einstellungen",
+          summaryTitle: "Leistungsübersicht", summarySub: "Gewinn und Ausgaben auf einen Blick",
+          kpiRevenue: "Gesamtumsatz", kpiRecords: "Einträge", kpiOrders: "Gelieferte Bestellungen", kpiAov: "Ø Bestellwert",
+          kpiExpenses: "Gesamtausgaben", cogs: "Produktkosten", ads: "Werbung",
+          kpiProfit: "Nettogewinn", kpiStatus: "Status", profitable: "Profitabel", loss: "Verlust", breakEven: "Break-even",
+          kpiMargin: "Nettogewinnmarge", roas: "Werberendite (ROAS)",
+          addTitle: "Neuer Tageseintrag", addSub: "Erfasse die heutigen Zahlen für ein Produkt oder eine Kampagne",
+          lblProduct: "Produkt / Kampagne", phProduct: "z. B. Smartwatch — TikTok-Kampagne",
+          lblPrice: "Verkaufspreis pro Stück", lblCost: "Stückkosten (COGS)", lblQty: "Gelieferte Bestellungen", lblAds: "Tägliche Werbeausgaben", lblDate: "Datum",
+          prevRevenue: "Umsatz", prevCost: "Gesamtkosten", prevProfit: "Nettogewinn", btnAdd: "Eintrag speichern",
+          ledgerTitle: "Journal", ledgerSub: "Alle auf diesem Gerät gespeicherten Einträge",
+          phSearch: "Nach Name oder Datum suchen...", exportCsv: "CSV exportieren",
+          orders: "Bestellungen", revenue: "Umsatz", totalCost: "Gesamtkosten", netProfit: "Nettogewinn", margin: "Marge",
+          emptyTitle: "Noch keine Einträge", emptySub: "Füge deinen ersten Tageseintrag hinzu, um deinen Gewinn zu verfolgen.", emptyCta: "Ersten Eintrag hinzufügen",
+          noResults: "Keine Einträge entsprechen deiner Suche.", deleteLabel: "Löschen", shown: "angezeigt",
+          settingsTitle: "Einstellungen", settingsSub: "Passe die App an deine Wünsche an",
+          language: "Sprache", languageHint: "Sprache der Oberfläche und Schreibrichtung",
+          appearance: "Darstellung", darkMode: "Dunkler Modus", darkModeHint: "Ausschalten für hellen Modus",
+          dataTitle: "Daten", clearAll: "Alle Daten löschen", clearHint: "Löscht alle auf diesem Gerät gespeicherten Einträge dauerhaft",
+          confirmClear: "Alle Einträge löschen? Dies kann nicht rückgängig gemacht werden.",
+          invalid: "Bitte alle Felder mit gültigen Werten ausfüllen",
+          toastAdded: "Eintrag gespeichert", toastDeleted: "Eintrag gelöscht", toastCleared: "Alle Daten gelöscht",
+          toastExported: "CSV exportiert", toastNoData: "Keine Daten zum Exportieren", toastNothing: "Keine Daten zum Löschen"
+        },
+        pt: {
+          subtitle: "Controle de lucro e-commerce",
+          navSummary: "Resumo", navAdd: "Adicionar", navLedger: "Registros", navSettings: "Ajustes",
+          summaryTitle: "Resumo de desempenho", summarySub: "Uma visão rápida do seu lucro e despesas",
+          kpiRevenue: "Receita total", kpiRecords: "Registros", kpiOrders: "Pedidos entregues", kpiAov: "Ticket médio",
+          kpiExpenses: "Despesas totais", cogs: "Custo do produto", ads: "Anúncios",
+          kpiProfit: "Lucro líquido", kpiStatus: "Status", profitable: "Lucrativo", loss: "Prejuízo", breakEven: "Equilíbrio",
+          kpiMargin: "Margem líquida", roas: "Retorno sobre anúncios (ROAS)",
+          addTitle: "Novo registro diário", addSub: "Informe os números de hoje de um produto ou campanha",
+          lblProduct: "Produto / Campanha", phProduct: "ex. Smartwatch — campanha TikTok",
+          lblPrice: "Preço de venda unitário", lblCost: "Custo unitário (COGS)", lblQty: "Pedidos entregues", lblAds: "Gasto diário com anúncios", lblDate: "Data",
+          prevRevenue: "Receita", prevCost: "Custo total", prevProfit: "Lucro líquido", btnAdd: "Salvar registro",
+          ledgerTitle: "Registros", ledgerSub: "Todos os registros salvos neste dispositivo",
+          phSearch: "Pesquisar por nome ou data...", exportCsv: "Exportar CSV",
+          orders: "Pedidos", revenue: "Receita", totalCost: "Custo total", netProfit: "Lucro líquido", margin: "Margem",
+          emptyTitle: "Nenhum registro ainda", emptySub: "Adicione seu primeiro registro diário para acompanhar seu lucro.", emptyCta: "Adicionar primeiro registro",
+          noResults: "Nenhum registro corresponde à sua pesquisa.", deleteLabel: "Excluir", shown: "exibidos",
+          settingsTitle: "Ajustes", settingsSub: "Personalize o aplicativo do seu jeito",
+          language: "Idioma", languageHint: "Idioma da interface e direção do texto",
+          appearance: "Aparência", darkMode: "Modo escuro", darkModeHint: "Desative para usar o modo claro",
+          dataTitle: "Dados", clearAll: "Apagar todos os dados", clearHint: "Exclui permanentemente todos os registros deste dispositivo",
+          confirmClear: "Excluir todos os registros? Esta ação não pode ser desfeita.",
+          invalid: "Preencha todos os campos com valores válidos",
+          toastAdded: "Registro salvo", toastDeleted: "Registro excluído", toastCleared: "Todos os dados foram apagados",
+          toastExported: "CSV exportado", toastNoData: "Sem dados para exportar", toastNothing: "Não há dados para apagar"
+        },
+        tr: {
+          subtitle: "E-Ticaret Kâr Takibi",
+          navSummary: "Özet", navAdd: "Kayıt Ekle", navLedger: "Defter", navSettings: "Ayarlar",
+          summaryTitle: "Performans Özeti", summarySub: "Kâr ve harcamalarına hızlı bir bakış",
+          kpiRevenue: "Toplam Ciro", kpiRecords: "Kayıt sayısı", kpiOrders: "Teslim Edilen Sipariş", kpiAov: "Ort. sipariş tutarı",
+          kpiExpenses: "Toplam Gider", cogs: "Ürün maliyeti", ads: "Reklam",
+          kpiProfit: "Net Kâr", kpiStatus: "Durum", profitable: "Kârlı", loss: "Zarar", breakEven: "Başabaş",
+          kpiMargin: "Net Kâr Marjı", roas: "Reklam getirisi (ROAS)",
+          addTitle: "Yeni Günlük Kayıt", addSub: "Bir ürün veya kampanyanın bugünkü rakamlarını gir",
+          lblProduct: "Ürün / Kampanya adı", phProduct: "örn. Akıllı Saat — TikTok kampanyası",
+          lblPrice: "Birim satış fiyatı", lblCost: "Birim maliyet (COGS)", lblQty: "Teslim edilen sipariş", lblAds: "Günlük reklam harcaması", lblDate: "Tarih",
+          prevRevenue: "Ciro", prevCost: "Toplam maliyet", prevProfit: "Net kâr", btnAdd: "Kaydı Kaydet",
+          ledgerTitle: "Defter", ledgerSub: "Bu cihazda kayıtlı tüm kayıtlar",
+          phSearch: "Ada veya tarihe göre ara...", exportCsv: "CSV Dışa Aktar",
+          orders: "Sipariş", revenue: "Ciro", totalCost: "Toplam maliyet", netProfit: "Net kâr", margin: "Marj",
+          emptyTitle: "Henüz kayıt yok", emptySub: "Kârını takip etmeye başlamak için ilk günlük kaydını ekle.", emptyCta: "İlk kaydı ekle",
+          noResults: "Aramanla eşleşen kayıt yok.", deleteLabel: "Sil", shown: "gösteriliyor",
+          settingsTitle: "Ayarlar", settingsSub: "Uygulamayı kendine göre düzenle",
+          language: "Dil", languageHint: "Arayüz dili ve yazı yönü",
+          appearance: "Görünüm", darkMode: "Koyu mod", darkModeHint: "Kapatınca açık mod etkinleşir",
+          dataTitle: "Veriler", clearAll: "Tüm Verileri Sil", clearHint: "Bu cihazdaki tüm kayıtları kalıcı olarak siler",
+          confirmClear: "Tüm kayıtlar silinsin mi? Bu işlem geri alınamaz.",
+          invalid: "Lütfen tüm alanları geçerli değerlerle doldur",
+          toastAdded: "Kayıt kaydedildi", toastDeleted: "Kayıt silindi", toastCleared: "Tüm veriler silindi",
+          toastExported: "CSV dışa aktarıldı", toastNoData: "Dışa aktarılacak veri yok", toastNothing: "Silinecek veri yok"
+        },
+        zh: {
+          subtitle: "电商利润追踪",
+          navSummary: "总览", navAdd: "记一笔", navLedger: "账本", navSettings: "设置",
+          summaryTitle: "经营总览", summarySub: "快速查看利润与支出",
+          kpiRevenue: "总营业额", kpiRecords: "记录数", kpiOrders: "妥投订单", kpiAov: "平均客单价",
+          kpiExpenses: "总支出", cogs: "商品成本", ads: "广告费",
+          kpiProfit: "净利润", kpiStatus: "状态", profitable: "盈利", loss: "亏损", breakEven: "持平",
+          kpiMargin: "净利润率", roas: "广告回报率 (ROAS)",
+          addTitle: "新增每日记录", addSub: "填写今天某个商品或广告系列的数据",
+          lblProduct: "商品 / 广告系列", phProduct: "例如：智能手表 — TikTok 广告",
+          lblPrice: "单品售价", lblCost: "单品成本 (COGS)", lblQty: "妥投订单数", lblAds: "当日广告支出", lblDate: "日期",
+          prevRevenue: "营业额", prevCost: "总成本", prevProfit: "净利润", btnAdd: "保存记录",
+          ledgerTitle: "账本", ledgerSub: "保存在本设备上的全部记录",
+          phSearch: "按名称或日期搜索...", exportCsv: "导出 CSV",
+          orders: "订单", revenue: "营业额", totalCost: "总成本", netProfit: "净利润", margin: "利润率",
+          emptyTitle: "暂无记录", emptySub: "添加第一条每日记录，开始追踪你的利润。", emptyCta: "添加第一条记录",
+          noResults: "没有符合搜索条件的记录。", deleteLabel: "删除", shown: "条显示",
+          settingsTitle: "设置", settingsSub: "按你的习惯定制应用",
+          language: "语言", languageHint: "界面语言与文字方向",
+          appearance: "外观", darkMode: "深色模式", darkModeHint: "关闭后使用浅色模式",
+          dataTitle: "数据", clearAll: "清除全部数据", clearHint: "永久删除本设备上保存的所有记录",
+          confirmClear: "确定删除所有记录吗？此操作无法撤销。",
+          invalid: "请用有效数值填写所有字段",
+          toastAdded: "记录已保存", toastDeleted: "记录已删除", toastCleared: "全部数据已清除",
+          toastExported: "CSV 已导出", toastNoData: "没有可导出的数据", toastNothing: "没有可清除的数据"
+        }
+      };
+
+      const state = { entries: [], theme: "dark", lang: "ar", currency: "MAD", page: "summary", query: "" };
+
+      const $ = (id) => document.getElementById(id);
+
+      function load(key, fallback) {
+        try {
+          const raw = window.localStorage.getItem(key);
+          return raw === null ? fallback : JSON.parse(raw);
+        } catch (_e) {
+          return fallback;
+        }
+      }
+
+      function save(key, value) {
+        try {
+          window.localStorage.setItem(key, JSON.stringify(value));
+        } catch (_e) {
+          /* storage unavailable — app keeps working in memory */
+        }
+      }
+
+      function t(key) {
+        const pack = I18N[state.lang] || I18N.ar;
+        return pack[key] !== undefined ? pack[key] : (I18N.en[key] !== undefined ? I18N.en[key] : key);
+      }
+
+      function metrics(e) {
+        const price = Number(e.sellingPrice) || 0;
+        const cost = Number(e.unitCost) || 0;
+        const qty = Number(e.quantity) || 0;
+        const ads = Number(e.adSpend) || 0;
+        const revenue = price * qty;
+        const productCost = cost * qty;
+        const totalCost = productCost + ads;
+        const profit = revenue - totalCost;
+        const margin = revenue > 0 ? (profit / revenue) * 100 : 0;
+        return { revenue, productCost, ads, totalCost, profit, margin };
+      }
+
+      function money(value) {
+        const n = Number(value) || 0;
+        const cur = CURRENCIES[state.currency] || CURRENCIES.MAD;
+        const abs = Math.abs(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        const sign = n < 0 ? "-" : "";
+        return cur.before ? `${sign}${cur.symbol}${abs}` : `${sign}${abs} ${cur.symbol}`;
+      }
+
+      function integer(value) {
+        return (Number(value) || 0).toLocaleString("en-US");
+      }
+
+      function tone(value) {
+        return value > 0 ? "pos" : value < 0 ? "neg" : "";
+      }
+
+      function esc(str) {
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function todayLocal() {
+        const d = new Date();
+        const p = (n) => String(n).padStart(2, "0");
+        return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+      }
+
+      function toast(message, warn) {
+        const node = document.createElement("div");
+        node.className = warn ? "toast warn" : "toast";
+        node.textContent = message;
+        $("toasts").appendChild(node);
+        setTimeout(() => node.remove(), 2600);
+      }
+
+      /* ---------- Language / Theme / Currency ---------- */
+      function applyLanguage() {
+        const root = document.documentElement;
+        root.lang = state.lang;
+        root.dir = state.lang === "ar" ? "rtl" : "ltr";
+        document.querySelectorAll("[data-i18n]").forEach((node) => {
+          node.textContent = t(node.getAttribute("data-i18n"));
+        });
+        document.querySelectorAll("[data-i18n-ph]").forEach((node) => {
+          node.setAttribute("placeholder", t(node.getAttribute("data-i18n-ph")));
+        });
+        document.title = `ProfitPulse — ${t("subtitle")}`;
+        $("langSelect").value = state.lang;
+      }
+
+      function applyTheme() {
+        document.documentElement.setAttribute("data-theme", state.theme);
+        $("metaThemeColor").setAttribute("content", state.theme === "dark" ? "#0b1220" : "#f6f4ef");
+        $("themeSwitch").checked = state.theme === "dark";
+      }
+
+      function applyCurrency() {
+        const cur = CURRENCIES[state.currency] || CURRENCIES.MAD;
+        $("currencySelect").value = state.currency;
+        $("currencySymbol").textContent = cur.symbol;
+        document.querySelectorAll("[data-currency-hint]").forEach((node) => {
+          node.textContent = cur.symbol;
+        });
+      }
+
+      /* ---------- Navigation ---------- */
+      function showPage(name) {
+        const target = PAGES.indexOf(name) >= 0 ? name : "summary";
+        state.page = target;
+        save(KEYS.page, target);
+        document.querySelectorAll(".page").forEach((page) => {
+          page.hidden = page.getAttribute("data-page") !== target;
+        });
+        document.querySelectorAll(".nav-tab").forEach((tab) => {
+          const active = tab.getAttribute("data-page") === target;
+          tab.classList.toggle("active", active);
+          if (active) {
+            tab.setAttribute("aria-current", "page");
+          } else {
+            tab.removeAttribute("aria-current");
+          }
+        });
+        window.scrollTo(0, 0);
+      }
+
+      /* ---------- Rendering ---------- */
+      function renderSummary() {
+        let revenue = 0, orders = 0, cogs = 0, ads = 0, expenses = 0, profit = 0;
+        state.entries.forEach((e) => {
+          const m = metrics(e);
+          revenue += m.revenue;
+          orders += Number(e.quantity) || 0;
+          cogs += m.productCost;
+          ads += m.ads;
+          expenses += m.totalCost;
+          profit += m.profit;
+        });
+
+        const margin = revenue > 0 ? (profit / revenue) * 100 : 0;
+        const aov = orders > 0 ? revenue / orders : 0;
+        const roas = ads > 0 ? revenue / ads : 0;
+
+        $("valRevenue").textContent = money(revenue);
+        $("valCount").textContent = integer(state.entries.length);
+        $("valOrders").textContent = integer(orders);
+        $("valAov").textContent = money(aov);
+        $("valExpenses").textContent = money(expenses);
+        $("valCogs").textContent = money(cogs);
+        $("valAds").textContent = money(ads);
+
+        const valProfit = $("valProfit");
+        valProfit.textContent = money(profit);
+        valProfit.className = `num ${tone(profit)}`.trim();
+
+        const badge = $("badgeProfit");
+        if (profit > 0) {
+          badge.className = "badge pos";
+          badge.textContent = `▲ ${t("profitable")}`;
+        } else if (profit < 0) {
+          badge.className = "badge neg";
+          badge.textContent = `▼ ${t("loss")}`;
+        } else {
+          badge.className = "badge";
+          badge.textContent = `● ${t("breakEven")}`;
+        }
+
+        const valMargin = $("valMargin");
+        valMargin.textContent = `${margin.toFixed(1)}%`;
+        valMargin.className = `num ${tone(margin)}`.trim();
+        $("valRoas").textContent = `${roas.toFixed(2)}x`;
+      }
+
+      function filteredEntries() {
+        const q = state.query.trim().toLowerCase();
+        if (!q) return state.entries;
+        return state.entries.filter((e) =>
+          String(e.product).toLowerCase().includes(q) || String(e.date).toLowerCase().includes(q)
+        );
+      }
+
+      function renderLedger() {
+        const list = $("entryList");
+        const total = state.entries.length;
+        const rows = filteredEntries();
+
+        $("emptyState").hidden = total !== 0;
+        $("noResults").hidden = !(total > 0 && rows.length === 0);
+
+        if (total === 0) {
+          $("ledgerMeta").textContent = "";
+        } else if (rows.length === total) {
+          $("ledgerMeta").textContent = `${t("kpiRecords")}: ${integer(total)}`;
+        } else {
+          $("ledgerMeta").textContent = `${t("kpiRecords")}: ${integer(rows.length)} / ${integer(total)}`;
+        }
+
+        list.innerHTML = rows.map((e) => {
+          const m = metrics(e);
+          const badgeTone = tone(m.margin);
+          return `
+            <article class="entry">
+              <div class="entry-head">
+                <div class="entry-title">
+                  <strong>${esc(e.product)}</strong>
+                  <span class="num">${esc(e.date)}</span>
+                </div>
+                <button type="button" class="icon-del" data-action="delete" data-id="${esc(e.id)}" aria-label="${esc(t("deleteLabel"))}" title="${esc(t("deleteLabel"))}">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                </button>
+              </div>
+              <div class="entry-grid">
+                <div><span class="lbl">${esc(t("orders"))}</span><span class="num">${integer(e.quantity)}</span></div>
+                <div><span class="lbl">${esc(t("revenue"))}</span><span class="num">${money(m.revenue)}</span></div>
+                <div><span class="lbl">${esc(t("totalCost"))}</span><span class="num">${money(m.totalCost)}</span></div>
+                <div><span class="lbl">${esc(t("netProfit"))}</span><span class="num ${badgeTone}">${money(m.profit)}</span></div>
+                <div><span class="lbl">${esc(t("margin"))}</span><span><span class="badge ${badgeTone}"><span class="num">${m.margin.toFixed(1)}%</span></span></span></div>
+              </div>
+            </article>`;
+        }).join("");
+      }
+
+      function renderPreview() {
+        const m = metrics({
+          sellingPrice: $("inpPrice").value,
+          unitCost: $("inpCost").value,
+          quantity: $("inpQty").value,
+          adSpend: $("inpAds").value
+        });
+        $("prevRevenue").textContent = money(m.revenue);
+        $("prevCost").textContent = money(m.totalCost);
+        const prevProfit = $("prevProfit");
+        prevProfit.textContent = money(m.profit);
+        prevProfit.className = `num ${tone(m.profit)}`.trim();
+      }
+
+      function renderAll() {
+        applyCurrency();
+        renderSummary();
+        renderLedger();
+        renderPreview();
+      }
+
+      /* ---------- Actions ---------- */
+      function addEntry(event) {
+        event.preventDefault();
+        const product = $("inpProduct").value.trim();
+        const sellingPrice = parseFloat($("inpPrice").value);
+        const unitCost = parseFloat($("inpCost").value);
+        const quantity = parseInt($("inpQty").value, 10);
+        const adSpend = parseFloat($("inpAds").value);
+        const date = $("inpDate").value || todayLocal();
+
+        const numbers = [sellingPrice, unitCost, quantity, adSpend];
+        if (!product || numbers.some((n) => !Number.isFinite(n) || n < 0)) {
+          toast(t("invalid"), true);
+          return;
+        }
+
+        state.entries.unshift({
+          id: `e${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`,
+          product,
+          sellingPrice,
+          unitCost,
+          quantity,
+          adSpend,
+          date
+        });
+        save(KEYS.entries, state.entries);
+
+        $("entryForm").reset();
+        $("inpDate").value = todayLocal();
+        renderAll();
+        toast(t("toastAdded"));
+        showPage("ledger");
+      }
+
+      function deleteEntry(id) {
+        const before = state.entries.length;
+        state.entries = state.entries.filter((e) => e.id !== id);
+        if (state.entries.length !== before) {
+          save(KEYS.entries, state.entries);
+          renderAll();
+          toast(t("toastDeleted"));
+        }
+      }
+
+      function clearAll() {
+        if (state.entries.length === 0) {
+          toast(t("toastNothing"), true);
+          return;
+        }
+        if (!window.confirm(t("confirmClear"))) return;
+        state.entries = [];
+        state.query = "";
+        $("searchInput").value = "";
+        save(KEYS.entries, state.entries);
+        renderAll();
+        toast(t("toastCleared"));
+      }
+
+      function exportCsv() {
+        const rows = filteredEntries();
+        if (rows.length === 0) {
+          toast(t("toastNoData"), true);
+          return;
+        }
+        const cell = (v) => {
+          const s = String(v === undefined || v === null ? "" : v);
+          return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+        };
+        const header = ["Date", "Product / Campaign", "Unit Selling Price", "Unit Cost (COGS)", "Delivered Orders",
+          "Product Cost Total", "Ad Spend", "Revenue", "Total Cost", "Net Profit", "Net Margin (%)", "Currency"];
+        const lines = [header.map(cell).join(",")];
+        rows.forEach((e) => {
+          const m = metrics(e);
+          lines.push([
+            e.date, e.product,
+            (Number(e.sellingPrice) || 0).toFixed(2), (Number(e.unitCost) || 0).toFixed(2), Number(e.quantity) || 0,
+            m.productCost.toFixed(2), m.ads.toFixed(2), m.revenue.toFixed(2), m.totalCost.toFixed(2),
+            m.profit.toFixed(2), m.margin.toFixed(2), state.currency
+          ].map(cell).join(","));
+        });
+        const blob = new Blob(["\uFEFF" + lines.join("\r\n")], { type: "text/csv;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = `ProfitPulse_Ledger_${todayLocal()}.csv`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        toast(t("toastExported"));
+      }
+
+      /* ---------- Events ---------- */
+      function bindEvents() {
+        $("bottomNav").addEventListener("click", (event) => {
+          const tab = event.target.closest(".nav-tab");
+          if (tab) showPage(tab.getAttribute("data-page"));
+        });
+
+        document.addEventListener("click", (event) => {
+          const go = event.target.closest("[data-goto]");
+          if (go) showPage(go.getAttribute("data-goto"));
+        });
+
+        $("entryList").addEventListener("click", (event) => {
+          const btn = event.target.closest("[data-action='delete']");
+          if (btn) deleteEntry(btn.getAttribute("data-id"));
+        });
+
+        $("currencySelect").addEventListener("change", (event) => {
+          if (CURRENCIES[event.target.value]) {
+            state.currency = event.target.value;
+            save(KEYS.currency, state.currency);
+            renderAll();
+          }
+        });
+
+        $("langSelect").addEventListener("change", (event) => {
+          if (I18N[event.target.value]) {
+            state.lang = event.target.value;
+            save(KEYS.lang, state.lang);
+            applyLanguage();
+            renderAll();
+          }
+        });
+
+        $("themeSwitch").addEventListener("change", (event) => {
+          state.theme = event.target.checked ? "dark" : "light";
+          save(KEYS.theme, state.theme);
+          applyTheme();
+        });
+
+        $("entryForm").addEventListener("submit", addEntry);
+        $("entryForm").addEventListener("input", renderPreview);
+
+        $("searchInput").addEventListener("input", (event) => {
+          state.query = event.target.value;
+          renderLedger();
+        });
+
+        $("btnExport").addEventListener("click", exportCsv);
+        $("btnClearAll").addEventListener("click", clearAll);
+      }
+
+      /* ---------- Init ---------- */
+      function init() {
+        state.theme = load(KEYS.theme, "dark") === "light" ? "light" : "dark";
+        const lang = load(KEYS.lang, "ar");
+        state.lang = I18N[lang] ? lang : "ar";
+        const currency = load(KEYS.currency, "MAD");
+        state.currency = CURRENCIES[currency] ? currency : "MAD";
+        const entries = load(KEYS.entries, []);
+        state.entries = Array.isArray(entries) ? entries.filter((e) => e && typeof e === "object" && e.id) : [];
+        const page = load(KEYS.page, "summary");
+
+        $("inpDate").value = todayLocal();
+        applyTheme();
+        applyLanguage();
+        renderAll();
+        bindEvents();
+        showPage(page);
+      }
+
+      init();
+    })();
+  </script>
+</body>
+</html>
