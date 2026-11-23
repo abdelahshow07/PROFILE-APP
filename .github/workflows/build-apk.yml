@@ -28,13 +28,17 @@ jobs:
       - name: Install Capacitor Dependencies
         run: npm install
 
-      - name: Add or Sync Android Platform
+      - name: Add or Sync Android Platform & Install ProfitPulse Launcher Icons
         run: |
           if [ ! -d "android" ]; then
             npx cap add android
           else
             npx cap sync android
           fi
+          rm -f android/app/src/main/res/mipmap-*/ic_launcher*.webp
+          rm -f android/app/src/main/res/mipmap-*/ic_launcher*.png
+          rm -f android/app/src/main/res/drawable*/ic_launcher*.xml
+          cp -rf android-res/* android/app/src/main/res/
 
       - name: Build Debug APK with Gradle
         working-directory: ./android
