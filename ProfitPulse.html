@@ -2,102 +2,107 @@
 <html lang="ar" dir="rtl" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="ProfitPulse" />
-  <meta name="theme-color" content="#0b1220" id="metaThemeColor" />
-  <title>ProfitPulse</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='0.5' stop-color='%238b5cf6'/%3E%3Cstop offset='1' stop-color='%2310b981'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpolyline points='54 22 37 39 27 29 10 46' fill='none' stroke='white' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpolyline points='42 22 54 22 54 34' fill='none' stroke='white' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#0D1619" id="metaThemeColor" />
+  <title>ProfitPulse — COD E-Commerce Profit Tracker</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230E9F6E'/%3E%3Cstop offset='1' stop-color='%23047857'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpolyline points='52 22 36 38 26 28 12 42' fill='none' stroke='white' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpolyline points='40 22 52 22 52 34' fill='none' stroke='white' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
   <style>
-    /* ---------- Palette ---------- */
     :root,
     [data-theme="dark"] {
-      --bg: #0b1220;
-      --surface: #0f1729;
-      --card: #141e33;
-      --card-2: #18243d;
-      --input: #0d1526;
-      --border: rgba(148, 163, 184, 0.14);
-      --border-strong: rgba(148, 163, 184, 0.26);
-      --text: #e7ecf5;
-      --text-2: #9aa6bf;
-      --text-3: #6b7894;
-      --primary: #10b981;
-      --primary-ink: #052e22;
-      --primary-soft: rgba(16, 185, 129, 0.14);
-      --pos: #34d399;
-      --pos-soft: rgba(52, 211, 153, 0.13);
-      --neg: #fb7185;
-      --neg-soft: rgba(251, 113, 133, 0.13);
-      --info: #60a5fa;
-      --info-soft: rgba(96, 165, 250, 0.13);
-      --warn: #fbbf24;
-      --warn-soft: rgba(251, 191, 36, 0.13);
-      --violet: #a78bfa;
-      --violet-soft: rgba(167, 139, 250, 0.14);
-      --shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 8px 24px rgba(2, 6, 23, 0.35);
-      --focus: rgba(16, 185, 129, 0.35);
+      --bg: #0D1619;
+      --bg-elevated: #111D21;
+      --card: #142226;
+      --card-hover: #192A2F;
+      --input: #101C20;
+      --border: #21363C;
+      --border-strong: #2C4850;
+      --text: #F1F8F6;
+      --text-2: #9AB3AC;
+      --text-3: #637E77;
+      --emerald: #10B981;
+      --emerald-strong: #0E9F6E;
+      --emerald-deep: #064E3B;
+      --emerald-soft: rgba(16, 185, 129, 0.15);
+      --emerald-glow: rgba(16, 185, 129, 0.28);
+      --hero-grad: linear-gradient(145deg, #134E3A 0%, #0D2E26 55%, #0F2024 100%);
+      --danger: #F87171;
+      --danger-soft: rgba(248, 113, 113, 0.15);
+      --danger-border: rgba(248, 113, 113, 0.32);
+      --blue: #38BDF8;
+      --amber: #FBBF24;
+      --slate: #64748B;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      --nav-bg: rgba(17, 29, 33, 0.94);
     }
 
     [data-theme="light"] {
-      --bg: #f6f4ef;
-      --surface: #fbfaf7;
-      --card: #ffffff;
-      --card-2: #fdfcf9;
-      --input: #faf9f6;
-      --border: #e6e3dc;
-      --border-strong: #d6d3cb;
-      --text: #141a26;
-      --text-2: #4c5566;
-      --text-3: #7a8394;
-      --primary: #059669;
-      --primary-ink: #ffffff;
-      --primary-soft: rgba(5, 150, 105, 0.1);
-      --pos: #047857;
-      --pos-soft: rgba(4, 120, 87, 0.09);
-      --neg: #be123c;
-      --neg-soft: rgba(190, 18, 60, 0.08);
-      --info: #1d4ed8;
-      --info-soft: rgba(29, 78, 216, 0.08);
-      --warn: #b45309;
-      --warn-soft: rgba(180, 83, 9, 0.09);
-      --violet: #6d28d9;
-      --violet-soft: rgba(109, 40, 217, 0.08);
-      --shadow: 0 1px 2px rgba(20, 26, 38, 0.04), 0 6px 18px rgba(20, 26, 38, 0.05);
-      --focus: rgba(5, 150, 105, 0.25);
+      --bg: #F2F7F5;
+      --bg-elevated: #E6F0EC;
+      --card: #FFFFFF;
+      --card-hover: #F8FCFA;
+      --input: #F4F8F6;
+      --border: #D5E3DD;
+      --border-strong: #B8CEC5;
+      --text: #0F221D;
+      --text-2: #4A665E;
+      --text-3: #78948C;
+      --emerald: #0E9F6E;
+      --emerald-strong: #0B845B;
+      --emerald-deep: #065F46;
+      --emerald-soft: rgba(14, 159, 110, 0.12);
+      --emerald-glow: rgba(14, 159, 110, 0.25);
+      --hero-grad: linear-gradient(145deg, #15654B 0%, #0D4434 60%, #0A2E24 100%);
+      --danger: #DC2626;
+      --danger-soft: rgba(220, 38, 38, 0.11);
+      --danger-border: rgba(220, 38, 38, 0.28);
+      --blue: #0284C7;
+      --amber: #D97706;
+      --slate: #64748B;
+      --shadow: 0 6px 20px rgba(15, 34, 29, 0.06);
+      --nav-bg: rgba(255, 255, 255, 0.95);
     }
 
-    /* ---------- Typography ---------- */
     :root {
       --font-ar: "IBM Plex Sans Arabic", "Cairo", "Tajawal", "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif;
-      --font-latin: "Plus Jakarta Sans", "Inter", "Segoe UI", "Helvetica Neue", Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-      --font-num: "Plus Jakarta Sans", "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      --r-sm: 10px;
-      --r-md: 14px;
-      --r-lg: 18px;
+      --font-latin: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-num: "Plus Jakarta Sans", "Inter", "Segoe UI", Roboto, sans-serif;
+      --r-sm: 12px;
+      --r-md: 16px;
+      --r-lg: 20px;
+      --r-xl: 24px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: var(--font-ar);
-      font-size: 15px;
-      line-height: 1.6;
-      letter-spacing: 0;
-      font-weight: 400;
+      background-color: var(--bg);
       color: var(--text);
-      background: var(--bg);
+      font-size: 15px;
+      line-height: 1.5;
       min-height: 100vh;
-      padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+      padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px));
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       transition: background-color 0.2s ease, color 0.2s ease;
     }
 
-    html:not([lang="ar"]) body { font-family: var(--font-latin); letter-spacing: -0.005em; }
+    html:not([lang="ar"]) body {
+      font-family: var(--font-latin);
+    }
 
     .num {
       font-family: var(--font-num);
@@ -106,405 +111,457 @@
       direction: ltr;
       unicode-bidi: isolate;
       display: inline-block;
-      letter-spacing: -0.01em;
     }
 
-    button, input, select { font: inherit; color: inherit; }
+    button, input, select {
+      font: inherit;
+      color: inherit;
+    }
 
-    /* ---------- Header ---------- */
-    .app-header {
+    .app-container {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* ---------- HEADERS ---------- */
+    .dashboard-header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      background: color-mix(in srgb, var(--surface) 92%, transparent);
-      backdrop-filter: saturate(140%) blur(10px);
-      -webkit-backdrop-filter: saturate(140%) blur(10px);
-      border-bottom: 1px solid var(--border);
+      z-index: 40;
+      background: color-mix(in srgb, var(--bg) 90%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       padding-top: env(safe-area-inset-top, 0px);
     }
 
-    .header-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0.8rem 1rem;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 0.5rem;
+    .dashboard-header[hidden],
+    .inner-header[hidden],
+    .page[hidden],
+    .modal-backdrop[hidden] {
+      display: none !important;
     }
 
-    .header-side { min-width: 0; display: flex; }
-    .header-side.end { justify-content: flex-end; }
+    .dash-header-inner {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 0.9rem 1rem 0.65rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem;
+    }
 
-    .brand { display: flex; align-items: center; gap: 0.7rem; }
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      min-width: 0;
+    }
 
-    .brand-logo {
-      width: 44px;
-      height: 44px;
-      border-radius: 13px;
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #10b981 100%);
+    .pulse-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      background: var(--emerald-soft);
+      border: 1px solid rgba(16, 185, 129, 0.32);
+      color: var(--emerald);
       display: grid;
       place-items: center;
-      color: #fff;
-      box-shadow: 0 6px 16px rgba(99, 102, 241, 0.32);
       flex-shrink: 0;
     }
 
-    .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
-
-    .brand-text h1 {
+    .brand-title {
       font-family: var(--font-latin);
-      font-size: 1.45rem;
+      font-size: 1.32rem;
       font-weight: 800;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.025em;
+      color: var(--text);
     }
 
-    .brand-text p { font-size: 0.72rem; color: var(--text-2); font-weight: 500; margin-top: 0.15rem; }
+    .dash-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
 
+    /* Wide Pill Currency Selector — Never truncates */
     .currency-pill {
+      position: relative;
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      background: var(--input);
-      border: 1px solid var(--border);
+      background: var(--card);
+      border: 1.5px solid var(--emerald-strong);
       border-radius: 999px;
-      padding: 0.3rem 0.4rem 0.3rem 0.65rem;
-      min-height: 36px;
-      max-width: 100%;
-    }
-
-    [dir="rtl"] .currency-pill { padding: 0.3rem 0.65rem 0.3rem 0.4rem; }
-
-    .currency-symbol {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--primary);
-      white-space: nowrap;
+      padding: 0.34rem 0.85rem;
+      min-height: 38px;
+      min-width: 108px;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.12);
     }
 
     .currency-select {
+      appearance: none;
+      -webkit-appearance: none;
       background: transparent;
       border: none;
       outline: none;
       font-family: var(--font-num);
-      font-size: 0.82rem;
+      font-size: 0.86rem;
       font-weight: 700;
-      letter-spacing: 0.02em;
+      color: var(--text);
       cursor: pointer;
-      min-width: 0;
-    }
-
-    .currency-select option, .field-select option { background: var(--card); color: var(--text); }
-
-    @media (max-width: 400px) {
-      .currency-symbol { display: none; }
-      .brand-text h1 { font-size: 1.25rem; }
-      .brand-logo { width: 38px; height: 38px; border-radius: 11px; }
-      .brand-text p { display: none; }
-    }
-
-    /* ---------- Layout / Pages ---------- */
-    .main { max-width: 720px; margin: 0 auto; padding: 1.1rem 1rem 1.5rem; }
-
-    .page[hidden] { display: none !important; }
-
-    .page { animation: pageIn 0.22s ease both; }
-
-    @keyframes pageIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .page-head { margin-bottom: 1rem; }
-    .page-head h2 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; }
-    .page-head p { font-size: 0.84rem; color: var(--text-2); margin-top: 0.15rem; }
-
-    html:not([lang="ar"]) .page-head h2 { letter-spacing: -0.02em; }
-
-    /* ---------- KPI Cards ---------- */
-    .kpi-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
-
-    .kpi {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--r-lg);
-      padding: 1rem;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      min-width: 0;
-    }
-
-    .kpi.hero {
-      grid-column: 1 / -1;
-      background: linear-gradient(160deg, var(--card-2) 0%, var(--card) 70%);
-      border-color: var(--border-strong);
-      padding: 1.2rem;
-    }
-
-    .kpi-top { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
-    .kpi-title { font-size: 0.8rem; font-weight: 600; color: var(--text-2); }
-
-    .kpi-icon { width: 32px; height: 32px; border-radius: 9px; display: grid; place-items: center; flex-shrink: 0; }
-    .kpi-icon.i-rev { background: var(--info-soft); color: var(--info); }
-    .kpi-icon.i-ord { background: var(--violet-soft); color: var(--violet); }
-    .kpi-icon.i-exp { background: var(--warn-soft); color: var(--warn); }
-    .kpi-icon.i-pro { background: var(--pos-soft); color: var(--pos); }
-    .kpi-icon.i-mar { background: var(--primary-soft); color: var(--primary); }
-
-    .kpi-value { font-size: 1.32rem; font-weight: 700; line-height: 1.2; word-break: break-word; }
-    .kpi.hero .kpi-value { font-size: 2rem; font-weight: 800; }
-
-    .kpi-sub {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.3rem 0.6rem;
-      font-size: 0.75rem;
-      color: var(--text-2);
-      border-top: 1px dashed var(--border);
-      padding-top: 0.55rem;
-    }
-
-    .kpi-sub strong { color: var(--text); font-weight: 600; }
-
-    .pos { color: var(--pos) !important; }
-    .neg { color: var(--neg) !important; }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.18rem 0.6rem;
-      border-radius: 999px;
-      font-size: 0.74rem;
-      font-weight: 600;
-      background: var(--input);
-      color: var(--text-2);
-      border: 1px solid var(--border);
-      white-space: nowrap;
-    }
-
-    .badge.pos { background: var(--pos-soft); border-color: transparent; }
-    .badge.neg { background: var(--neg-soft); border-color: transparent; }
-
-    /* ---------- Panels / Form ---------- */
-    .panel {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--r-lg);
-      box-shadow: var(--shadow);
-      padding: 1.1rem;
-    }
-
-    .form { display: flex; flex-direction: column; gap: 0.95rem; }
-    .row-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
-
-    .field { display: flex; flex-direction: column; gap: 0.38rem; min-width: 0; }
-
-    .field-label {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.4rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-2);
-    }
-
-    .field-label .hint { font-size: 0.72rem; color: var(--primary); font-weight: 700; }
-
-    .input, .field-select {
-      width: 100%;
-      min-height: 48px;
-      background: var(--input);
-      border: 1px solid var(--border);
-      border-radius: var(--r-sm);
-      padding: 0.65rem 0.85rem;
-      font-size: 16px;
-      outline: none;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .input[type="number"], .input[type="date"] { font-family: var(--font-num); font-variant-numeric: tabular-nums; }
-    .input::placeholder { color: var(--text-3); }
-
-    .input:focus, .field-select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--focus); }
-
-    .preview {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.4rem;
-      background: var(--input);
-      border: 1px dashed var(--border-strong);
-      border-radius: var(--r-md);
-      padding: 0.75rem 0.5rem;
       text-align: center;
+      width: 100%;
+      padding-inline-end: 0.2rem;
     }
 
-    .preview span:first-child { display: block; font-size: 0.7rem; color: var(--text-2); font-weight: 500; }
-    .preview .num { font-size: 0.86rem; font-weight: 700; }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      min-height: 48px;
-      padding: 0.7rem 1.1rem;
-      border-radius: var(--r-sm);
-      border: 1px solid transparent;
-      font-size: 0.92rem;
-      font-weight: 700;
-      cursor: pointer;
-      user-select: none;
-      transition: transform 0.08s ease, background-color 0.15s ease, border-color 0.15s ease;
+    .currency-select option {
+      background: var(--card);
+      color: var(--text);
     }
 
-    .btn:active { transform: scale(0.98); }
-    .btn-primary { background: var(--primary); color: var(--primary-ink); box-shadow: 0 6px 16px rgba(16, 185, 129, 0.22); }
-    .btn-primary:hover { filter: brightness(1.05); }
-    .btn-ghost { background: var(--input); border-color: var(--border); }
-    .btn-ghost:hover { border-color: var(--border-strong); }
-    .btn-danger { background: var(--neg-soft); color: var(--neg); border-color: transparent; }
-    .btn-danger:hover { filter: brightness(1.08); }
-
-    /* ---------- Ledger ---------- */
-    .toolbar { display: flex; gap: 0.6rem; margin-bottom: 0.9rem; flex-wrap: wrap; }
-
-    .search { position: relative; flex: 1 1 220px; }
-
-    .search svg {
-      position: absolute;
-      top: 50%;
-      inset-inline-start: 0.85rem;
-      transform: translateY(-50%);
-      color: var(--text-3);
-      pointer-events: none;
-    }
-
-    .search .input { padding-inline-start: 2.5rem; min-height: 46px; }
-    .toolbar .btn { min-height: 46px; }
-
-    .ledger-meta { font-size: 0.78rem; color: var(--text-3); margin-bottom: 0.6rem; }
-
-    .entries { display: flex; flex-direction: column; gap: 0.7rem; }
-
-    .entry {
+    .gear-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: var(--r-md);
-      box-shadow: var(--shadow);
-      padding: 0.9rem 1rem;
+      color: var(--text-2);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
     }
 
-    .entry-head {
+    .gear-btn:hover {
+      color: var(--emerald);
+      border-color: var(--emerald);
+    }
+
+    /* Inner Compact Header */
+    .inner-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+
+    .inner-header-inner {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 0.9rem 1rem 0.7rem;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
-      gap: 0.6rem;
-      padding-bottom: 0.65rem;
-      margin-bottom: 0.65rem;
-      border-bottom: 1px dashed var(--border);
+      gap: 0.75rem;
     }
 
-    .entry-title { min-width: 0; }
-    .entry-title strong { display: block; font-size: 0.95rem; font-weight: 600; overflow-wrap: anywhere; }
-    .entry-title .num { font-size: 0.76rem; color: var(--text-3); margin-top: 0.1rem; }
+    .inner-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
 
-    .icon-del {
-      flex-shrink: 0;
+    .back-btn {
       width: 36px;
       height: 36px;
       border-radius: 10px;
-      border: 1px solid transparent;
-      background: var(--neg-soft);
-      color: var(--neg);
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
       display: grid;
       place-items: center;
       cursor: pointer;
     }
 
-    .icon-del:hover { border-color: var(--neg); }
-
-    .entry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(104px, 1fr)); gap: 0.55rem 0.8rem; }
-    .entry-grid > div { display: flex; flex-direction: column; min-width: 0; }
-    .entry-grid .lbl { font-size: 0.7rem; color: var(--text-3); font-weight: 500; }
-    .entry-grid .num { font-size: 0.88rem; font-weight: 600; }
-
-    .empty {
-      text-align: center;
-      padding: 2.4rem 1.25rem;
-      background: var(--card);
-      border: 1px dashed var(--border-strong);
-      border-radius: var(--r-lg);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--text-2);
+    [dir="rtl"] .back-btn svg {
+      transform: scaleX(-1);
     }
 
-    .empty[hidden] { display: none; }
-
-    .empty-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      background: var(--primary-soft);
-      color: var(--primary);
-      display: grid;
-      place-items: center;
-      margin-bottom: 0.3rem;
+    .inner-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
 
-    .empty strong { color: var(--text); font-size: 1rem; font-weight: 700; }
-    .empty p { font-size: 0.85rem; max-width: 300px; }
-    .empty .btn { margin-top: 0.6rem; }
-
-    /* ---------- Settings ---------- */
-    .settings { display: flex; flex-direction: column; gap: 0.9rem; }
-
-    .set-group {
+    .period-select {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: var(--r-lg);
-      box-shadow: var(--shadow);
-      overflow: hidden;
+      border-radius: 10px;
+      padding: 0.4rem 0.7rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-2);
+      outline: none;
+      cursor: pointer;
     }
 
-    .set-group h3 {
-      font-size: 0.74rem;
+    /* ---------- PAGE TRANSITION ---------- */
+    .page {
+      padding-top: 0.35rem;
+      padding-bottom: 1.5rem;
+      animation: fadeSlide 0.2s ease both;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---------- DASHBOARD ---------- */
+    .date-filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      margin: 0.35rem 0 1rem;
+      flex-wrap: wrap;
+    }
+
+    .date-pill {
+      background: transparent;
+      border: none;
+      color: var(--text-2);
+      font-size: 0.86rem;
+      font-weight: 600;
+      padding: 0.38rem 0.95rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .date-pill.active {
+      background: var(--emerald-strong);
+      color: #FFFFFF;
       font-weight: 700;
-      color: var(--text-3);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 0.85rem 1rem 0;
+      box-shadow: 0 4px 12px var(--emerald-glow);
     }
 
-    [lang="ar"] .set-group h3 { letter-spacing: 0; text-transform: none; font-size: 0.8rem; }
+    .date-sep {
+      color: var(--border-strong);
+      font-size: 0.85rem;
+      user-select: none;
+    }
 
-    .set-row {
+    .hero-card {
+      background: var(--hero-grad);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: var(--r-xl);
+      padding: 1.25rem 1.25rem 1rem;
+      color: #F1F8F6;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 0.95rem;
+    }
+
+    .hero-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      padding: 0.9rem 1rem;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
     }
 
-    .set-row + .set-row { border-top: 1px solid var(--border); }
-    .set-row.stack { flex-direction: column; align-items: stretch; gap: 0.6rem; }
+    .hero-label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: rgba(241, 248, 246, 0.82);
+    }
 
-    .set-text { min-width: 0; }
-    .set-text strong { display: block; font-size: 0.93rem; font-weight: 600; }
-    .set-text span { display: block; font-size: 0.78rem; color: var(--text-2); }
+    .hero-pct-badge {
+      background: rgba(16, 185, 129, 0.25);
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      color: #6EE7B7;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+    }
 
-    .switch { position: relative; width: 50px; height: 30px; flex-shrink: 0; }
-    .switch input { position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; z-index: 2; }
+    .hero-pct-badge.loss {
+      background: rgba(248, 113, 113, 0.22);
+      border-color: rgba(248, 113, 113, 0.45);
+      color: #FCA5A5;
+    }
 
-    .switch .track {
+    .hero-value {
+      font-size: 2.25rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.55rem;
+      color: #FFFFFF;
+    }
+
+    .hero-spark {
+      width: 100%;
+      height: 64px;
+      display: block;
+    }
+
+    .kpi-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .kpi-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 1.05rem 1.1rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .kpi-box-label {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-2);
+    }
+
+    .kpi-box-val {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    /* ---------- ADD DAILY ENTRY (COD FORM) ---------- */
+    .cod-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.38rem;
+      min-width: 0;
+    }
+
+    .form-label {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.35rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      min-height: 48px;
+      padding: 0 0.8rem;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .input-wrap:focus-within {
+      border-color: var(--emerald);
+      box-shadow: 0 0 0 3px var(--emerald-soft);
+    }
+
+    .input-clean {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      padding: 0.6rem 0;
+    }
+
+    .input-clean::placeholder {
+      color: var(--text-3);
+      font-weight: 500;
+    }
+
+    .unit-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-2);
+      margin-inline-start: 0.45rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .cod-auto-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--emerald-soft);
+      border: 1px solid rgba(16, 185, 129, 0.28);
+      border-radius: var(--r-sm);
+      padding: 0.5rem 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--emerald);
+    }
+
+    .usd-toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.6rem;
+      margin-top: -0.2rem;
+    }
+
+    .usd-toggle-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-2);
+    }
+
+    .usd-converted-hint {
+      font-size: 0.76rem;
+      color: var(--emerald);
+      font-weight: 700;
+      margin-inline-end: auto;
+    }
+
+    /* Toggle Switch */
+    .switch {
+      position: relative;
+      width: 48px;
+      height: 28px;
+      flex-shrink: 0;
+      display: inline-block;
+    }
+
+    .switch input {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      z-index: 2;
+      margin: 0;
+    }
+
+    .switch-track {
       position: absolute;
       inset: 0;
       border-radius: 999px;
@@ -512,41 +569,758 @@
       transition: background-color 0.2s ease;
     }
 
-    .switch .track::after {
+    .switch-track::after {
       content: "";
       position: absolute;
       top: 3px;
       left: 3px;
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      background: #FFFFFF;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
       transition: transform 0.2s ease;
     }
 
-    .switch input:checked + .track { background: var(--primary); }
-    .switch input:checked + .track::after { transform: translateX(20px); }
-    .switch input:focus-visible + .track { box-shadow: 0 0 0 3px var(--focus); }
+    .switch input:checked + .switch-track {
+      background: var(--emerald-strong);
+    }
 
-    .app-foot { text-align: center; font-size: 0.74rem; color: var(--text-3); padding-top: 0.4rem; }
+    .switch input:checked + .switch-track::after {
+      transform: translateX(20px);
+    }
 
-    /* ---------- Bottom Nav ---------- */
+    .live-profit-banner {
+      background: linear-gradient(135deg, #0E9F6E 0%, #057A55 100%);
+      border-radius: var(--r-md);
+      padding: 1rem 1.15rem;
+      text-align: center;
+      color: #FFFFFF;
+      box-shadow: 0 6px 18px var(--emerald-glow);
+      margin-top: 0.2rem;
+    }
+
+    .live-profit-banner.loss {
+      background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);
+      box-shadow: 0 6px 18px rgba(220, 38, 38, 0.25);
+    }
+
+    .live-profit-banner span {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 600;
+      opacity: 0.92;
+      margin-bottom: 0.15rem;
+    }
+
+    .live-profit-banner strong {
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .btn-save-entry {
+      width: 100%;
+      min-height: 50px;
+      background: var(--emerald-strong);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 16px var(--emerald-glow);
+      transition: transform 0.1s ease, filter 0.15s ease;
+    }
+
+    .btn-save-entry:active {
+      transform: scale(0.98);
+    }
+
+    /* ---------- PRODUCTS & CAMPAIGNS ---------- */
+    .search-filter-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .search-box {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0 0.95rem;
+      min-height: 42px;
+    }
+
+    .search-box svg {
+      color: var(--text-3);
+      flex-shrink: 0;
+    }
+
+    .search-box input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .filter-pill-btn {
+      background: var(--card);
+      border: 1.5px solid var(--emerald-strong);
+      color: var(--emerald);
+      border-radius: 999px;
+      padding: 0.45rem 0.95rem;
+      min-height: 42px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .product-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .product-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 1.05rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .prod-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .prod-identity {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+    }
+
+    .prod-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      color: var(--emerald);
+      flex-shrink: 0;
+    }
+
+    .prod-titles {
+      min-width: 0;
+    }
+
+    .prod-titles h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .prod-titles p {
+      font-size: 0.8rem;
+      color: var(--text-2);
+      font-weight: 500;
+    }
+
+    .prod-profit-pill {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: var(--emerald-strong);
+      color: #FFFFFF;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.26rem 0.75rem;
+      border-radius: 999px;
+    }
+
+    .prod-profit-pill.loss {
+      background: var(--danger);
+    }
+
+    .prod-progress-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .prod-progress-labels {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-2);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      background: var(--bg-elevated);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--emerald);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    .prod-bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      border-top: 1px solid var(--border);
+      padding-top: 0.65rem;
+    }
+
+    .prod-metric {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .prod-metric:last-child {
+      border-inline-start: 1px solid var(--border);
+      padding-inline-start: 0.85rem;
+    }
+
+    .prod-metric span {
+      font-size: 0.76rem;
+      color: var(--text-2);
+      font-weight: 500;
+    }
+
+    .prod-metric strong {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    /* ---------- ANALYTICS ---------- */
+    .analytics-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .analytics-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 1.1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .analytics-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.85rem;
+      color: var(--text);
+    }
+
+    .trend-chart-wrap {
+      width: 100%;
+      position: relative;
+    }
+
+    .trend-svg {
+      width: 100%;
+      height: 175px;
+      display: block;
+      overflow: visible;
+    }
+
+    .donut-layout {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .donut-svg {
+      width: 125px;
+      height: 125px;
+      transform: rotate(-90deg);
+      margin: 0 auto;
+    }
+
+    .donut-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .legend-left {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--text-2);
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .platform-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .plat-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.32rem;
+    }
+
+    .plat-row-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .plat-row-head span:last-child {
+      color: var(--text-3);
+      font-size: 0.76rem;
+    }
+
+    /* ---------- LEDGER ---------- */
+    .filter-pills-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+      overflow-x: auto;
+      padding-bottom: 0.15rem;
+    }
+
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text-2);
+      padding: 0.42rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .filter-chip.active {
+      background: var(--emerald-strong);
+      border-color: var(--emerald-strong);
+      color: #FFFFFF;
+    }
+
+    .export-actions-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.55rem;
+      margin-bottom: 0.95rem;
+    }
+
+    .btn-export-main {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--emerald-strong);
+      color: #FFFFFF;
+      border: none;
+      border-radius: var(--r-sm);
+      min-height: 44px;
+      padding: 0 1rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      background: var(--card);
+      border: 1px solid var(--emerald-strong);
+      color: var(--emerald);
+      border-radius: var(--r-sm);
+      min-height: 44px;
+      padding: 0 0.85rem;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .ledger-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .ledger-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 0.9rem 1rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .ledger-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+    }
+
+    .ledger-thumb {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      color: var(--emerald);
+      flex-shrink: 0;
+    }
+
+    .ledger-info {
+      min-width: 0;
+    }
+
+    .ledger-info h4 {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .ledger-info .meta-date {
+      font-size: 0.76rem;
+      color: var(--text-2);
+    }
+
+    .ledger-info .meta-deliv {
+      font-size: 0.76rem;
+      color: var(--text-3);
+      font-weight: 600;
+    }
+
+    .ledger-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .profit-badge {
+      padding: 0.32rem 0.7rem;
+      border-radius: 10px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      background: var(--emerald-soft);
+      color: var(--emerald);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .profit-badge.loss {
+      background: var(--danger-soft);
+      color: var(--danger);
+      border-color: var(--danger-border);
+    }
+
+    .del-entry-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-3);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .del-entry-btn:hover {
+      color: var(--danger);
+      background: var(--danger-soft);
+    }
+
+    /* ---------- EMPTY STATE ---------- */
+    .empty-box {
+      background: var(--card);
+      border: 1px dashed var(--border-strong);
+      border-radius: var(--r-lg);
+      padding: 2.2rem 1.25rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.55rem;
+      color: var(--text-2);
+    }
+
+    .empty-box[hidden] {
+      display: none !important;
+    }
+
+    .empty-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: var(--emerald-soft);
+      color: var(--emerald);
+      display: grid;
+      place-items: center;
+      margin-bottom: 0.2rem;
+    }
+
+    .empty-box strong {
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .empty-box p {
+      font-size: 0.83rem;
+      max-width: 280px;
+    }
+
+    /* ---------- SETTINGS ---------- */
+    .pro-banner {
+      background: var(--hero-grad);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: var(--r-lg);
+      padding: 1.15rem;
+      color: #FFFFFF;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .pro-banner h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 0.2rem;
+    }
+
+    .pro-banner p {
+      font-size: 0.8rem;
+      color: rgba(241, 248, 246, 0.8);
+      margin-bottom: 0.75rem;
+    }
+
+    .pro-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--emerald-strong);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 999px;
+      padding: 0.38rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .settings-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 1rem;
+    }
+
+    .setting-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.95rem 1.05rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .setting-item:last-child {
+      border-bottom: none;
+    }
+
+    .setting-left {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      min-width: 0;
+    }
+
+    .setting-left svg {
+      color: var(--text-2);
+      flex-shrink: 0;
+    }
+
+    .setting-left strong {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .lang-Segmented {
+      display: inline-flex;
+      background: var(--input);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.18rem;
+      gap: 0.15rem;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      padding: 0.28rem 0.55rem;
+      border-radius: 7px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-2);
+      cursor: pointer;
+    }
+
+    .lang-btn.active {
+      background: var(--emerald-strong);
+      color: #FFFFFF;
+    }
+
+    .rate-input {
+      width: 96px;
+      background: var(--input);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.35rem 0.55rem;
+      text-align: center;
+      font-family: var(--font-num);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+      outline: none;
+    }
+
+    .sync-btn {
+      background: var(--input);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.38rem 0.7rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--emerald);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .danger-zone {
+      background: var(--card);
+      border: 1px solid var(--danger-border);
+      border-radius: var(--r-lg);
+      padding: 1rem 1.05rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .danger-zone-text strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--danger);
+    }
+
+    .danger-zone-text span {
+      font-size: 0.76rem;
+      color: var(--text-2);
+    }
+
+    .btn-danger-open {
+      background: var(--danger-soft);
+      border: 1px solid var(--danger-border);
+      color: var(--danger);
+      border-radius: 10px;
+      padding: 0.48rem 0.85rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    /* ---------- BOTTOM NAVIGATION WITH FLOATING "+" ---------- */
     .bottom-nav {
       position: fixed;
       inset-inline: 0;
       bottom: 0;
-      z-index: 60;
-      background: color-mix(in srgb, var(--surface) 94%, transparent);
-      backdrop-filter: saturate(140%) blur(12px);
-      -webkit-backdrop-filter: saturate(140%) blur(12px);
+      z-index: 50;
+      background: var(--nav-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border-top: 1px solid var(--border);
-      padding: 0.4rem 0.5rem calc(0.4rem + env(safe-area-inset-bottom, 0px));
+      padding: 0.35rem 0.5rem calc(0.4rem + env(safe-area-inset-bottom, 0px));
     }
 
-    .nav-inner { max-width: 720px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.25rem; }
+    .bottom-nav-inner {
+      max-width: 520px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 72px 1fr 1fr;
+      align-items: center;
+    }
 
-    .nav-tab {
+    .nav-item {
       background: transparent;
       border: none;
       color: var(--text-3);
@@ -554,368 +1328,605 @@
       flex-direction: column;
       align-items: center;
       gap: 0.2rem;
-      padding: 0.45rem 0.2rem;
-      border-radius: 12px;
+      padding: 0.35rem 0.2rem;
       font-size: 0.7rem;
       font-weight: 600;
       cursor: pointer;
-      transition: color 0.15s ease, background-color 0.15s ease;
+      transition: color 0.15s ease;
     }
 
-    .nav-tab.active { color: var(--primary); background: var(--primary-soft); }
-    .nav-tab:not(.active):hover { color: var(--text-2); }
+    .nav-item.active {
+      color: var(--emerald);
+      font-weight: 700;
+    }
 
-    /* ---------- Toast ---------- */
-    .toasts {
+    .fab-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .fab-add {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10B981 0%, #0E9F6E 100%);
+      color: #FFFFFF;
+      border: 4px solid var(--bg);
+      box-shadow: 0 8px 20px var(--emerald-glow);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transform: translateY(-16px);
+      transition: transform 0.15s ease;
+    }
+
+    .fab-add:active {
+      transform: translateY(-16px) scale(0.95);
+    }
+
+    /* ---------- DELETE CONFIRMATION MODAL ---------- */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      background: rgba(5, 10, 12, 0.75);
+      backdrop-filter: blur(4px);
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+    }
+
+    .modal-card {
+      background: var(--card);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--r-lg);
+      max-width: 380px;
+      width: 100%;
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .modal-card h3 {
+      font-size: 1.05rem;
+      color: var(--danger);
+    }
+
+    .modal-card p {
+      font-size: 0.84rem;
+      color: var(--text-2);
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.55rem;
+    }
+
+    /* ---------- TOASTS ---------- */
+    .toast-area {
       position: fixed;
       inset-inline: 1rem;
-      bottom: calc(92px + env(safe-area-inset-bottom, 0px));
-      z-index: 100;
+      bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+      z-index: 110;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.45rem;
       pointer-events: none;
     }
 
-    .toast {
+    .toast-msg {
       background: var(--card);
       color: var(--text);
-      border: 1px solid var(--border-strong);
-      border-inline-start: 4px solid var(--primary);
+      border: 1px solid var(--emerald);
+      border-inline-start: 4px solid var(--emerald);
       border-radius: 12px;
-      padding: 0.7rem 1rem;
-      font-size: 0.86rem;
-      font-weight: 600;
-      box-shadow: 0 12px 30px rgba(2, 6, 23, 0.3);
-      max-width: 380px;
+      padding: 0.65rem 1rem;
+      font-size: 0.84rem;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+      max-width: 360px;
       width: 100%;
       text-align: center;
-      animation: toastIn 0.2s ease both;
-    }
-
-    .toast.warn { border-inline-start-color: var(--neg); }
-
-    @keyframes toastIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (min-width: 640px) {
-      .kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .kpi.hero { grid-column: span 3; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; transition: none !important; }
     }
   </style>
 </head>
 <body>
-  <header class="app-header">
-    <div class="header-inner">
-      <div class="header-side" aria-hidden="true"></div>
 
-      <div class="brand">
-        <div class="brand-logo" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
-            <polyline points="16 7 22 7 22 13"></polyline>
+  <!-- 1. MAIN DASHBOARD HEADER (Shown ONLY on Dashboard tab) -->
+  <header class="dashboard-header" id="dashboardHeader">
+    <div class="dash-header-inner">
+      <div class="brand-mark">
+        <div class="pulse-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
           </svg>
         </div>
-        <div class="brand-text">
-          <h1>ProfitPulse</h1>
-          <p data-i18n="subtitle">متتبع أرباح التجارة الإلكترونية</p>
-        </div>
+        <span class="brand-title">ProfitPulse</span>
       </div>
 
-      <div class="header-side end">
-        <label class="currency-pill" for="currencySelect">
-          <span class="currency-symbol" id="currencySymbol">د.م</span>
+      <div class="dash-header-actions">
+        <label class="currency-pill" for="currencySelect" title="Currency">
           <select id="currencySelect" class="currency-select" aria-label="Currency">
-            <option value="MAD">MAD</option>
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="GBP">GBP</option>
-            <option value="SAR">SAR</option>
-            <option value="AED">AED</option>
-            <option value="EGP">EGP</option>
-            <option value="TRY">TRY</option>
+            <option value="MAD">MAD د.م</option>
+            <option value="USD">USD $</option>
+            <option value="EUR">EUR €</option>
+            <option value="GBP">GBP £</option>
+            <option value="SAR">SAR ر.س</option>
+            <option value="AED">AED د.إ</option>
+            <option value="EGP">EGP ج.م</option>
+            <option value="TRY">TRY ₺</option>
           </select>
         </label>
+
+        <button type="button" class="gear-btn" id="btnOpenSettings" aria-label="Settings">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
       </div>
     </div>
   </header>
 
-  <main class="main">
-    <!-- ================= PAGE 1: SUMMARY ================= -->
-    <section class="page" data-page="summary" aria-labelledby="hSummary">
-      <div class="page-head">
-        <h2 id="hSummary" data-i18n="summaryTitle">ملخص الأداء</h2>
-        <p data-i18n="summarySub">نظرة سريعة على أرباحك ومصاريفك</p>
+  <!-- 2. COMPACT INNER PAGE HEADER (Shown on Add, Products, Analytics, Ledger, Settings) -->
+  <header class="inner-header" id="innerHeader" hidden>
+    <div class="inner-header-inner">
+      <div class="inner-header-left">
+        <button type="button" class="back-btn" id="btnInnerBack" aria-label="Back">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <h1 class="inner-title" id="innerHeaderTitle">Add Daily Entry</h1>
       </div>
 
-      <div class="kpi-grid">
-        <article class="kpi hero">
-          <div class="kpi-top">
-            <span class="kpi-title" data-i18n="kpiProfit">صافي الربح</span>
-            <span class="kpi-icon i-pro" aria-hidden="true">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
-            </span>
-          </div>
-          <div class="kpi-value"><span class="num" id="valProfit">0.00</span></div>
-          <div class="kpi-sub">
-            <span data-i18n="kpiStatus">الحالة</span>
-            <span class="badge" id="badgeProfit">—</span>
-          </div>
-        </article>
+      <select id="analyticsPeriodSelect" class="period-select" aria-label="Time Period" hidden>
+        <option value="30d" data-i18n="last30Days">آخر 30 يوم</option>
+        <option value="7d" data-i18n="last7Days">آخر 7 أيام</option>
+        <option value="today" data-i18n="today">اليوم</option>
+        <option value="month" data-i18n="thisMonth">هذا الشهر</option>
+        <option value="all" data-i18n="allTime">كل الأوقات</option>
+      </select>
+    </div>
+  </header>
 
-        <article class="kpi">
-          <div class="kpi-top">
-            <span class="kpi-title" data-i18n="kpiRevenue">إجمالي الإيرادات</span>
-            <span class="kpi-icon i-rev" aria-hidden="true">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
-            </span>
-          </div>
-          <div class="kpi-value"><span class="num" id="valRevenue">0.00</span></div>
-          <div class="kpi-sub">
-            <span data-i18n="kpiRecords">عدد السجلات</span>
-            <strong class="num" id="valCount">0</strong>
-          </div>
-        </article>
-
-        <article class="kpi">
-          <div class="kpi-top">
-            <span class="kpi-title" data-i18n="kpiOrders">الطلبات المسلّمة</span>
-            <span class="kpi-icon i-ord" aria-hidden="true">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-            </span>
-          </div>
-          <div class="kpi-value"><span class="num" id="valOrders">0</span></div>
-          <div class="kpi-sub">
-            <span data-i18n="kpiAov">متوسط قيمة الطلب</span>
-            <strong class="num" id="valAov">0.00</strong>
-          </div>
-        </article>
-
-        <article class="kpi">
-          <div class="kpi-top">
-            <span class="kpi-title" data-i18n="kpiExpenses">إجمالي المصاريف</span>
-            <span class="kpi-icon i-exp" aria-hidden="true">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-            </span>
-          </div>
-          <div class="kpi-value"><span class="num" id="valExpenses">0.00</span></div>
-          <div class="kpi-sub">
-            <span><span data-i18n="cogs">تكلفة المنتجات</span>: <strong class="num" id="valCogs">0.00</strong></span>
-            <span><span data-i18n="ads">الإعلانات</span>: <strong class="num" id="valAds">0.00</strong></span>
-          </div>
-        </article>
-
-        <article class="kpi">
-          <div class="kpi-top">
-            <span class="kpi-title" data-i18n="kpiMargin">هامش الربح الصافي</span>
-            <span class="kpi-icon i-mar" aria-hidden="true">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
-            </span>
-          </div>
-          <div class="kpi-value"><span class="num" id="valMargin">0.0%</span></div>
-          <div class="kpi-sub">
-            <span data-i18n="roas">العائد على الإعلان</span>
-            <strong class="num" id="valRoas">0.00x</strong>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ================= PAGE 2: ADD ENTRY ================= -->
-    <section class="page" data-page="add" aria-labelledby="hAdd" hidden>
-      <div class="page-head">
-        <h2 id="hAdd" data-i18n="addTitle">سجل يومي جديد</h2>
-        <p data-i18n="addSub">أدخل بيانات المنتج أو الحملة لهذا اليوم</p>
+  <main class="app-container">
+    <!-- ==================== TAB 1: DASHBOARD ==================== -->
+    <section class="page" data-page="dashboard">
+      <div class="date-filter-bar" id="dashPeriodBar">
+        <button type="button" class="date-pill" data-period="today" data-i18n="today">اليوم</button>
+        <span class="date-sep">|</span>
+        <button type="button" class="date-pill" data-period="7d" data-i18n="d7">7 أيام</button>
+        <span class="date-sep">|</span>
+        <button type="button" class="date-pill active" data-period="30d" data-i18n="d30">30 يوم</button>
+        <span class="date-sep">|</span>
+        <button type="button" class="date-pill" data-period="month" data-i18n="month">الشهر</button>
       </div>
 
-      <div class="panel">
-        <form id="entryForm" class="form" autocomplete="off" novalidate>
-          <div class="field">
-            <label class="field-label" for="inpProduct"><span data-i18n="lblProduct">اسم المنتج / الحملة</span></label>
-            <input class="input" type="text" id="inpProduct" maxlength="120" required data-i18n-ph="phProduct" />
-          </div>
-
-          <div class="row-2">
-            <div class="field">
-              <label class="field-label" for="inpPrice"><span data-i18n="lblPrice">سعر بيع الوحدة</span><span class="hint" data-currency-hint>د.م</span></label>
-              <input class="input" type="number" inputmode="decimal" id="inpPrice" min="0" step="0.01" required placeholder="0.00" />
-            </div>
-            <div class="field">
-              <label class="field-label" for="inpCost"><span data-i18n="lblCost">تكلفة الوحدة (COGS)</span><span class="hint" data-currency-hint>د.م</span></label>
-              <input class="input" type="number" inputmode="decimal" id="inpCost" min="0" step="0.01" required placeholder="0.00" />
-            </div>
-          </div>
-
-          <div class="row-2">
-            <div class="field">
-              <label class="field-label" for="inpQty"><span data-i18n="lblQty">الطلبات المسلّمة</span></label>
-              <input class="input" type="number" inputmode="numeric" id="inpQty" min="0" step="1" required placeholder="0" />
-            </div>
-            <div class="field">
-              <label class="field-label" for="inpAds"><span data-i18n="lblAds">الإنفاق الإعلاني اليومي</span><span class="hint" data-currency-hint>د.م</span></label>
-              <input class="input" type="number" inputmode="decimal" id="inpAds" min="0" step="0.01" required placeholder="0.00" />
-            </div>
-          </div>
-
-          <div class="field">
-            <label class="field-label" for="inpDate"><span data-i18n="lblDate">التاريخ</span></label>
-            <input class="input" type="date" id="inpDate" required />
-          </div>
-
-          <div class="preview" aria-live="polite">
-            <div><span data-i18n="prevRevenue">الإيرادات</span><span class="num" id="prevRevenue">0.00</span></div>
-            <div><span data-i18n="prevCost">التكلفة الكلية</span><span class="num" id="prevCost">0.00</span></div>
-            <div><span data-i18n="prevProfit">صافي الربح</span><span class="num" id="prevProfit">0.00</span></div>
-          </div>
-
-          <button type="submit" class="btn btn-primary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span data-i18n="btnAdd">حفظ السجل</span>
-          </button>
-        </form>
-      </div>
-    </section>
-
-    <!-- ================= PAGE 3: LEDGER ================= -->
-    <section class="page" data-page="ledger" aria-labelledby="hLedger" hidden>
-      <div class="page-head">
-        <h2 id="hLedger" data-i18n="ledgerTitle">سجل العمليات</h2>
-        <p data-i18n="ledgerSub">كل السجلات المحفوظة على هذا الجهاز</p>
-      </div>
-
-      <div class="toolbar">
-        <div class="search">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input class="input" type="search" id="searchInput" data-i18n-ph="phSearch" />
+      <!-- Hero Emerald Gradient Card -->
+      <article class="hero-card">
+        <div class="hero-top">
+          <span class="hero-label" data-i18n="netProfitLabel">صافي الربح:</span>
+          <span class="hero-pct-badge num" id="heroMarginBadge">+0.0%</span>
         </div>
-        <button type="button" class="btn btn-ghost" id="btnExport">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          <span data-i18n="exportCsv">تصدير CSV</span>
+        <div class="hero-value"><span class="num" id="valNetProfit">+0.00 د.م</span></div>
+        <svg class="hero-spark" id="heroSparkSvg" viewBox="0 0 320 64" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#10B981" stop-opacity="0.38" />
+              <stop offset="100%" stop-color="#10B981" stop-opacity="0.0" />
+            </linearGradient>
+          </defs>
+          <path id="heroSparkArea" d="M0,52 L320,52 L320,64 L0,64 Z" fill="url(#sparkFill)"></path>
+          <path id="heroSparkLine" d="M0,52 L320,52" fill="none" stroke="#34D399" stroke-width="2.6" stroke-linecap="round"></path>
+        </svg>
+      </article>
+
+      <!-- 4-Card KPI Grid -->
+      <div class="kpi-grid-4">
+        <article class="kpi-box">
+          <span class="kpi-box-label" data-i18n="revenue">الإيرادات</span>
+          <strong class="kpi-box-val num" id="valRevenue">0.00 د.م</strong>
+        </article>
+
+        <article class="kpi-box">
+          <span class="kpi-box-label" data-i18n="deliveryRate">نسبة التوصيل</span>
+          <strong class="kpi-box-val num" id="valDeliveryRate">0%</strong>
+        </article>
+
+        <article class="kpi-box">
+          <span class="kpi-box-label" data-i18n="adSpend">الإنفاق الإعلاني</span>
+          <strong class="kpi-box-val num" id="valAdSpend">0.00 د.م</strong>
+        </article>
+
+        <article class="kpi-box">
+          <span class="kpi-box-label" data-i18n="roas">العائد ROAS</span>
+          <strong class="kpi-box-val num" id="valRoas">0.0x</strong>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 2: ADD DAILY ENTRY (COD) ==================== -->
+    <section class="page" data-page="add" hidden>
+      <form id="codForm" class="cod-form" autocomplete="off" novalidate>
+        <div class="grid-2">
+          <div class="form-field">
+            <label class="form-label" for="inpProduct" data-i18n="lblProduct">المنتج / الحملة</label>
+            <div class="input-wrap">
+              <input type="text" id="inpProduct" list="productSuggestions" class="input-clean" required data-i18n-ph="phProduct" placeholder="Smart Watch Ultra" />
+              <datalist id="productSuggestions"></datalist>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="inpPlatform" data-i18n="lblPlatform">منصة الإعلان</label>
+            <div class="input-wrap">
+              <select id="inpPlatform" class="input-clean" style="cursor:pointer;">
+                <option value="TikTok">TikTok Ads</option>
+                <option value="Meta Ads">Meta / Facebook</option>
+                <option value="Snapchat">Snapchat Ads</option>
+                <option value="Google Ads">Google Ads</option>
+                <option value="Organic">Organic / Store</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-field">
+            <label class="form-label" for="inpPrice" data-i18n="lblSellingPrice">سعر البيع</label>
+            <div class="input-wrap">
+              <input type="number" inputmode="decimal" id="inpPrice" class="input-clean num" min="0" step="0.01" required placeholder="0" />
+              <span class="unit-tag" data-cur-tag>د.م</span>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="inpCogs" data-i18n="lblUnitCost">تكلفة المنتج (COGS)</label>
+            <div class="input-wrap">
+              <input type="number" inputmode="decimal" id="inpCogs" class="input-clean num" min="0" step="0.01" required placeholder="0" />
+              <span class="unit-tag" data-cur-tag>د.م</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-field">
+            <label class="form-label" for="inpConfirmed" data-i18n="lblConfirmed">الطلبات المؤكدة</label>
+            <div class="input-wrap">
+              <input type="number" inputmode="numeric" id="inpConfirmed" class="input-clean num" min="0" step="1" required placeholder="0" />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="inpDelivered" data-i18n="lblDelivered">الطلبات المسلّمة</label>
+            <div class="input-wrap">
+              <input type="number" inputmode="numeric" id="inpDelivered" class="input-clean num" min="0" step="1" required placeholder="0" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Auto Delivery Rate & Returned Orders Bar -->
+        <div class="cod-auto-bar">
+          <span><span data-i18n="deliveryRate">نسبة التوصيل</span>: <strong class="num" id="formDelivRate">0%</strong></span>
+          <span><span data-i18n="returnedOrders">المرتجعات (Retour)</span>: <strong class="num" id="formReturnedQty">0</strong></span>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-field">
+            <label class="form-label" for="inpLivraison" data-i18n="lblLivraison">التوصيل والكول سنتر</label>
+            <div class="input-wrap">
+              <input type="number" inputmode="decimal" id="inpLivraison" class="input-clean num" min="0" step="0.01" placeholder="0" />
+              <span class="unit-tag" data-cur-tag>د.م</span>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="inpAdSpend" data-i18n="lblAdSpend">الإنفاق الإعلاني</label>
+            <div class="input-wrap">
+              <input type="number" inputmode="decimal" id="inpAdSpend" class="input-clean num" min="0" step="0.01" required placeholder="0" />
+              <span class="unit-tag" id="adSpendUnitTag">د.م</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="usd-toggle-row">
+          <span class="usd-converted-hint num" id="usdConvertedHint"></span>
+          <span class="usd-toggle-label">USD $ / MAD</span>
+          <label class="switch">
+            <input type="checkbox" id="usdAdToggle" />
+            <span class="switch-track"></span>
+          </label>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-field">
+            <label class="form-label" for="inpReturnCost" data-i18n="lblReturnCost">تكلفة المرتجعات والتغليف</label>
+            <div class="input-wrap">
+              <input type="number" inputmode="decimal" id="inpReturnCost" class="input-clean num" min="0" step="0.01" placeholder="0" />
+              <span class="unit-tag" data-cur-tag>د.م</span>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="inpDate" data-i18n="lblDate">التاريخ</label>
+            <div class="input-wrap">
+              <input type="date" id="inpDate" class="input-clean num" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="live-profit-banner" id="liveProfitBanner">
+          <span data-i18n="liveEstProfit">صافي الربح المتوقع:</span>
+          <strong class="num" id="liveProfitValue">+0.00 د.م</strong>
+        </div>
+
+        <button type="submit" class="btn-save-entry" data-i18n="btnSaveEntry">حفظ المعاملة</button>
+      </form>
+    </section>
+
+    <!-- ==================== TAB 3: PRODUCTS & CAMPAIGNS ==================== -->
+    <section class="page" data-page="products" hidden>
+      <div class="search-filter-row">
+        <div class="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="search" id="prodSearchInput" data-i18n-ph="phSearch" placeholder="بحث..." />
+        </div>
+
+        <select id="prodPlatformFilter" class="filter-pill-btn" aria-label="Filter Platform">
+          <option value="all" data-i18n="filterAll">الكل</option>
+          <option value="TikTok">TikTok</option>
+          <option value="Meta Ads">Meta Ads</option>
+          <option value="Snapchat">Snapchat</option>
+          <option value="Google Ads">Google Ads</option>
+        </select>
+      </div>
+
+      <div class="product-list" id="productsList"></div>
+
+      <div class="empty-box" id="productsEmpty">
+        <div class="empty-circle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+        </div>
+        <strong data-i18n="emptyProductsTitle">لا توجد منتجات أو حملات بعد</strong>
+        <p data-i18n="emptyProductsSub">اضغط على زر (+) الأخضر في الأسفل لإضافة أول معاملة يومية.</p>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 4: ANALYTICS ==================== -->
+    <section class="page" data-page="analytics" hidden>
+      <div class="analytics-stack">
+        <!-- Monthly Net Profit Trend -->
+        <article class="analytics-card">
+          <h3 data-i18n="monthlyProfitTrend">منحنى صافي الربح</h3>
+          <div class="trend-chart-wrap">
+            <svg class="trend-svg" id="analyticsTrendSvg" viewBox="0 0 340 175"></svg>
+          </div>
+        </article>
+
+        <!-- Expense Breakdown Donut -->
+        <article class="analytics-card">
+          <h3 data-i18n="expenseBreakdown">تفصيل المصاريف</h3>
+          <div class="donut-layout">
+            <svg class="donut-svg" id="expenseDonutSvg" viewBox="0 0 42 42">
+              <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="var(--bg-elevated)" stroke-width="6"></circle>
+              <circle id="donutSegCogs" cx="21" cy="21" r="15.915" fill="transparent" stroke="#10B981" stroke-width="6" stroke-dasharray="0 100" stroke-dashoffset="0"></circle>
+              <circle id="donutSegAds" cx="21" cy="21" r="15.915" fill="transparent" stroke="#0284C7" stroke-width="6" stroke-dasharray="0 100" stroke-dashoffset="0"></circle>
+              <circle id="donutSegLiv" cx="21" cy="21" r="15.915" fill="transparent" stroke="#64748B" stroke-width="6" stroke-dasharray="0 100" stroke-dashoffset="0"></circle>
+              <circle id="donutSegRet" cx="21" cy="21" r="15.915" fill="transparent" stroke="#334155" stroke-width="6" stroke-dasharray="0 100" stroke-dashoffset="0"></circle>
+            </svg>
+
+            <div class="donut-legend">
+              <div class="legend-item">
+                <span class="legend-left"><span class="legend-dot" style="background:#10B981"></span><span data-i18n="legCogs">السلعة COGS</span></span>
+                <strong class="num" id="pctCogs">0%</strong>
+              </div>
+              <div class="legend-item">
+                <span class="legend-left"><span class="legend-dot" style="background:#0284C7"></span><span data-i18n="legAds">الإعلانات Ads</span></span>
+                <strong class="num" id="pctAds">0%</strong>
+              </div>
+              <div class="legend-item">
+                <span class="legend-left"><span class="legend-dot" style="background:#64748B"></span><span data-i18n="legLiv">التوصيل Livraison</span></span>
+                <strong class="num" id="pctLiv">0%</strong>
+              </div>
+              <div class="legend-item">
+                <span class="legend-left"><span class="legend-dot" style="background:#334155"></span><span data-i18n="legRet">المرتجع Returns</span></span>
+                <strong class="num" id="pctRet">0%</strong>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Best Platform ROAS -->
+        <article class="analytics-card">
+          <h3 data-i18n="bestPlatform">أفضل منصة إعلانية</h3>
+          <div class="platform-bars" id="platformBarsList"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 5: LEDGER ==================== -->
+    <section class="page" data-page="ledger" hidden>
+      <div class="search-filter-row">
+        <div class="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="search" id="ledgerSearchInput" data-i18n-ph="phSearch" placeholder="بحث..." />
+        </div>
+      </div>
+
+      <div class="filter-pills-row" id="ledgerStatusFilters">
+        <button type="button" class="filter-chip active" data-filter="all">
+          <span>⊞</span> <span data-i18n="filterAll">الكل</span>
+        </button>
+        <button type="button" class="filter-chip" data-filter="profit">
+          <span>↗</span> <span data-i18n="filterProfitable">رابحة</span>
+        </button>
+        <button type="button" class="filter-chip" data-filter="loss">
+          <span>↘</span> <span data-i18n="filterLoss">خاسرة</span>
         </button>
       </div>
 
-      <div class="ledger-meta" id="ledgerMeta"></div>
-      <div class="entries" id="entryList"></div>
+      <div class="export-actions-row">
+        <button type="button" class="btn-export-main" id="btnExportCsv">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span data-i18n="btnExportPdfExcel">تصدير PDF / Excel</span>
+        </button>
 
-      <div class="empty" id="emptyState" hidden>
-        <div class="empty-icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
-        </div>
-        <strong data-i18n="emptyTitle">لا توجد سجلات بعد</strong>
-        <p data-i18n="emptySub">ابدأ بإضافة أول سجل يومي لتتبع أرباحك.</p>
-        <button type="button" class="btn btn-primary" data-goto="add">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-          <span data-i18n="emptyCta">إضافة أول سجل</span>
+        <button type="button" class="btn-whatsapp" id="btnShareWhatsApp" title="WhatsApp Report">
+          <span>WhatsApp</span>
         </button>
       </div>
 
-      <div class="empty" id="noResults" hidden>
-        <strong data-i18n="noResults">لا توجد نتائج مطابقة لبحثك.</strong>
+      <div class="ledger-cards" id="ledgerCardsList"></div>
+
+      <div class="empty-box" id="ledgerEmpty">
+        <div class="empty-circle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </div>
+        <strong data-i18n="emptyLedgerTitle">السجل فارغ حالياً</strong>
+        <p data-i18n="emptyLedgerSub">اضغط على الزر الأخضر (+) لإضافة معاملاتك اليومية.</p>
       </div>
     </section>
 
-    <!-- ================= PAGE 4: SETTINGS ================= -->
-    <section class="page" data-page="settings" aria-labelledby="hSettings" hidden>
-      <div class="page-head">
-        <h2 id="hSettings" data-i18n="settingsTitle">الإعدادات</h2>
-        <p data-i18n="settingsSub">خصّص التطبيق حسب تفضيلاتك</p>
+    <!-- ==================== TAB 6: SETTINGS ==================== -->
+    <section class="page" data-page="settings" hidden>
+      <div class="pro-banner">
+        <h3>ProfitPulse Pro — 29 د.م/mo</h3>
+        <p data-i18n="proSub">نسخ احتياطي سحابي وتحليلات غير محدودة لمتاجر COD</p>
+        <button type="button" class="pro-pill-btn" id="btnBackupJson">
+          <span data-i18n="btnExportBackup">حفظ نسخة احتياطية</span>
+        </button>
       </div>
 
-      <div class="settings">
-        <div class="set-group">
-          <h3 data-i18n="language">اللغة</h3>
-          <div class="set-row stack">
-            <div class="set-text"><span data-i18n="languageHint">لغة الواجهة واتجاه الكتابة</span></div>
-            <select id="langSelect" class="field-select" aria-label="Language">
-              <option value="ar">العربية</option>
-              <option value="en">English</option>
-              <option value="fr">Français</option>
-              <option value="es">Español</option>
-              <option value="de">Deutsch</option>
-              <option value="pt">Português</option>
-              <option value="tr">Türkçe</option>
-              <option value="zh">中文</option>
-            </select>
+      <div class="settings-card">
+        <!-- Language -->
+        <div class="setting-item">
+          <div class="setting-left">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <strong data-i18n="setLanguage">اللغة</strong>
+          </div>
+          <div class="lang-Segmented" id="langQuickBar">
+            <button type="button" class="lang-btn active" data-lang="ar">العربية</button>
+            <button type="button" class="lang-btn" data-lang="fr">FR</button>
+            <button type="button" class="lang-btn" data-lang="en">EN</button>
           </div>
         </div>
 
-        <div class="set-group">
-          <h3 data-i18n="appearance">المظهر</h3>
-          <div class="set-row">
-            <div class="set-text">
-              <strong data-i18n="darkMode">الوضع الليلي</strong>
-              <span data-i18n="darkModeHint">إيقافه يفعّل الوضع النهاري</span>
-            </div>
-            <label class="switch">
-              <input type="checkbox" id="themeSwitch" role="switch" aria-label="Dark mode" checked />
-              <span class="track"></span>
-            </label>
+        <!-- USD to MAD Rate -->
+        <div class="setting-item">
+          <div class="setting-left">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+            <strong data-i18n="setUsdRate">سعر صرف الدولار (USD → MAD)</strong>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.35rem;">
+            <input type="number" step="0.01" min="0.1" id="inpUsdRate" class="rate-input" value="10.20" />
+            <span class="unit-tag">د.م</span>
           </div>
         </div>
 
-        <div class="set-group">
-          <h3 data-i18n="dataTitle">البيانات</h3>
-          <div class="set-row stack">
-            <div class="set-text">
-              <strong data-i18n="clearAll">مسح جميع البيانات</strong>
-              <span data-i18n="clearHint">حذف كل السجلات المحفوظة على هذا الجهاز نهائياً</span>
-            </div>
-            <button type="button" class="btn btn-danger" id="btnClearAll">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-              <span data-i18n="clearAll">مسح جميع البيانات</span>
+        <!-- Google Drive / JSON Restore -->
+        <div class="setting-item">
+          <div class="setting-left">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 19 22 19 12 2"></polygon></svg>
+            <strong data-i18n="setGDrive">Google Drive / استرجاع</strong>
+          </div>
+          <div>
+            <input type="file" id="inpRestoreFile" accept=".json" hidden />
+            <button type="button" class="sync-btn" id="btnRestoreJson">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+              <span data-i18n="btnSync">مزامنة</span>
             </button>
           </div>
         </div>
 
-        <p class="app-foot">ProfitPulse · <span class="num">v2.0</span></p>
+        <!-- Dark Mode -->
+        <div class="setting-item">
+          <div class="setting-left">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <strong data-i18n="setDarkMode">الوضع الليلي (Dark Mode)</strong>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="themeToggleSwitch" checked />
+            <span class="switch-track"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Danger Zone -->
+      <div class="danger-zone">
+        <div class="danger-zone-text">
+          <strong data-i18n="dangerTitle">منطقة الخطر (مسح البيانات)</strong>
+          <span data-i18n="dangerSub">حذف جميع المعاملات المسجلة نهائياً</span>
+        </div>
+        <button type="button" class="btn-danger-open" id="btnOpenDeleteModal" data-i18n="btnClearData">مسح الكل</button>
       </div>
     </section>
   </main>
 
-  <!-- ================= BOTTOM NAV ================= -->
-  <nav class="bottom-nav" aria-label="Main">
-    <div class="nav-inner" id="bottomNav">
-      <button type="button" class="nav-tab active" data-page="summary" aria-current="page">
-        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"></rect><rect x="14" y="3" width="7" height="5" rx="1.5"></rect><rect x="14" y="12" width="7" height="9" rx="1.5"></rect><rect x="3" y="16" width="7" height="5" rx="1.5"></rect></svg>
-        <span data-i18n="navSummary">الملخص</span>
+  <!-- DELETE CONFIRMATION MODAL (Requires typing DELETE) -->
+  <div class="modal-backdrop" id="deleteModal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <h3 data-i18n="modalDeleteTitle">تأكيد مسح جميع البيانات</h3>
+      <p data-i18n="modalDeleteDesc">اكتب كلمة DELETE بالحروف الكبيرة لتأكيد الحذف النهائي:</p>
+      <div class="input-wrap">
+        <input type="text" id="inpConfirmDeleteWord" class="input-clean num" placeholder="DELETE" autocomplete="off" />
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="filter-chip" id="btnCancelDelete" data-i18n="btnCancel">إلغاء</button>
+        <button type="button" class="btn-danger-open" id="btnConfirmDelete" data-i18n="btnConfirmWipe">حذف نهائي</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAVIGATION BAR (4 Tabs + Centered Floating Green "+") -->
+  <nav class="bottom-nav" aria-label="Bottom Navigation">
+    <div class="bottom-nav-inner" id="bottomNav">
+      <button type="button" class="nav-item active" data-nav="dashboard">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <span data-i18n="navDashboard">الرئيسية</span>
       </button>
-      <button type="button" class="nav-tab" data-page="add">
-        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-        <span data-i18n="navAdd">إضافة سجل</span>
+
+      <button type="button" class="nav-item" data-nav="analytics">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="8" y1="16" x2="8" y2="12"></line><line x1="12" y1="16" x2="12" y2="8"></line><line x1="16" y1="16" x2="16" y2="11"></line></svg>
+        <span data-i18n="navAnalytics">التحليلات</span>
       </button>
-      <button type="button" class="nav-tab" data-page="ledger">
-        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+
+      <div class="fab-wrap">
+        <button type="button" class="fab-add" id="btnFabAdd" aria-label="Add Daily Entry">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+      </div>
+
+      <button type="button" class="nav-item" data-nav="products">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+        <span data-i18n="navProducts">المنتجات</span>
+      </button>
+
+      <button type="button" class="nav-item" data-nav="ledger">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
         <span data-i18n="navLedger">السجل</span>
-      </button>
-      <button type="button" class="nav-tab" data-page="settings">
-        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
-        <span data-i18n="navSettings">الإعدادات</span>
       </button>
     </div>
   </nav>
 
-  <div class="toasts" id="toasts" aria-live="polite"></div>
+  <div class="toast-area" id="toastArea" aria-live="polite"></div>
 
   <script>
     (() => {
       "use strict";
 
-      const KEYS = {
-        entries: "profitpulse_entries_v2",
-        theme: "profitpulse_theme_v2",
-        lang: "profitpulse_lang_v2",
-        currency: "profitpulse_currency_v2",
-        page: "profitpulse_page_v2"
+      const STORAGE_KEYS = {
+        ENTRIES: "profitpulse_cod_entries_v3",
+        THEME: "profitpulse_theme_v3",
+        LANG: "profitpulse_lang_v3",
+        CURRENCY: "profitpulse_currency_v3",
+        USD_RATE: "profitpulse_usd_rate_v3"
       };
-
-      const PAGES = ["summary", "add", "ledger", "settings"];
 
       const CURRENCIES = {
         MAD: { symbol: "د.م", before: false },
@@ -930,272 +1941,292 @@
 
       const I18N = {
         ar: {
-          subtitle: "متتبع أرباح التجارة الإلكترونية",
-          navSummary: "الملخص", navAdd: "إضافة سجل", navLedger: "السجل", navSettings: "الإعدادات",
-          summaryTitle: "ملخص الأداء", summarySub: "نظرة سريعة على أرباحك ومصاريفك",
-          kpiRevenue: "إجمالي الإيرادات", kpiRecords: "عدد السجلات", kpiOrders: "الطلبات المسلّمة", kpiAov: "متوسط قيمة الطلب",
-          kpiExpenses: "إجمالي المصاريف", cogs: "تكلفة المنتجات", ads: "الإعلانات",
-          kpiProfit: "صافي الربح", kpiStatus: "الحالة", profitable: "رابح", loss: "خاسر", breakEven: "متعادل",
-          kpiMargin: "هامش الربح الصافي", roas: "العائد على الإعلان",
-          addTitle: "سجل يومي جديد", addSub: "أدخل بيانات المنتج أو الحملة لهذا اليوم",
-          lblProduct: "اسم المنتج / الحملة", phProduct: "مثال: ساعة ذكية — حملة تيك توك",
-          lblPrice: "سعر بيع الوحدة", lblCost: "تكلفة الوحدة (COGS)", lblQty: "الطلبات المسلّمة", lblAds: "الإنفاق الإعلاني اليومي", lblDate: "التاريخ",
-          prevRevenue: "الإيرادات", prevCost: "التكلفة الكلية", prevProfit: "صافي الربح", btnAdd: "حفظ السجل",
-          ledgerTitle: "سجل العمليات", ledgerSub: "كل السجلات المحفوظة على هذا الجهاز",
-          phSearch: "ابحث بالاسم أو التاريخ...", exportCsv: "تصدير CSV",
-          orders: "الطلبات", revenue: "الإيرادات", totalCost: "التكلفة الكلية", netProfit: "صافي الربح", margin: "الهامش",
-          emptyTitle: "لا توجد سجلات بعد", emptySub: "ابدأ بإضافة أول سجل يومي لتتبع أرباحك.", emptyCta: "إضافة أول سجل",
-          noResults: "لا توجد نتائج مطابقة لبحثك.", deleteLabel: "حذف", shown: "معروض",
-          settingsTitle: "الإعدادات", settingsSub: "خصّص التطبيق حسب تفضيلاتك",
-          language: "اللغة", languageHint: "لغة الواجهة واتجاه الكتابة",
-          appearance: "المظهر", darkMode: "الوضع الليلي", darkModeHint: "إيقافه يفعّل الوضع النهاري",
-          dataTitle: "البيانات", clearAll: "مسح جميع البيانات", clearHint: "حذف كل السجلات المحفوظة على هذا الجهاز نهائياً",
-          confirmClear: "هل أنت متأكد من حذف جميع السجلات؟ لا يمكن التراجع عن هذا الإجراء.",
-          invalid: "يرجى ملء جميع الحقول بقيم صحيحة",
-          toastAdded: "تم حفظ السجل بنجاح", toastDeleted: "تم حذف السجل", toastCleared: "تم مسح جميع البيانات",
-          toastExported: "تم تصدير ملف CSV", toastNoData: "لا توجد بيانات للتصدير", toastNothing: "لا توجد بيانات لمسحها"
+          dir: "rtl",
+          titleAdd: "إضافة معاملة يومية",
+          titleProducts: "المنتجات والحملات",
+          titleAnalytics: "التحليلات",
+          titleLedger: "السجل اليومي",
+          titleSettings: "الإعدادات",
+          today: "اليوم",
+          d7: "7 أيام",
+          d30: "30 يوم",
+          month: "الشهر",
+          last30Days: "آخر 30 يوم",
+          last7Days: "آخر 7 أيام",
+          thisMonth: "هذا الشهر",
+          allTime: "كل الأوقات",
+          netProfitLabel: "صافي الربح:",
+          revenue: "الإيرادات",
+          deliveryRate: "نسبة التوصيل",
+          adSpend: "الإنفاق الإعلاني",
+          roas: "العائد ROAS",
+          lblProduct: "المنتج / الحملة",
+          phProduct: "مثال: Smart Watch Ultra",
+          lblPlatform: "منصة الإعلان",
+          lblSellingPrice: "سعر البيع",
+          lblUnitCost: "تكلفة المنتج (COGS)",
+          lblConfirmed: "الطلبات المؤكدة",
+          lblDelivered: "الطلبات المسلّمة",
+          returnedOrders: "المرتجعات (Retour)",
+          lblLivraison: "التوصيل والكول سنتر",
+          lblAdSpend: "الإنفاق الإعلاني",
+          lblReturnCost: "تكلفة المرتجعات والتغليف",
+          lblDate: "التاريخ",
+          liveEstProfit: "صافي الربح المتوقع:",
+          btnSaveEntry: "حفظ المعاملة",
+          phSearch: "بحث عن منتج أو تاريخ...",
+          filterAll: "الكل",
+          filterProfitable: "رابحة",
+          filterLoss: "خاسرة",
+          deliveredWord: "تم التوصيل",
+          returnedWord: "مرتجع",
+          progressWord: "نسبة التسليم",
+          emptyProductsTitle: "لا توجد منتجات أو حملات بعد",
+          emptyProductsSub: "اضغط على زر (+) الأخضر في الأسفل لإضافة أول معاملة يومية.",
+          monthlyProfitTrend: "منحنى صافي الربح",
+          expenseBreakdown: "تفصيل المصاريف",
+          legCogs: "السلعة COGS",
+          legAds: "الإعلانات Ads",
+          legLiv: "التوصيل Livraison",
+          legRet: "المرتجع Returns",
+          bestPlatform: "أفضل منصة إعلانية",
+          btnExportPdfExcel: "تصدير PDF / Excel",
+          emptyLedgerTitle: "السجل فارغ حالياً",
+          emptyLedgerSub: "اضغط على الزر الأخضر (+) لإضافة معاملاتك اليومية.",
+          proSub: "نسخ احتياطي وتحليلات متكاملة لمتاجر الدفع عند الاستلام COD",
+          btnExportBackup: "تصدير نسخة احتياطية JSON",
+          setLanguage: "اللغة",
+          setUsdRate: "سعر صرف الدولار (USD → MAD)",
+          setGDrive: "استرجاع نسخة احتياطية",
+          btnSync: "استيراد ملف",
+          setDarkMode: "الوضع الليلي (Dark Mode)",
+          dangerTitle: "منطقة الخطر (مسح البيانات)",
+          dangerSub: "حذف جميع المعاملات المسجلة نهائياً",
+          btnClearData: "مسح الكل",
+          modalDeleteTitle: "تأكيد مسح جميع البيانات",
+          modalDeleteDesc: "اكتب كلمة DELETE بالحروف الكبيرة لتأكيد الحذف النهائي:",
+          btnCancel: "إلغاء",
+          btnConfirmWipe: "حذف نهائي",
+          navDashboard: "الرئيسية",
+          navAnalytics: "التحليلات",
+          navProducts: "المنتجات",
+          navLedger: "السجل",
+          toastSaved: "تم حفظ المعاملة بنجاح",
+          toastDeleted: "تم حذف المعاملة",
+          toastCleared: "تم مسح جميع البيانات بنجاح",
+          toastInvalid: "يرجى إدخال اسم المنتج والأرقام بشكل صحيح",
+          toastNoExport: "لا توجد معاملات لتصديرها",
+          toastExported: "تم تصدير ملف Excel CSV بنجاح",
+          toastTypeDelete: "يرجى كتابة كلمة DELETE بشكل صحيح للتأكيد"
         },
         en: {
-          subtitle: "E-Commerce Profit Tracker",
-          navSummary: "Summary", navAdd: "Add Entry", navLedger: "Ledger", navSettings: "Settings",
-          summaryTitle: "Performance Summary", summarySub: "A quick look at your profit and spending",
-          kpiRevenue: "Total Revenue", kpiRecords: "Records", kpiOrders: "Delivered Orders", kpiAov: "Avg. order value",
-          kpiExpenses: "Total Expenses", cogs: "Product cost", ads: "Ad spend",
-          kpiProfit: "Net Profit", kpiStatus: "Status", profitable: "Profitable", loss: "Loss", breakEven: "Break-even",
-          kpiMargin: "Net Profit Margin", roas: "Return on ad spend",
-          addTitle: "New Daily Entry", addSub: "Log today's product or campaign numbers",
-          lblProduct: "Product / Campaign name", phProduct: "e.g. Smart Watch — TikTok campaign",
-          lblPrice: "Unit selling price", lblCost: "Unit cost (COGS)", lblQty: "Delivered orders", lblAds: "Daily ad spend", lblDate: "Date",
-          prevRevenue: "Revenue", prevCost: "Total cost", prevProfit: "Net profit", btnAdd: "Save Entry",
-          ledgerTitle: "Ledger", ledgerSub: "All records saved on this device",
-          phSearch: "Search by name or date...", exportCsv: "Export CSV",
-          orders: "Orders", revenue: "Revenue", totalCost: "Total cost", netProfit: "Net profit", margin: "Margin",
-          emptyTitle: "No records yet", emptySub: "Add your first daily entry to start tracking your profit.", emptyCta: "Add first entry",
-          noResults: "No records match your search.", deleteLabel: "Delete", shown: "shown",
-          settingsTitle: "Settings", settingsSub: "Personalize the app to your liking",
-          language: "Language", languageHint: "Interface language and text direction",
-          appearance: "Appearance", darkMode: "Dark mode", darkModeHint: "Turn off to use light mode",
-          dataTitle: "Data", clearAll: "Clear All Data", clearHint: "Permanently delete every record stored on this device",
-          confirmClear: "Delete all records? This action cannot be undone.",
-          invalid: "Please fill in all fields with valid values",
-          toastAdded: "Entry saved", toastDeleted: "Entry deleted", toastCleared: "All data cleared",
-          toastExported: "CSV exported", toastNoData: "No data to export", toastNothing: "There is no data to clear"
+          dir: "ltr",
+          titleAdd: "Add Daily Entry",
+          titleProducts: "Products & Campaigns",
+          titleAnalytics: "Analytics",
+          titleLedger: "Ledger",
+          titleSettings: "Settings",
+          today: "Today",
+          d7: "7D",
+          d30: "30D",
+          month: "Month",
+          last30Days: "Last 30 Days",
+          last7Days: "Last 7 Days",
+          thisMonth: "This Month",
+          allTime: "All Time",
+          netProfitLabel: "Net Profit:",
+          revenue: "Revenue",
+          deliveryRate: "Delivery Rate",
+          adSpend: "Ad Spend",
+          roas: "ROAS",
+          lblProduct: "Product / Campaign",
+          phProduct: "e.g. Smart Watch Ultra",
+          lblPlatform: "Ad Platform",
+          lblSellingPrice: "Selling Price",
+          lblUnitCost: "Unit Cost (COGS)",
+          lblConfirmed: "Confirmed Orders",
+          lblDelivered: "Delivered Orders",
+          returnedOrders: "Returned Orders",
+          lblLivraison: "Livraison & Call Center",
+          lblAdSpend: "Ad Spend",
+          lblReturnCost: "Return & Packaging Cost",
+          lblDate: "Date",
+          liveEstProfit: "Live Estimated Profit:",
+          btnSaveEntry: "Save Entry",
+          phSearch: "Search...",
+          filterAll: "All",
+          filterProfitable: "Profitable",
+          filterLoss: "Loss",
+          deliveredWord: "Delivered",
+          returnedWord: "Returned",
+          progressWord: "Progress",
+          emptyProductsTitle: "No products or campaigns yet",
+          emptyProductsSub: "Tap the green (+) button below to log your first daily COD entry.",
+          monthlyProfitTrend: "Monthly Net Profit Trend",
+          expenseBreakdown: "Expense Breakdown",
+          legCogs: "COGS",
+          legAds: "Ads",
+          legLiv: "Livraison",
+          legRet: "Returns",
+          bestPlatform: "Best Platform",
+          btnExportPdfExcel: "Export PDF / Excel",
+          emptyLedgerTitle: "No ledger entries yet",
+          emptyLedgerSub: "Tap the green (+) button to add your first daily transaction.",
+          proSub: "Local & Cloud Backup & Unlimited COD Analytics",
+          btnExportBackup: "Export Backup JSON",
+          setLanguage: "Language",
+          setUsdRate: "USD to MAD Rate",
+          setGDrive: "Google Drive Backup",
+          btnSync: "Restore",
+          setDarkMode: "Dark Mode",
+          dangerTitle: "Danger Zone",
+          dangerSub: "Permanently wipe all recorded transactions",
+          btnClearData: "Clear All Data",
+          modalDeleteTitle: "Confirm Data Wipe",
+          modalDeleteDesc: "Type DELETE in uppercase to permanently erase all records:",
+          btnCancel: "Cancel",
+          btnConfirmWipe: "Wipe All",
+          navDashboard: "Home",
+          navAnalytics: "Analytics",
+          navProducts: "Products",
+          navLedger: "Ledger",
+          toastSaved: "Daily entry saved",
+          toastDeleted: "Entry deleted",
+          toastCleared: "All data permanently cleared",
+          toastInvalid: "Please enter a product name and valid numbers",
+          toastNoExport: "No entries available to export",
+          toastExported: "CSV / Excel file exported",
+          toastTypeDelete: "Please type DELETE in uppercase to confirm"
         },
         fr: {
-          subtitle: "Suivi des bénéfices e-commerce",
-          navSummary: "Résumé", navAdd: "Ajouter", navLedger: "Journal", navSettings: "Réglages",
-          summaryTitle: "Résumé des performances", summarySub: "Un aperçu rapide de vos bénéfices et dépenses",
-          kpiRevenue: "Chiffre d'affaires", kpiRecords: "Entrées", kpiOrders: "Commandes livrées", kpiAov: "Panier moyen",
-          kpiExpenses: "Dépenses totales", cogs: "Coût produits", ads: "Publicité",
-          kpiProfit: "Bénéfice net", kpiStatus: "Statut", profitable: "Rentable", loss: "Perte", breakEven: "Équilibre",
-          kpiMargin: "Marge nette", roas: "Retour sur pub (ROAS)",
-          addTitle: "Nouvelle entrée", addSub: "Saisissez les chiffres du jour pour un produit ou une campagne",
-          lblProduct: "Produit / Campagne", phProduct: "ex. Montre connectée — campagne TikTok",
-          lblPrice: "Prix de vente unitaire", lblCost: "Coût unitaire (COGS)", lblQty: "Commandes livrées", lblAds: "Budget pub du jour", lblDate: "Date",
-          prevRevenue: "Revenu", prevCost: "Coût total", prevProfit: "Bénéfice net", btnAdd: "Enregistrer",
-          ledgerTitle: "Journal", ledgerSub: "Toutes les entrées enregistrées sur cet appareil",
-          phSearch: "Rechercher par nom ou date...", exportCsv: "Exporter CSV",
-          orders: "Commandes", revenue: "Revenu", totalCost: "Coût total", netProfit: "Bénéfice net", margin: "Marge",
-          emptyTitle: "Aucune entrée pour l'instant", emptySub: "Ajoutez votre première entrée pour suivre vos bénéfices.", emptyCta: "Ajouter une entrée",
-          noResults: "Aucun résultat pour cette recherche.", deleteLabel: "Supprimer", shown: "affichées",
-          settingsTitle: "Réglages", settingsSub: "Personnalisez l'application",
-          language: "Langue", languageHint: "Langue de l'interface et sens d'écriture",
-          appearance: "Apparence", darkMode: "Mode sombre", darkModeHint: "Désactivez pour passer en mode clair",
-          dataTitle: "Données", clearAll: "Effacer toutes les données", clearHint: "Supprime définitivement toutes les entrées de cet appareil",
-          confirmClear: "Supprimer toutes les entrées ? Cette action est irréversible.",
-          invalid: "Veuillez remplir tous les champs avec des valeurs valides",
-          toastAdded: "Entrée enregistrée", toastDeleted: "Entrée supprimée", toastCleared: "Toutes les données ont été effacées",
-          toastExported: "CSV exporté", toastNoData: "Aucune donnée à exporter", toastNothing: "Aucune donnée à effacer"
-        },
-        es: {
-          subtitle: "Control de beneficios e-commerce",
-          navSummary: "Resumen", navAdd: "Añadir", navLedger: "Registro", navSettings: "Ajustes",
-          summaryTitle: "Resumen de rendimiento", summarySub: "Un vistazo rápido a tus beneficios y gastos",
-          kpiRevenue: "Ingresos totales", kpiRecords: "Registros", kpiOrders: "Pedidos entregados", kpiAov: "Ticket medio",
-          kpiExpenses: "Gastos totales", cogs: "Coste producto", ads: "Publicidad",
-          kpiProfit: "Beneficio neto", kpiStatus: "Estado", profitable: "Rentable", loss: "Pérdida", breakEven: "Equilibrio",
-          kpiMargin: "Margen neto", roas: "Retorno publicitario (ROAS)",
-          addTitle: "Nuevo registro diario", addSub: "Introduce los datos de hoy de un producto o campaña",
-          lblProduct: "Producto / Campaña", phProduct: "ej. Reloj inteligente — campaña TikTok",
-          lblPrice: "Precio de venta unitario", lblCost: "Coste unitario (COGS)", lblQty: "Pedidos entregados", lblAds: "Gasto publicitario diario", lblDate: "Fecha",
-          prevRevenue: "Ingresos", prevCost: "Coste total", prevProfit: "Beneficio neto", btnAdd: "Guardar registro",
-          ledgerTitle: "Registro", ledgerSub: "Todos los registros guardados en este dispositivo",
-          phSearch: "Buscar por nombre o fecha...", exportCsv: "Exportar CSV",
-          orders: "Pedidos", revenue: "Ingresos", totalCost: "Coste total", netProfit: "Beneficio neto", margin: "Margen",
-          emptyTitle: "Aún no hay registros", emptySub: "Añade tu primer registro diario para empezar a seguir tus beneficios.", emptyCta: "Añadir primer registro",
-          noResults: "Ningún registro coincide con tu búsqueda.", deleteLabel: "Eliminar", shown: "mostrados",
-          settingsTitle: "Ajustes", settingsSub: "Personaliza la aplicación a tu gusto",
-          language: "Idioma", languageHint: "Idioma de la interfaz y dirección del texto",
-          appearance: "Apariencia", darkMode: "Modo oscuro", darkModeHint: "Desactívalo para usar el modo claro",
-          dataTitle: "Datos", clearAll: "Borrar todos los datos", clearHint: "Elimina permanentemente todos los registros de este dispositivo",
-          confirmClear: "¿Eliminar todos los registros? Esta acción no se puede deshacer.",
-          invalid: "Completa todos los campos con valores válidos",
-          toastAdded: "Registro guardado", toastDeleted: "Registro eliminado", toastCleared: "Todos los datos se han borrado",
-          toastExported: "CSV exportado", toastNoData: "No hay datos para exportar", toastNothing: "No hay datos que borrar"
-        },
-        de: {
-          subtitle: "E-Commerce Gewinn-Tracker",
-          navSummary: "Übersicht", navAdd: "Eintrag", navLedger: "Journal", navSettings: "Einstellungen",
-          summaryTitle: "Leistungsübersicht", summarySub: "Gewinn und Ausgaben auf einen Blick",
-          kpiRevenue: "Gesamtumsatz", kpiRecords: "Einträge", kpiOrders: "Gelieferte Bestellungen", kpiAov: "Ø Bestellwert",
-          kpiExpenses: "Gesamtausgaben", cogs: "Produktkosten", ads: "Werbung",
-          kpiProfit: "Nettogewinn", kpiStatus: "Status", profitable: "Profitabel", loss: "Verlust", breakEven: "Break-even",
-          kpiMargin: "Nettogewinnmarge", roas: "Werberendite (ROAS)",
-          addTitle: "Neuer Tageseintrag", addSub: "Erfasse die heutigen Zahlen für ein Produkt oder eine Kampagne",
-          lblProduct: "Produkt / Kampagne", phProduct: "z. B. Smartwatch — TikTok-Kampagne",
-          lblPrice: "Verkaufspreis pro Stück", lblCost: "Stückkosten (COGS)", lblQty: "Gelieferte Bestellungen", lblAds: "Tägliche Werbeausgaben", lblDate: "Datum",
-          prevRevenue: "Umsatz", prevCost: "Gesamtkosten", prevProfit: "Nettogewinn", btnAdd: "Eintrag speichern",
-          ledgerTitle: "Journal", ledgerSub: "Alle auf diesem Gerät gespeicherten Einträge",
-          phSearch: "Nach Name oder Datum suchen...", exportCsv: "CSV exportieren",
-          orders: "Bestellungen", revenue: "Umsatz", totalCost: "Gesamtkosten", netProfit: "Nettogewinn", margin: "Marge",
-          emptyTitle: "Noch keine Einträge", emptySub: "Füge deinen ersten Tageseintrag hinzu, um deinen Gewinn zu verfolgen.", emptyCta: "Ersten Eintrag hinzufügen",
-          noResults: "Keine Einträge entsprechen deiner Suche.", deleteLabel: "Löschen", shown: "angezeigt",
-          settingsTitle: "Einstellungen", settingsSub: "Passe die App an deine Wünsche an",
-          language: "Sprache", languageHint: "Sprache der Oberfläche und Schreibrichtung",
-          appearance: "Darstellung", darkMode: "Dunkler Modus", darkModeHint: "Ausschalten für hellen Modus",
-          dataTitle: "Daten", clearAll: "Alle Daten löschen", clearHint: "Löscht alle auf diesem Gerät gespeicherten Einträge dauerhaft",
-          confirmClear: "Alle Einträge löschen? Dies kann nicht rückgängig gemacht werden.",
-          invalid: "Bitte alle Felder mit gültigen Werten ausfüllen",
-          toastAdded: "Eintrag gespeichert", toastDeleted: "Eintrag gelöscht", toastCleared: "Alle Daten gelöscht",
-          toastExported: "CSV exportiert", toastNoData: "Keine Daten zum Exportieren", toastNothing: "Keine Daten zum Löschen"
-        },
-        pt: {
-          subtitle: "Controle de lucro e-commerce",
-          navSummary: "Resumo", navAdd: "Adicionar", navLedger: "Registros", navSettings: "Ajustes",
-          summaryTitle: "Resumo de desempenho", summarySub: "Uma visão rápida do seu lucro e despesas",
-          kpiRevenue: "Receita total", kpiRecords: "Registros", kpiOrders: "Pedidos entregues", kpiAov: "Ticket médio",
-          kpiExpenses: "Despesas totais", cogs: "Custo do produto", ads: "Anúncios",
-          kpiProfit: "Lucro líquido", kpiStatus: "Status", profitable: "Lucrativo", loss: "Prejuízo", breakEven: "Equilíbrio",
-          kpiMargin: "Margem líquida", roas: "Retorno sobre anúncios (ROAS)",
-          addTitle: "Novo registro diário", addSub: "Informe os números de hoje de um produto ou campanha",
-          lblProduct: "Produto / Campanha", phProduct: "ex. Smartwatch — campanha TikTok",
-          lblPrice: "Preço de venda unitário", lblCost: "Custo unitário (COGS)", lblQty: "Pedidos entregues", lblAds: "Gasto diário com anúncios", lblDate: "Data",
-          prevRevenue: "Receita", prevCost: "Custo total", prevProfit: "Lucro líquido", btnAdd: "Salvar registro",
-          ledgerTitle: "Registros", ledgerSub: "Todos os registros salvos neste dispositivo",
-          phSearch: "Pesquisar por nome ou data...", exportCsv: "Exportar CSV",
-          orders: "Pedidos", revenue: "Receita", totalCost: "Custo total", netProfit: "Lucro líquido", margin: "Margem",
-          emptyTitle: "Nenhum registro ainda", emptySub: "Adicione seu primeiro registro diário para acompanhar seu lucro.", emptyCta: "Adicionar primeiro registro",
-          noResults: "Nenhum registro corresponde à sua pesquisa.", deleteLabel: "Excluir", shown: "exibidos",
-          settingsTitle: "Ajustes", settingsSub: "Personalize o aplicativo do seu jeito",
-          language: "Idioma", languageHint: "Idioma da interface e direção do texto",
-          appearance: "Aparência", darkMode: "Modo escuro", darkModeHint: "Desative para usar o modo claro",
-          dataTitle: "Dados", clearAll: "Apagar todos os dados", clearHint: "Exclui permanentemente todos os registros deste dispositivo",
-          confirmClear: "Excluir todos os registros? Esta ação não pode ser desfeita.",
-          invalid: "Preencha todos os campos com valores válidos",
-          toastAdded: "Registro salvo", toastDeleted: "Registro excluído", toastCleared: "Todos os dados foram apagados",
-          toastExported: "CSV exportado", toastNoData: "Sem dados para exportar", toastNothing: "Não há dados para apagar"
-        },
-        tr: {
-          subtitle: "E-Ticaret Kâr Takibi",
-          navSummary: "Özet", navAdd: "Kayıt Ekle", navLedger: "Defter", navSettings: "Ayarlar",
-          summaryTitle: "Performans Özeti", summarySub: "Kâr ve harcamalarına hızlı bir bakış",
-          kpiRevenue: "Toplam Ciro", kpiRecords: "Kayıt sayısı", kpiOrders: "Teslim Edilen Sipariş", kpiAov: "Ort. sipariş tutarı",
-          kpiExpenses: "Toplam Gider", cogs: "Ürün maliyeti", ads: "Reklam",
-          kpiProfit: "Net Kâr", kpiStatus: "Durum", profitable: "Kârlı", loss: "Zarar", breakEven: "Başabaş",
-          kpiMargin: "Net Kâr Marjı", roas: "Reklam getirisi (ROAS)",
-          addTitle: "Yeni Günlük Kayıt", addSub: "Bir ürün veya kampanyanın bugünkü rakamlarını gir",
-          lblProduct: "Ürün / Kampanya adı", phProduct: "örn. Akıllı Saat — TikTok kampanyası",
-          lblPrice: "Birim satış fiyatı", lblCost: "Birim maliyet (COGS)", lblQty: "Teslim edilen sipariş", lblAds: "Günlük reklam harcaması", lblDate: "Tarih",
-          prevRevenue: "Ciro", prevCost: "Toplam maliyet", prevProfit: "Net kâr", btnAdd: "Kaydı Kaydet",
-          ledgerTitle: "Defter", ledgerSub: "Bu cihazda kayıtlı tüm kayıtlar",
-          phSearch: "Ada veya tarihe göre ara...", exportCsv: "CSV Dışa Aktar",
-          orders: "Sipariş", revenue: "Ciro", totalCost: "Toplam maliyet", netProfit: "Net kâr", margin: "Marj",
-          emptyTitle: "Henüz kayıt yok", emptySub: "Kârını takip etmeye başlamak için ilk günlük kaydını ekle.", emptyCta: "İlk kaydı ekle",
-          noResults: "Aramanla eşleşen kayıt yok.", deleteLabel: "Sil", shown: "gösteriliyor",
-          settingsTitle: "Ayarlar", settingsSub: "Uygulamayı kendine göre düzenle",
-          language: "Dil", languageHint: "Arayüz dili ve yazı yönü",
-          appearance: "Görünüm", darkMode: "Koyu mod", darkModeHint: "Kapatınca açık mod etkinleşir",
-          dataTitle: "Veriler", clearAll: "Tüm Verileri Sil", clearHint: "Bu cihazdaki tüm kayıtları kalıcı olarak siler",
-          confirmClear: "Tüm kayıtlar silinsin mi? Bu işlem geri alınamaz.",
-          invalid: "Lütfen tüm alanları geçerli değerlerle doldur",
-          toastAdded: "Kayıt kaydedildi", toastDeleted: "Kayıt silindi", toastCleared: "Tüm veriler silindi",
-          toastExported: "CSV dışa aktarıldı", toastNoData: "Dışa aktarılacak veri yok", toastNothing: "Silinecek veri yok"
-        },
-        zh: {
-          subtitle: "电商利润追踪",
-          navSummary: "总览", navAdd: "记一笔", navLedger: "账本", navSettings: "设置",
-          summaryTitle: "经营总览", summarySub: "快速查看利润与支出",
-          kpiRevenue: "总营业额", kpiRecords: "记录数", kpiOrders: "妥投订单", kpiAov: "平均客单价",
-          kpiExpenses: "总支出", cogs: "商品成本", ads: "广告费",
-          kpiProfit: "净利润", kpiStatus: "状态", profitable: "盈利", loss: "亏损", breakEven: "持平",
-          kpiMargin: "净利润率", roas: "广告回报率 (ROAS)",
-          addTitle: "新增每日记录", addSub: "填写今天某个商品或广告系列的数据",
-          lblProduct: "商品 / 广告系列", phProduct: "例如：智能手表 — TikTok 广告",
-          lblPrice: "单品售价", lblCost: "单品成本 (COGS)", lblQty: "妥投订单数", lblAds: "当日广告支出", lblDate: "日期",
-          prevRevenue: "营业额", prevCost: "总成本", prevProfit: "净利润", btnAdd: "保存记录",
-          ledgerTitle: "账本", ledgerSub: "保存在本设备上的全部记录",
-          phSearch: "按名称或日期搜索...", exportCsv: "导出 CSV",
-          orders: "订单", revenue: "营业额", totalCost: "总成本", netProfit: "净利润", margin: "利润率",
-          emptyTitle: "暂无记录", emptySub: "添加第一条每日记录，开始追踪你的利润。", emptyCta: "添加第一条记录",
-          noResults: "没有符合搜索条件的记录。", deleteLabel: "删除", shown: "条显示",
-          settingsTitle: "设置", settingsSub: "按你的习惯定制应用",
-          language: "语言", languageHint: "界面语言与文字方向",
-          appearance: "外观", darkMode: "深色模式", darkModeHint: "关闭后使用浅色模式",
-          dataTitle: "数据", clearAll: "清除全部数据", clearHint: "永久删除本设备上保存的所有记录",
-          confirmClear: "确定删除所有记录吗？此操作无法撤销。",
-          invalid: "请用有效数值填写所有字段",
-          toastAdded: "记录已保存", toastDeleted: "记录已删除", toastCleared: "全部数据已清除",
-          toastExported: "CSV 已导出", toastNoData: "没有可导出的数据", toastNothing: "没有可清除的数据"
+          dir: "ltr",
+          titleAdd: "Ajouter une Entrée",
+          titleProducts: "Produits & Campagnes",
+          titleAnalytics: "Analytique",
+          titleLedger: "Journal COD",
+          titleSettings: "Paramètres",
+          today: "Auj.",
+          d7: "7J",
+          d30: "30J",
+          month: "Mois",
+          last30Days: "30 Derniers Jours",
+          last7Days: "7 Derniers Jours",
+          thisMonth: "Ce Mois",
+          allTime: "Tout",
+          netProfitLabel: "Bénéfice Net:",
+          revenue: "Chiffre d'Affaires",
+          deliveryRate: "Taux de Livraison",
+          adSpend: "Budget Pub (Ads)",
+          roas: "ROAS",
+          lblProduct: "Produit / Campagne",
+          phProduct: "ex. Smart Watch Ultra",
+          lblPlatform: "Plateforme Pub",
+          lblSellingPrice: "Prix de Vente",
+          lblUnitCost: "Coût Produit (COGS)",
+          lblConfirmed: "Commandes Confirmées",
+          lblDelivered: "Commandes Livrées",
+          returnedOrders: "Retours",
+          lblLivraison: "Livraison & Call Center",
+          lblAdSpend: "Dépense Pub (Ads)",
+          lblReturnCost: "Coût Retours & Emballage",
+          lblDate: "Date",
+          liveEstProfit: "Bénéfice Net Estimé:",
+          btnSaveEntry: "Enregistrer l'Entrée",
+          phSearch: "Rechercher...",
+          filterAll: "Tout",
+          filterProfitable: "Rentable",
+          filterLoss: "Perte",
+          deliveredWord: "Livré",
+          returnedWord: "Retourné",
+          progressWord: "Progression",
+          emptyProductsTitle: "Aucun produit ou campagne",
+          emptyProductsSub: "Appuyez sur le bouton vert (+) pour ajouter votre première journée COD.",
+          monthlyProfitTrend: "Tendance du Bénéfice Net",
+          expenseBreakdown: "Répartition des Dépenses",
+          legCogs: "COGS",
+          legAds: "Ads",
+          legLiv: "Livraison",
+          legRet: "Retours",
+          bestPlatform: "Meilleure Plateforme",
+          btnExportPdfExcel: "Exporter PDF / Excel",
+          emptyLedgerTitle: "Aucune opération enregistrée",
+          emptyLedgerSub: "Appuyez sur le bouton (+) pour ajouter une transaction quotidienne.",
+          proSub: "Sauvegarde locale/cloud & analytique COD illimitée",
+          btnExportBackup: "Sauvegarder JSON",
+          setLanguage: "Langue",
+          setUsdRate: "Taux USD vers MAD",
+          setGDrive: "Sauvegarde Google Drive",
+          btnSync: "Importer",
+          setDarkMode: "Mode Sombre",
+          dangerTitle: "Zone de Danger",
+          dangerSub: "Supprimer définitivement toutes les données",
+          btnClearData: "Tout Effacer",
+          modalDeleteTitle: "Confirmer la Suppression",
+          modalDeleteDesc: "Tapez DELETE en majuscules pour tout effacer :",
+          btnCancel: "Annuler",
+          btnConfirmWipe: "Supprimer",
+          navDashboard: "Accueil",
+          navAnalytics: "Analytique",
+          navProducts: "Produits",
+          navLedger: "Journal",
+          toastSaved: "Entrée enregistrée avec succès",
+          toastDeleted: "Entrée supprimée",
+          toastCleared: "Toutes les données ont été effacées",
+          toastInvalid: "Veuillez remplir le nom du produit et des valeurs valides",
+          toastNoExport: "Aucune donnée à exporter",
+          toastExported: "Fichier CSV exporté",
+          toastTypeDelete: "Veuillez taper DELETE en majuscules"
         }
       };
 
-      const state = { entries: [], theme: "dark", lang: "ar", currency: "MAD", page: "summary", query: "" };
+      const state = {
+        entries: [],
+        theme: "dark",
+        lang: "ar",
+        currency: "MAD",
+        usdRate: 10.20,
+        activePage: "dashboard",
+        previousPage: "dashboard",
+        dashPeriod: "30d",
+        analyticsPeriod: "30d",
+        prodSearch: "",
+        prodPlatform: "all",
+        ledgerSearch: "",
+        ledgerFilter: "all"
+      };
 
       const $ = (id) => document.getElementById(id);
 
-      function load(key, fallback) {
+      function loadStorage(key, fallback) {
         try {
           const raw = window.localStorage.getItem(key);
-          return raw === null ? fallback : JSON.parse(raw);
+          return raw !== null ? JSON.parse(raw) : fallback;
         } catch (_e) {
           return fallback;
         }
       }
 
-      function save(key, value) {
+      function saveStorage(key, value) {
         try {
           window.localStorage.setItem(key, JSON.stringify(value));
         } catch (_e) {
-          /* storage unavailable — app keeps working in memory */
+          /* ignore */
         }
       }
 
       function t(key) {
-        const pack = I18N[state.lang] || I18N.ar;
-        return pack[key] !== undefined ? pack[key] : (I18N.en[key] !== undefined ? I18N.en[key] : key);
+        const dict = I18N[state.lang] || I18N.ar;
+        return dict[key] !== undefined ? dict[key] : (I18N.en[key] || key);
       }
 
-      function metrics(e) {
-        const price = Number(e.sellingPrice) || 0;
-        const cost = Number(e.unitCost) || 0;
-        const qty = Number(e.quantity) || 0;
-        const ads = Number(e.adSpend) || 0;
-        const revenue = price * qty;
-        const productCost = cost * qty;
-        const totalCost = productCost + ads;
-        const profit = revenue - totalCost;
-        const margin = revenue > 0 ? (profit / revenue) * 100 : 0;
-        return { revenue, productCost, ads, totalCost, profit, margin };
-      }
-
-      function money(value) {
-        const n = Number(value) || 0;
-        const cur = CURRENCIES[state.currency] || CURRENCIES.MAD;
-        const abs = Math.abs(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        const sign = n < 0 ? "-" : "";
-        return cur.before ? `${sign}${cur.symbol}${abs}` : `${sign}${abs} ${cur.symbol}`;
-      }
-
-      function integer(value) {
-        return (Number(value) || 0).toLocaleString("en-US");
-      }
-
-      function tone(value) {
-        return value > 0 ? "pos" : value < 0 ? "neg" : "";
+      function todayIso() {
+        const d = new Date();
+        const pad = (n) => String(n).padStart(2, "0");
+        return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
       }
 
       function esc(str) {
-        return String(str)
+        return String(str ?? "")
           .replace(/&/g, "&amp;")
           .replace(/</g, "&lt;")
           .replace(/>/g, "&gt;")
@@ -1203,348 +2234,860 @@
           .replace(/'/g, "&#039;");
       }
 
-      function todayLocal() {
-        const d = new Date();
-        const p = (n) => String(n).padStart(2, "0");
-        return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
-      }
-
-      function toast(message, warn) {
-        const node = document.createElement("div");
-        node.className = warn ? "toast warn" : "toast";
-        node.textContent = message;
-        $("toasts").appendChild(node);
-        setTimeout(() => node.remove(), 2600);
-      }
-
-      /* ---------- Language / Theme / Currency ---------- */
-      function applyLanguage() {
-        const root = document.documentElement;
-        root.lang = state.lang;
-        root.dir = state.lang === "ar" ? "rtl" : "ltr";
-        document.querySelectorAll("[data-i18n]").forEach((node) => {
-          node.textContent = t(node.getAttribute("data-i18n"));
+      function formatMoney(amount, forceSign = false) {
+        const num = Number(amount) || 0;
+        const cur = CURRENCIES[state.currency] || CURRENCIES.MAD;
+        const abs = Math.abs(num).toLocaleString("en-US", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
         });
-        document.querySelectorAll("[data-i18n-ph]").forEach((node) => {
-          node.setAttribute("placeholder", t(node.getAttribute("data-i18n-ph")));
-        });
-        document.title = `ProfitPulse — ${t("subtitle")}`;
-        $("langSelect").value = state.lang;
+        const sign = num < 0 ? "-" : (forceSign ? "+" : "");
+        return cur.before ? `${sign}${cur.symbol}${abs}` : `${sign}${abs} ${cur.symbol}`;
       }
 
+      function computeEntry(item) {
+        const price = Number(item.sellingPrice) || 0;
+        const unitCost = Number(item.unitCost) || 0;
+        const confirmed = Math.max(0, parseInt(item.confirmedOrders, 10) || 0);
+        const delivered = Math.max(0, parseInt(item.deliveredOrders, 10) || 0);
+        const returned = Math.max(0, confirmed - delivered);
+        const livraison = Number(item.livraisonCost) || 0;
+        const returnCost = Number(item.returnCost) || 0;
+        const adSpend = Number(item.adSpend) || 0;
+
+        const revenue = price * delivered;
+        const cogsTotal = unitCost * delivered;
+        const totalExpenses = cogsTotal + livraison + returnCost + adSpend;
+        const netProfit = revenue - totalExpenses;
+        const deliveryRate = confirmed > 0 ? (delivered / confirmed) * 100 : (delivered > 0 ? 100 : 0);
+        const roas = adSpend > 0 ? revenue / adSpend : 0;
+        const margin = revenue > 0 ? (netProfit / revenue) * 100 : 0;
+
+        return {
+          confirmed,
+          delivered,
+          returned,
+          revenue,
+          cogsTotal,
+          livraison,
+          returnCost,
+          adSpend,
+          totalExpenses,
+          netProfit,
+          deliveryRate,
+          roas,
+          margin
+        };
+      }
+
+      function filterByPeriod(entries, periodKey) {
+        if (!periodKey || periodKey === "all") return entries;
+        const now = new Date();
+        const todayStr = todayIso();
+
+        return entries.filter((e) => {
+          if (!e.date) return true;
+          if (periodKey === "today") {
+            return e.date === todayStr;
+          }
+          const d = new Date(e.date + "T00:00:00");
+          if (Number.isNaN(d.getTime())) return true;
+          const diffDays = (now - d) / (1000 * 60 * 60 * 24);
+          if (periodKey === "7d") return diffDays >= -1 && diffDays <= 7;
+          if (periodKey === "30d") return diffDays >= -1 && diffDays <= 30;
+          if (periodKey === "month") {
+            return d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth();
+          }
+          return true;
+        });
+      }
+
+      function showToast(msg) {
+        const div = document.createElement("div");
+        div.className = "toast-msg";
+        div.textContent = msg;
+        $("toastArea").appendChild(div);
+        setTimeout(() => div.remove(), 2500);
+      }
+
+      /* ---------- NAVIGATION & HEADER SWITCHING ---------- */
+      function navigateTo(pageName) {
+        if (pageName !== state.activePage && state.activePage !== "add" && state.activePage !== "settings") {
+          state.previousPage = state.activePage;
+        }
+        state.activePage = pageName;
+
+        document.querySelectorAll(".page").forEach((sec) => {
+          sec.hidden = sec.getAttribute("data-page") !== pageName;
+        });
+
+        const isDash = pageName === "dashboard";
+        $("dashboardHeader").hidden = !isDash;
+        $("innerHeader").hidden = isDash;
+        $("analyticsPeriodSelect").hidden = pageName !== "analytics";
+
+        const titleMap = {
+          add: t("titleAdd"),
+          products: t("titleProducts"),
+          analytics: t("titleAnalytics"),
+          ledger: t("titleLedger"),
+          settings: t("titleSettings")
+        };
+        if (!isDash) {
+          $("innerHeaderTitle").textContent = titleMap[pageName] || "ProfitPulse";
+        }
+
+        document.querySelectorAll("#bottomNav .nav-item").forEach((btn) => {
+          btn.classList.toggle("active", btn.getAttribute("data-nav") === pageName);
+        });
+
+        window.scrollTo(0, 0);
+        renderAll();
+      }
+
+      /* ---------- THEME & LANGUAGE ---------- */
       function applyTheme() {
         document.documentElement.setAttribute("data-theme", state.theme);
-        $("metaThemeColor").setAttribute("content", state.theme === "dark" ? "#0b1220" : "#f6f4ef");
-        $("themeSwitch").checked = state.theme === "dark";
+        $("metaThemeColor").setAttribute("content", state.theme === "dark" ? "#0D1619" : "#F2F7F5");
+        $("themeToggleSwitch").checked = state.theme === "dark";
       }
 
-      function applyCurrency() {
+      function applyLanguage() {
+        const dict = I18N[state.lang] || I18N.ar;
+        document.documentElement.lang = state.lang;
+        document.documentElement.dir = dict.dir;
+
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          el.textContent = t(el.getAttribute("data-i18n"));
+        });
+        document.querySelectorAll("[data-i18n-ph]").forEach((el) => {
+          el.setAttribute("placeholder", t(el.getAttribute("data-i18n-ph")));
+        });
+
+        document.querySelectorAll("#langQuickBar .lang-btn").forEach((b) => {
+          b.classList.toggle("active", b.getAttribute("data-lang") === state.lang);
+        });
+
+        if (state.activePage !== "dashboard") {
+          const titleMap = {
+            add: t("titleAdd"),
+            products: t("titleProducts"),
+            analytics: t("titleAnalytics"),
+            ledger: t("titleLedger"),
+            settings: t("titleSettings")
+          };
+          $("innerHeaderTitle").textContent = titleMap[state.activePage] || "ProfitPulse";
+        }
+      }
+
+      function applyCurrencyTags() {
         const cur = CURRENCIES[state.currency] || CURRENCIES.MAD;
         $("currencySelect").value = state.currency;
-        $("currencySymbol").textContent = cur.symbol;
-        document.querySelectorAll("[data-currency-hint]").forEach((node) => {
+        document.querySelectorAll("[data-cur-tag]").forEach((node) => {
           node.textContent = cur.symbol;
         });
+        updateFormLivePreview();
       }
 
-      /* ---------- Navigation ---------- */
-      function showPage(name) {
-        const target = PAGES.indexOf(name) >= 0 ? name : "summary";
-        state.page = target;
-        save(KEYS.page, target);
-        document.querySelectorAll(".page").forEach((page) => {
-          page.hidden = page.getAttribute("data-page") !== target;
-        });
-        document.querySelectorAll(".nav-tab").forEach((tab) => {
-          const active = tab.getAttribute("data-page") === target;
-          tab.classList.toggle("active", active);
-          if (active) {
-            tab.setAttribute("aria-current", "page");
-          } else {
-            tab.removeAttribute("aria-current");
-          }
-        });
-        window.scrollTo(0, 0);
-      }
+      /* ---------- RENDER DASHBOARD ---------- */
+      function renderDashboard() {
+        const list = filterByPeriod(state.entries, state.dashPeriod);
+        let revenue = 0;
+        let confirmed = 0;
+        let delivered = 0;
+        let adSpend = 0;
+        let netProfit = 0;
 
-      /* ---------- Rendering ---------- */
-      function renderSummary() {
-        let revenue = 0, orders = 0, cogs = 0, ads = 0, expenses = 0, profit = 0;
-        state.entries.forEach((e) => {
-          const m = metrics(e);
+        list.forEach((e) => {
+          const m = computeEntry(e);
           revenue += m.revenue;
-          orders += Number(e.quantity) || 0;
-          cogs += m.productCost;
-          ads += m.ads;
-          expenses += m.totalCost;
-          profit += m.profit;
+          confirmed += m.confirmed;
+          delivered += m.delivered;
+          adSpend += m.adSpend;
+          netProfit += m.netProfit;
         });
 
-        const margin = revenue > 0 ? (profit / revenue) * 100 : 0;
-        const aov = orders > 0 ? revenue / orders : 0;
-        const roas = ads > 0 ? revenue / ads : 0;
+        const delivRate = confirmed > 0 ? (delivered / confirmed) * 100 : (delivered > 0 ? 100 : 0);
+        const roas = adSpend > 0 ? revenue / adSpend : 0;
+        const marginPct = revenue > 0 ? (netProfit / revenue) * 100 : 0;
 
-        $("valRevenue").textContent = money(revenue);
-        $("valCount").textContent = integer(state.entries.length);
-        $("valOrders").textContent = integer(orders);
-        $("valAov").textContent = money(aov);
-        $("valExpenses").textContent = money(expenses);
-        $("valCogs").textContent = money(cogs);
-        $("valAds").textContent = money(ads);
+        $("valNetProfit").textContent = formatMoney(netProfit, true);
+        const badge = $("heroMarginBadge");
+        badge.textContent = `${marginPct >= 0 ? "+" : ""}${marginPct.toFixed(1)}%`;
+        badge.classList.toggle("loss", netProfit < 0);
 
-        const valProfit = $("valProfit");
-        valProfit.textContent = money(profit);
-        valProfit.className = `num ${tone(profit)}`.trim();
+        $("valRevenue").textContent = formatMoney(revenue, false);
+        $("valDeliveryRate").textContent = `${Math.round(delivRate)}%`;
+        $("valAdSpend").textContent = formatMoney(adSpend, false);
+        $("valRoas").textContent = `${roas.toFixed(1)}x`;
 
-        const badge = $("badgeProfit");
-        if (profit > 0) {
-          badge.className = "badge pos";
-          badge.textContent = `▲ ${t("profitable")}`;
-        } else if (profit < 0) {
-          badge.className = "badge neg";
-          badge.textContent = `▼ ${t("loss")}`;
+        // Sparkline SVG path
+        const chronological = [...list].reverse();
+        if (chronological.length === 0) {
+          $("heroSparkLine").setAttribute("d", "M0,52 L320,52");
+          $("heroSparkArea").setAttribute("d", "M0,52 L320,52 L320,64 L0,64 Z");
         } else {
-          badge.className = "badge";
-          badge.textContent = `● ${t("breakEven")}`;
+          const pts = chronological.map((item) => computeEntry(item).netProfit);
+          if (pts.length === 1) pts.unshift(0);
+          const min = Math.min(...pts, 0);
+          const max = Math.max(...pts, 1);
+          const span = Math.max(1, max - min);
+          const coords = pts.map((v, idx) => {
+            const x = (idx / (pts.length - 1)) * 320;
+            const y = 54 - ((v - min) / span) * 42;
+            return [Number(x.toFixed(1)), Number(y.toFixed(1))];
+          });
+          const lineD = coords.map((p, i) => `${i === 0 ? "M" : "L"}${p[0]},${p[1]}`).join(" ");
+          const areaD = `${lineD} L320,64 L0,64 Z`;
+          $("heroSparkLine").setAttribute("d", lineD);
+          $("heroSparkArea").setAttribute("d", areaD);
+        }
+      }
+
+      /* ---------- RENDER ADD ENTRY LIVE PREVIEW ---------- */
+      function updateFormLivePreview() {
+        const cur = CURRENCIES[state.currency] || CURRENCIES.MAD;
+        const isUsd = $("usdAdToggle").checked;
+        $("adSpendUnitTag").textContent = isUsd ? "USD $" : cur.symbol;
+
+        const rawAd = parseFloat($("inpAdSpend").value) || 0;
+        const rate = Number(state.usdRate) || 10.20;
+        const effectiveAdSpend = isUsd ? rawAd * rate : rawAd;
+
+        if (isUsd && rawAd > 0) {
+          $("usdConvertedHint").textContent = `≈ ${ effectiveAdSpend.toFixed(2) } ${cur.symbol}`;
+        } else {
+          $("usdConvertedHint").textContent = "";
         }
 
-        const valMargin = $("valMargin");
-        valMargin.textContent = `${margin.toFixed(1)}%`;
-        valMargin.className = `num ${tone(margin)}`.trim();
-        $("valRoas").textContent = `${roas.toFixed(2)}x`;
-      }
-
-      function filteredEntries() {
-        const q = state.query.trim().toLowerCase();
-        if (!q) return state.entries;
-        return state.entries.filter((e) =>
-          String(e.product).toLowerCase().includes(q) || String(e.date).toLowerCase().includes(q)
-        );
-      }
-
-      function renderLedger() {
-        const list = $("entryList");
-        const total = state.entries.length;
-        const rows = filteredEntries();
-
-        $("emptyState").hidden = total !== 0;
-        $("noResults").hidden = !(total > 0 && rows.length === 0);
-
-        if (total === 0) {
-          $("ledgerMeta").textContent = "";
-        } else if (rows.length === total) {
-          $("ledgerMeta").textContent = `${t("kpiRecords")}: ${integer(total)}`;
-        } else {
-          $("ledgerMeta").textContent = `${t("kpiRecords")}: ${integer(rows.length)} / ${integer(total)}`;
-        }
-
-        list.innerHTML = rows.map((e) => {
-          const m = metrics(e);
-          const badgeTone = tone(m.margin);
-          return `
-            <article class="entry">
-              <div class="entry-head">
-                <div class="entry-title">
-                  <strong>${esc(e.product)}</strong>
-                  <span class="num">${esc(e.date)}</span>
-                </div>
-                <button type="button" class="icon-del" data-action="delete" data-id="${esc(e.id)}" aria-label="${esc(t("deleteLabel"))}" title="${esc(t("deleteLabel"))}">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-                </button>
-              </div>
-              <div class="entry-grid">
-                <div><span class="lbl">${esc(t("orders"))}</span><span class="num">${integer(e.quantity)}</span></div>
-                <div><span class="lbl">${esc(t("revenue"))}</span><span class="num">${money(m.revenue)}</span></div>
-                <div><span class="lbl">${esc(t("totalCost"))}</span><span class="num">${money(m.totalCost)}</span></div>
-                <div><span class="lbl">${esc(t("netProfit"))}</span><span class="num ${badgeTone}">${money(m.profit)}</span></div>
-                <div><span class="lbl">${esc(t("margin"))}</span><span><span class="badge ${badgeTone}"><span class="num">${m.margin.toFixed(1)}%</span></span></span></div>
-              </div>
-            </article>`;
-        }).join("");
-      }
-
-      function renderPreview() {
-        const m = metrics({
+        const m = computeEntry({
           sellingPrice: $("inpPrice").value,
-          unitCost: $("inpCost").value,
-          quantity: $("inpQty").value,
-          adSpend: $("inpAds").value
+          unitCost: $("inpCogs").value,
+          confirmedOrders: $("inpConfirmed").value,
+          deliveredOrders: $("inpDelivered").value,
+          livraisonCost: $("inpLivraison").value,
+          returnCost: $("inpReturnCost").value,
+          adSpend: effectiveAdSpend
         });
-        $("prevRevenue").textContent = money(m.revenue);
-        $("prevCost").textContent = money(m.totalCost);
-        const prevProfit = $("prevProfit");
-        prevProfit.textContent = money(m.profit);
-        prevProfit.className = `num ${tone(m.profit)}`.trim();
+
+        $("formDelivRate").textContent = `${Math.round(m.deliveryRate)}%`;
+        $("formReturnedQty").textContent = String(m.returned);
+
+        $("liveProfitValue").textContent = formatMoney(m.netProfit, true);
+        $("liveProfitBanner").classList.toggle("loss", m.netProfit < 0);
+      }
+
+      /* ---------- RENDER PRODUCTS & CAMPAIGNS ---------- */
+      function renderProducts() {
+        const q = state.prodSearch.trim().toLowerCase();
+        const platFilter = state.prodPlatform;
+
+        const groups = new Map();
+        state.entries.forEach((e) => {
+          const key = `${e.product.trim().toLowerCase()}__${e.platform || "TikTok"}`;
+          if (!groups.has(key)) {
+            groups.set(key, {
+              product: e.product,
+              platform: e.platform || "TikTok",
+              confirmed: 0,
+              delivered: 0,
+              revenue: 0,
+              adSpend: 0,
+              netProfit: 0
+            });
+          }
+          const g = groups.get(key);
+          const m = computeEntry(e);
+          g.confirmed += m.confirmed;
+          g.delivered += m.delivered;
+          g.revenue += m.revenue;
+          g.adSpend += m.adSpend;
+          g.netProfit += m.netProfit;
+        });
+
+        let aggregated = Array.from(groups.values());
+        if (platFilter !== "all") {
+          aggregated = aggregated.filter((item) => item.platform === platFilter);
+        }
+        if (q) {
+          aggregated = aggregated.filter((item) =>
+            item.product.toLowerCase().includes(q) || item.platform.toLowerCase().includes(q)
+          );
+        }
+
+        const container = $("productsList");
+        $("productsEmpty").hidden = aggregated.length > 0;
+
+        container.innerHTML = aggregated
+          .map((item) => {
+            const delivPct = item.confirmed > 0
+              ? Math.min(100, Math.round((item.delivered / item.confirmed) * 100))
+              : (item.delivered > 0 ? 100 : 0);
+            const roas = item.adSpend > 0 ? item.revenue / item.adSpend : 0;
+            const isLoss = item.netProfit < 0;
+
+            return `
+              <article class="product-card">
+                <div class="prod-top">
+                  <div class="prod-identity">
+                    <div class="prod-avatar" aria-hidden="true">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"></rect><circle cx="12" cy="12" r="3"></circle></svg>
+                    </div>
+                    <div class="prod-titles">
+                      <h3>${esc(item.product)}</h3>
+                      <p>— ${esc(item.platform)}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="prod-profit-pill ${isLoss ? "loss" : ""}">
+                  <span>${esc(t("netProfitLabel"))}</span>
+                  <span class="num">${formatMoney(item.netProfit, true)}</span>
+                </div>
+
+                <div class="prod-progress-wrap">
+                  <div class="prod-progress-labels">
+                    <span><strong class="num">${delivPct}%</strong> ${esc(t("deliveredWord"))}</span>
+                    <span>${esc(t("progressWord"))}</span>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-fill" style="width:${delivPct}%"></div>
+                  </div>
+                </div>
+
+                <div class="prod-bottom-grid">
+                  <div class="prod-metric">
+                    <span>${esc(t("adSpend"))}</span>
+                    <strong class="num">${formatMoney(item.adSpend, false)}</strong>
+                  </div>
+                  <div class="prod-metric">
+                    <span>${esc(t("roas"))}</span>
+                    <strong class="num">${roas.toFixed(1)}x</strong>
+                  </div>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+
+        // Populate datalist suggestions for Add Entry form
+        const uniqueNames = Array.from(new Set(state.entries.map((e) => e.product)));
+        $("productSuggestions").innerHTML = uniqueNames
+          .map((name) => `<option value="${esc(name)}"></option>`)
+          .join("");
+      }
+
+      /* ---------- RENDER ANALYTICS ---------- */
+      function renderAnalytics() {
+        const list = filterByPeriod(state.entries, state.analyticsPeriod);
+        let cogs = 0;
+        let ads = 0;
+        let liv = 0;
+        let ret = 0;
+
+        const platMap = new Map();
+
+        list.forEach((e) => {
+          const m = computeEntry(e);
+          cogs += m.cogsTotal;
+          ads += m.adSpend;
+          liv += m.livraison;
+          ret += m.returnCost;
+
+          const p = e.platform || "TikTok";
+          if (!platMap.has(p)) {
+            platMap.set(p, { revenue: 0, ads: 0 });
+          }
+          const pm = platMap.get(p);
+          pm.revenue += m.revenue;
+          pm.ads += m.adSpend;
+        });
+
+        // 1. Trend SVG Chart
+        const svg = $("analyticsTrendSvg");
+        const chrono = [...list].reverse();
+        if (chrono.length === 0) {
+          svg.innerHTML = `
+            <line x1="36" y1="30" x2="325" y2="30" stroke="var(--border)" stroke-dasharray="3 3" />
+            <line x1="36" y1="80" x2="325" y2="80" stroke="var(--border)" stroke-dasharray="3 3" />
+            <line x1="36" y1="130" x2="325" y2="130" stroke="var(--border)" />
+            <text x="8" y="134" fill="var(--text-3)" font-size="10">0</text>
+            <path d="M36,130 L325,130" stroke="var(--emerald)" stroke-width="2.5" fill="none" />
+          `;
+        } else {
+          const pts = chrono.map((e) => ({ date: e.date, profit: computeEntry(e).netProfit }));
+          if (pts.length === 1) {
+            pts.unshift({ date: pts[0].date, profit: 0 });
+          }
+          const vals = pts.map((p) => p.profit);
+          const min = Math.min(...vals, 0);
+          const max = Math.max(...vals, 100);
+          const span = Math.max(1, max - min);
+
+          const coords = pts.map((p, i) => {
+            const x = 40 + (i / (pts.length - 1)) * 280;
+            const y = 135 - ((p.profit - min) / span) * 95;
+            return { x: Number(x.toFixed(1)), y: Number(y.toFixed(1)), profit: p.profit, date: p.date };
+          });
+
+          const linePath = coords.map((c, i) => `${i === 0 ? "M" : "L"}${c.x},${c.y}`).join(" ");
+          const areaPath = `${linePath} L${coords[coords.length - 1].x},140 L${coords[0].x},140 Z`;
+          const peak = coords.reduce((best, cur) => (cur.profit >= best.profit ? cur : best), coords[0]);
+
+          svg.innerHTML = `
+            <defs>
+              <linearGradient id="anGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#10B981" stop-opacity="0.35" />
+                <stop offset="100%" stop-color="#10B981" stop-opacity="0.0" />
+              </linearGradient>
+            </defs>
+            <line x1="40" y1="40" x2="320" y2="40" stroke="var(--border)" stroke-dasharray="3 3" />
+            <line x1="40" y1="90" x2="320" y2="90" stroke="var(--border)" stroke-dasharray="3 3" />
+            <line x1="40" y1="140" x2="320" y2="140" stroke="var(--border)" />
+            <text x="4" y="44" fill="var(--text-3)" font-size="10">${Math.round(max)}</text>
+            <text x="4" y="94" fill="var(--text-3)" font-size="10">${Math.round((max + min) / 2)}</text>
+            <text x="4" y="143" fill="var(--text-3)" font-size="10">${Math.round(min)}</text>
+            <path d="${areaPath}" fill="url(#anGrad)" />
+            <path d="${linePath}" fill="none" stroke="#10B981" stroke-width="2.8" stroke-linecap="round" />
+            <circle cx="${peak.x}" cy="${peak.y}" r="4.5" fill="#10B981" stroke="#FFFFFF" stroke-width="2" />
+            <rect x="${Math.min(220, Math.max(40, peak.x - 48))}" y="${Math.max(4, peak.y - 34)}" width="96" height="24" rx="6" fill="var(--bg-elevated)" stroke="var(--border-strong)" />
+            <text x="${Math.min(268, Math.max(88, peak.x))}" y="${Math.max(20, peak.y - 18)}" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="700">${esc(formatMoney(peak.profit, true))}</text>
+          `;
+        }
+
+        // 2. Expense Breakdown Donut
+        const totalExp = cogs + ads + liv + ret;
+        const pCogs = totalExp > 0 ? Math.round((cogs / totalExp) * 100) : 0;
+        const pAds = totalExp > 0 ? Math.round((ads / totalExp) * 100) : 0;
+        const pLiv = totalExp > 0 ? Math.round((liv / totalExp) * 100) : 0;
+        const pRet = totalExp > 0 ? Math.max(0, 100 - pCogs - pAds - pLiv) : 0;
+
+        $("pctCogs").textContent = `${pCogs}%`;
+        $("pctAds").textContent = `${pAds}%`;
+        $("pctLiv").textContent = `${pLiv}%`;
+        $("pctRet").textContent = `${pRet}%`;
+
+        const setSeg = (id, pct, offset) => {
+          const el = $(id);
+          el.setAttribute("stroke-dasharray", `${pct} ${100 - pct}`);
+          el.setAttribute("stroke-dashoffset", String(-offset));
+        };
+        setSeg("donutSegCogs", pCogs, 0);
+        setSeg("donutSegAds", pAds, pCogs);
+        setSeg("donutSegLiv", pLiv, pCogs + pAds);
+        setSeg("donutSegRet", pRet, pCogs + pAds + pLiv);
+
+        // 3. Best Platform ROAS Bars
+        const defaultPlatforms = ["TikTok", "Meta Ads"];
+        defaultPlatforms.forEach((dp) => {
+          if (!platMap.has(dp)) platMap.set(dp, { revenue: 0, ads: 0 });
+        });
+
+        const platRows = Array.from(platMap.entries()).map(([name, obj]) => {
+          const roas = obj.ads > 0 ? obj.revenue / obj.ads : 0;
+          return { name, roas };
+        }).sort((a, b) => b.roas - a.roas);
+
+        const maxRoas = Math.max(5, ...platRows.map((r) => r.roas));
+        $("platformBarsList").innerHTML = platRows
+          .map((r) => {
+            const widthPct = Math.min(100, Math.round((r.roas / maxRoas) * 100));
+            return `
+              <div class="plat-row">
+                <div class="plat-row-head">
+                  <span>${esc(r.name)} (<span class="num">${r.roas.toFixed(1)}x</span>)</span>
+                  <span>ROAS</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width:${widthPct}%"></div>
+                </div>
+              </div>
+            `;
+          })
+          .join("");
+      }
+
+      /* ---------- RENDER LEDGER ---------- */
+      function renderLedger() {
+        const q = state.ledgerSearch.trim().toLowerCase();
+        const status = state.ledgerFilter;
+
+        const filtered = state.entries.filter((e) => {
+          const m = computeEntry(e);
+          if (status === "profit" && m.netProfit <= 0) return false;
+          if (status === "loss" && m.netProfit >= 0) return false;
+          if (q) {
+            return (
+              e.product.toLowerCase().includes(q) ||
+              String(e.date).toLowerCase().includes(q) ||
+              String(e.platform || "").toLowerCase().includes(q)
+            );
+          }
+          return true;
+        });
+
+        const container = $("ledgerCardsList");
+        $("ledgerEmpty").hidden = filtered.length > 0;
+
+        container.innerHTML = filtered
+          .map((e) => {
+            const m = computeEntry(e);
+            const isLoss = m.netProfit < 0;
+            return `
+              <article class="ledger-card">
+                <div class="ledger-left">
+                  <div class="ledger-thumb" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                  </div>
+                  <div class="ledger-info">
+                    <h4>${esc(e.product)}</h4>
+                    <div class="meta-date num">${esc(e.date)} · ${esc(e.platform || "TikTok")}</div>
+                    <div class="meta-deliv"><span class="num">${m.delivered}</span> ${esc(t("deliveredWord"))} / <span class="num">${m.returned}</span> ${esc(t("returnedWord"))}</div>
+                  </div>
+                </div>
+
+                <div class="ledger-right">
+                  <span class="profit-badge num ${isLoss ? "loss" : ""}">${formatMoney(m.netProfit, true)}</span>
+                  <button type="button" class="del-entry-btn" data-action="delete-entry" data-id="${esc(e.id)}" aria-label="Delete">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                  </button>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
       }
 
       function renderAll() {
-        applyCurrency();
-        renderSummary();
+        applyCurrencyTags();
+        renderDashboard();
+        renderProducts();
+        renderAnalytics();
         renderLedger();
-        renderPreview();
       }
 
-      /* ---------- Actions ---------- */
-      function addEntry(event) {
-        event.preventDefault();
-        const product = $("inpProduct").value.trim();
-        const sellingPrice = parseFloat($("inpPrice").value);
-        const unitCost = parseFloat($("inpCost").value);
-        const quantity = parseInt($("inpQty").value, 10);
-        const adSpend = parseFloat($("inpAds").value);
-        const date = $("inpDate").value || todayLocal();
-
-        const numbers = [sellingPrice, unitCost, quantity, adSpend];
-        if (!product || numbers.some((n) => !Number.isFinite(n) || n < 0)) {
-          toast(t("invalid"), true);
-          return;
-        }
-
-        state.entries.unshift({
-          id: `e${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`,
-          product,
-          sellingPrice,
-          unitCost,
-          quantity,
-          adSpend,
-          date
-        });
-        save(KEYS.entries, state.entries);
-
-        $("entryForm").reset();
-        $("inpDate").value = todayLocal();
-        renderAll();
-        toast(t("toastAdded"));
-        showPage("ledger");
-      }
-
-      function deleteEntry(id) {
-        const before = state.entries.length;
-        state.entries = state.entries.filter((e) => e.id !== id);
-        if (state.entries.length !== before) {
-          save(KEYS.entries, state.entries);
-          renderAll();
-          toast(t("toastDeleted"));
-        }
-      }
-
-      function clearAll() {
-        if (state.entries.length === 0) {
-          toast(t("toastNothing"), true);
-          return;
-        }
-        if (!window.confirm(t("confirmClear"))) return;
-        state.entries = [];
-        state.query = "";
-        $("searchInput").value = "";
-        save(KEYS.entries, state.entries);
-        renderAll();
-        toast(t("toastCleared"));
-      }
-
+      /* ---------- EXPORT CSV & WHATSAPP ---------- */
       function exportCsv() {
-        const rows = filteredEntries();
-        if (rows.length === 0) {
-          toast(t("toastNoData"), true);
+        if (state.entries.length === 0) {
+          showToast(t("toastNoExport"));
           return;
         }
-        const cell = (v) => {
-          const s = String(v === undefined || v === null ? "" : v);
+        const headers = [
+          "Date",
+          "Product / Campaign",
+          "Platform",
+          "Selling Price",
+          "Unit Cost (COGS)",
+          "Confirmed Orders",
+          "Delivered Orders",
+          "Returned Orders",
+          "Delivery Rate (%)",
+          "Livraison & Call Center",
+          "Return & Packaging Cost",
+          "Ad Spend",
+          "Revenue",
+          "Net Profit",
+          "ROAS",
+          "Currency"
+        ];
+        const escCell = (v) => {
+          const s = String(v ?? "");
           return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
         };
-        const header = ["Date", "Product / Campaign", "Unit Selling Price", "Unit Cost (COGS)", "Delivered Orders",
-          "Product Cost Total", "Ad Spend", "Revenue", "Total Cost", "Net Profit", "Net Margin (%)", "Currency"];
-        const lines = [header.map(cell).join(",")];
-        rows.forEach((e) => {
-          const m = metrics(e);
-          lines.push([
-            e.date, e.product,
-            (Number(e.sellingPrice) || 0).toFixed(2), (Number(e.unitCost) || 0).toFixed(2), Number(e.quantity) || 0,
-            m.productCost.toFixed(2), m.ads.toFixed(2), m.revenue.toFixed(2), m.totalCost.toFixed(2),
-            m.profit.toFixed(2), m.margin.toFixed(2), state.currency
-          ].map(cell).join(","));
+        const rows = [headers.map(escCell).join(",")];
+        state.entries.forEach((e) => {
+          const m = computeEntry(e);
+          rows.push([
+            e.date,
+            e.product,
+            e.platform || "TikTok",
+            Number(e.sellingPrice).toFixed(2),
+            Number(e.unitCost).toFixed(2),
+            m.confirmed,
+            m.delivered,
+            m.returned,
+            m.deliveryRate.toFixed(1),
+            m.livraison.toFixed(2),
+            m.returnCost.toFixed(2),
+            m.adSpend.toFixed(2),
+            m.revenue.toFixed(2),
+            m.netProfit.toFixed(2),
+            m.roas.toFixed(2),
+            state.currency
+          ].map(escCell).join(","));
         });
-        const blob = new Blob(["\uFEFF" + lines.join("\r\n")], { type: "text/csv;charset=utf-8;" });
+
+        const blob = new Blob(["\uFEFF" + rows.join("\r\n")], { type: "text/csv;charset=utf-8;" });
         const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = `ProfitPulse_Ledger_${todayLocal()}.csv`;
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `ProfitPulse_COD_${todayIso()}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
         setTimeout(() => URL.revokeObjectURL(url), 1000);
-        toast(t("toastExported"));
+        showToast(t("toastExported"));
       }
 
-      /* ---------- Events ---------- */
+      function shareWhatsApp() {
+        if (state.entries.length === 0) {
+          showToast(t("toastNoExport"));
+          return;
+        }
+        let rev = 0, profit = 0, deliv = 0, conf = 0;
+        state.entries.forEach((e) => {
+          const m = computeEntry(e);
+          rev += m.revenue;
+          profit += m.netProfit;
+          deliv += m.delivered;
+          conf += m.confirmed;
+        });
+        const rate = conf > 0 ? Math.round((deliv / conf) * 100) : 0;
+        const text = `📊 *ProfitPulse COD Report (${todayIso()})*\n• Net Profit: ${formatMoney(profit, true)}\n• Revenue: ${formatMoney(rev)}\n• Delivered: ${deliv}/${conf} (${rate}%)`;
+        const waUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
+        window.open(waUrl, "_blank");
+      }
+
+      /* ---------- EVENTS ---------- */
       function bindEvents() {
-        $("bottomNav").addEventListener("click", (event) => {
-          const tab = event.target.closest(".nav-tab");
-          if (tab) showPage(tab.getAttribute("data-page"));
+        // Bottom Nav tabs
+        $("bottomNav").addEventListener("click", (e) => {
+          const btn = e.target.closest("[data-nav]");
+          if (btn) navigateTo(btn.getAttribute("data-nav"));
         });
 
-        document.addEventListener("click", (event) => {
-          const go = event.target.closest("[data-goto]");
-          if (go) showPage(go.getAttribute("data-goto"));
+        // Floating "+" Add Entry button
+        $("btnFabAdd").addEventListener("click", () => navigateTo("add"));
+
+        // Top Gear Settings button
+        $("btnOpenSettings").addEventListener("click", () => navigateTo("settings"));
+
+        // Inner Header Back button
+        $("btnInnerBack").addEventListener("click", () => {
+          navigateTo(state.previousPage || "dashboard");
         });
 
-        $("entryList").addEventListener("click", (event) => {
-          const btn = event.target.closest("[data-action='delete']");
-          if (btn) deleteEntry(btn.getAttribute("data-id"));
-        });
-
-        $("currencySelect").addEventListener("change", (event) => {
-          if (CURRENCIES[event.target.value]) {
-            state.currency = event.target.value;
-            save(KEYS.currency, state.currency);
+        // Currency Selector
+        $("currencySelect").addEventListener("change", (e) => {
+          if (CURRENCIES[e.target.value]) {
+            state.currency = e.target.value;
+            saveStorage(STORAGE_KEYS.CURRENCY, state.currency);
             renderAll();
           }
         });
 
-        $("langSelect").addEventListener("change", (event) => {
-          if (I18N[event.target.value]) {
-            state.lang = event.target.value;
-            save(KEYS.lang, state.lang);
+        // Dashboard Period Pills
+        $("dashPeriodBar").addEventListener("click", (e) => {
+          const pill = e.target.closest("[data-period]");
+          if (!pill) return;
+          state.dashPeriod = pill.getAttribute("data-period");
+          document.querySelectorAll("#dashPeriodBar .date-pill").forEach((p) => {
+            p.classList.toggle("active", p === pill);
+          });
+          renderDashboard();
+        });
+
+        // Analytics Period Select
+        $("analyticsPeriodSelect").addEventListener("change", (e) => {
+          state.analyticsPeriod = e.target.value;
+          renderAnalytics();
+        });
+
+        // Add Daily Entry Form live preview & submit
+        $("codForm").addEventListener("input", updateFormLivePreview);
+        $("usdAdToggle").addEventListener("change", updateFormLivePreview);
+
+        $("codForm").addEventListener("submit", (e) => {
+          e.preventDefault();
+          const product = $("inpProduct").value.trim();
+          const platform = $("inpPlatform").value || "TikTok";
+          const sellingPrice = parseFloat($("inpPrice").value);
+          const unitCost = parseFloat($("inpCogs").value);
+          const confirmedOrders = parseInt($("inpConfirmed").value, 10);
+          const deliveredOrders = parseInt($("inpDelivered").value, 10);
+          const livraisonCost = parseFloat($("inpLivraison").value) || 0;
+          const returnCost = parseFloat($("inpReturnCost").value) || 0;
+          const rawAdSpend = parseFloat($("inpAdSpend").value);
+          const date = $("inpDate").value || todayIso();
+
+          if (
+            !product ||
+            Number.isNaN(sellingPrice) ||
+            Number.isNaN(unitCost) ||
+            Number.isNaN(confirmedOrders) ||
+            Number.isNaN(deliveredOrders) ||
+            Number.isNaN(rawAdSpend)
+          ) {
+            showToast(t("toastInvalid"));
+            return;
+          }
+
+          const isUsd = $("usdAdToggle").checked;
+          const adSpend = isUsd ? rawAdSpend * (Number(state.usdRate) || 10.20) : rawAdSpend;
+
+          state.entries.unshift({
+            id: "cod-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 6),
+            product,
+            platform,
+            sellingPrice,
+            unitCost,
+            confirmedOrders,
+            deliveredOrders,
+            livraisonCost,
+            returnCost,
+            adSpend,
+            date
+          });
+          saveStorage(STORAGE_KEYS.ENTRIES, state.entries);
+
+          $("codForm").reset();
+          $("inpDate").value = todayIso();
+          updateFormLivePreview();
+          showToast(t("toastSaved"));
+          navigateTo("dashboard");
+        });
+
+        // Products Search & Filter
+        $("prodSearchInput").addEventListener("input", (e) => {
+          state.prodSearch = e.target.value;
+          renderProducts();
+        });
+        $("prodPlatformFilter").addEventListener("change", (e) => {
+          state.prodPlatform = e.target.value;
+          renderProducts();
+        });
+
+        // Ledger Search & Filter & Delete
+        $("ledgerSearchInput").addEventListener("input", (e) => {
+          state.ledgerSearch = e.target.value;
+          renderLedger();
+        });
+        $("ledgerStatusFilters").addEventListener("click", (e) => {
+          const chip = e.target.closest("[data-filter]");
+          if (!chip) return;
+          state.ledgerFilter = chip.getAttribute("data-filter");
+          document.querySelectorAll("#ledgerStatusFilters .filter-chip").forEach((c) => {
+            c.classList.toggle("active", c === chip);
+          });
+          renderLedger();
+        });
+        $("ledgerCardsList").addEventListener("click", (e) => {
+          const btn = e.target.closest("[data-action='delete-entry']");
+          if (!btn) return;
+          const id = btn.getAttribute("data-id");
+          state.entries = state.entries.filter((item) => item.id !== id);
+          saveStorage(STORAGE_KEYS.ENTRIES, state.entries);
+          renderAll();
+          showToast(t("toastDeleted"));
+        });
+
+        $("btnExportCsv").addEventListener("click", exportCsv);
+        $("btnShareWhatsApp").addEventListener("click", shareWhatsApp);
+
+        // Settings: Language, USD Rate, Theme, Backup, Delete Modal
+        $("langQuickBar").addEventListener("click", (e) => {
+          const btn = e.target.closest("[data-lang]");
+          if (!btn) return;
+          const newLang = btn.getAttribute("data-lang");
+          if (I18N[newLang]) {
+            state.lang = newLang;
+            saveStorage(STORAGE_KEYS.LANG, state.lang);
             applyLanguage();
             renderAll();
           }
         });
 
-        $("themeSwitch").addEventListener("change", (event) => {
-          state.theme = event.target.checked ? "dark" : "light";
-          save(KEYS.theme, state.theme);
+        $("inpUsdRate").addEventListener("change", (e) => {
+          const val = parseFloat(e.target.value);
+          if (val > 0) {
+            state.usdRate = val;
+            saveStorage(STORAGE_KEYS.USD_RATE, state.usdRate);
+            updateFormLivePreview();
+          }
+        });
+
+        $("themeToggleSwitch").addEventListener("change", (e) => {
+          state.theme = e.target.checked ? "dark" : "light";
+          saveStorage(STORAGE_KEYS.THEME, state.theme);
           applyTheme();
         });
 
-        $("entryForm").addEventListener("submit", addEntry);
-        $("entryForm").addEventListener("input", renderPreview);
-
-        $("searchInput").addEventListener("input", (event) => {
-          state.query = event.target.value;
-          renderLedger();
+        $("btnBackupJson").addEventListener("click", () => {
+          const payload = JSON.stringify({ entries: state.entries, usdRate: state.usdRate }, null, 2);
+          const blob = new Blob([payload], { type: "application/json" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = `ProfitPulse_Backup_${todayIso()}.json`;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
         });
 
-        $("btnExport").addEventListener("click", exportCsv);
-        $("btnClearAll").addEventListener("click", clearAll);
+        $("btnRestoreJson").addEventListener("click", () => $("inpRestoreFile").click());
+        $("inpRestoreFile").addEventListener("change", (e) => {
+          const file = e.target.files && e.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = () => {
+            try {
+              const parsed = JSON.parse(String(reader.result));
+              if (Array.isArray(parsed.entries)) {
+                state.entries = parsed.entries;
+                saveStorage(STORAGE_KEYS.ENTRIES, state.entries);
+                renderAll();
+                showToast(t("toastSaved"));
+              }
+            } catch (_err) {
+              /* ignore invalid JSON */
+            }
+          };
+          reader.readAsText(file);
+        });
+
+        // Danger Zone Delete Modal requiring "DELETE"
+        $("btnOpenDeleteModal").addEventListener("click", () => {
+          $("inpConfirmDeleteWord").value = "";
+          $("deleteModal").hidden = false;
+        });
+        $("btnCancelDelete").addEventListener("click", () => {
+          $("deleteModal").hidden = true;
+        });
+        $("btnConfirmDelete").addEventListener("click", () => {
+          if ($("inpConfirmDeleteWord").value.trim() !== "DELETE") {
+            showToast(t("toastTypeDelete"));
+            return;
+          }
+          state.entries = [];
+          saveStorage(STORAGE_KEYS.ENTRIES, state.entries);
+          $("deleteModal").hidden = true;
+          renderAll();
+          showToast(t("toastCleared"));
+        });
       }
 
-      /* ---------- Init ---------- */
+      /* ---------- INIT ---------- */
       function init() {
-        state.theme = load(KEYS.theme, "dark") === "light" ? "light" : "dark";
-        const lang = load(KEYS.lang, "ar");
-        state.lang = I18N[lang] ? lang : "ar";
-        const currency = load(KEYS.currency, "MAD");
-        state.currency = CURRENCIES[currency] ? currency : "MAD";
-        const entries = load(KEYS.entries, []);
-        state.entries = Array.isArray(entries) ? entries.filter((e) => e && typeof e === "object" && e.id) : [];
-        const page = load(KEYS.page, "summary");
+        state.theme = loadStorage(STORAGE_KEYS.THEME, "dark") === "light" ? "light" : "dark";
+        const savedLang = loadStorage(STORAGE_KEYS.LANG, "ar");
+        state.lang = I18N[savedLang] ? savedLang : "ar";
+        const savedCur = loadStorage(STORAGE_KEYS.CURRENCY, "MAD");
+        state.currency = CURRENCIES[savedCur] ? savedCur : "MAD";
+        const savedRate = parseFloat(loadStorage(STORAGE_KEYS.USD_RATE, 10.20));
+        state.usdRate = savedRate > 0 ? savedRate : 10.20;
 
-        $("inpDate").value = todayLocal();
+        // Start completely empty (zero pre-loaded sample data)
+        const savedEntries = loadStorage(STORAGE_KEYS.ENTRIES, []);
+        state.entries = Array.isArray(savedEntries) ? savedEntries : [];
+
+        $("inpUsdRate").value = state.usdRate.toFixed(2);
+        $("inpDate").value = todayIso();
+
         applyTheme();
         applyLanguage();
-        renderAll();
         bindEvents();
-        showPage(page);
+        navigateTo("dashboard");
       }
 
       init();
