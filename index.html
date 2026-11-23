@@ -8,18 +8,18 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="ProfitPulse" />
   <meta name="theme-color" content="#0D1619" id="metaThemeColor" />
-  <title>ProfitPulse — COD E-Commerce Profit Tracker</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230E9F6E'/%3E%3Cstop offset='1' stop-color='%23047857'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpolyline points='52 22 36 38 26 28 12 42' fill='none' stroke='white' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpolyline points='40 22 52 22 52 34' fill='none' stroke='white' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <title>ProfitPulse v3.5 — Commercial COD Profit Tracker</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2310B981'/%3E%3Cstop offset='0.55' stop-color='%230E9F6E'/%3E%3Cstop offset='1' stop-color='%23064E3B'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpolyline points='52 22 36 38 26 28 12 42' fill='none' stroke='white' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpolyline points='40 22 52 22 52 34' fill='none' stroke='white' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
   <style>
     :root,
     [data-theme="dark"] {
       --bg: #0D1619;
       --bg-elevated: #111D21;
       --card: #142226;
-      --card-hover: #192A2F;
-      --input: #101C20;
-      --border: #21363C;
-      --border-strong: #2C4850;
+      --card-hover: #192B30;
+      --input: #0F1B1E;
+      --border: #20353B;
+      --border-strong: #2C4A52;
       --text: #F1F8F6;
       --text-2: #9AB3AC;
       --text-3: #637E77;
@@ -28,22 +28,22 @@
       --emerald-deep: #064E3B;
       --emerald-soft: rgba(16, 185, 129, 0.15);
       --emerald-glow: rgba(16, 185, 129, 0.28);
-      --hero-grad: linear-gradient(145deg, #134E3A 0%, #0D2E26 55%, #0F2024 100%);
+      --hero-grad: linear-gradient(145deg, #134E3A 0%, #0D2F27 58%, #0E1F23 100%);
       --danger: #F87171;
       --danger-soft: rgba(248, 113, 113, 0.15);
-      --danger-border: rgba(248, 113, 113, 0.32);
-      --blue: #38BDF8;
+      --danger-border: rgba(248, 113, 113, 0.35);
       --amber: #FBBF24;
-      --slate: #64748B;
-      --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-      --nav-bg: rgba(17, 29, 33, 0.94);
+      --amber-soft: rgba(251, 191, 36, 0.14);
+      --blue: #38BDF8;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.36);
+      --nav-bg: rgba(17, 29, 33, 0.95);
     }
 
     [data-theme="light"] {
       --bg: #F2F7F5;
-      --bg-elevated: #E6F0EC;
+      --bg-elevated: #E5EFEA;
       --card: #FFFFFF;
-      --card-hover: #F8FCFA;
+      --card-hover: #F7FBFA;
       --input: #F4F8F6;
       --border: #D5E3DD;
       --border-strong: #B8CEC5;
@@ -54,16 +54,16 @@
       --emerald-strong: #0B845B;
       --emerald-deep: #065F46;
       --emerald-soft: rgba(14, 159, 110, 0.12);
-      --emerald-glow: rgba(14, 159, 110, 0.25);
+      --emerald-glow: rgba(14, 159, 110, 0.24);
       --hero-grad: linear-gradient(145deg, #15654B 0%, #0D4434 60%, #0A2E24 100%);
       --danger: #DC2626;
-      --danger-soft: rgba(220, 38, 38, 0.11);
+      --danger-soft: rgba(220, 38, 38, 0.1);
       --danger-border: rgba(220, 38, 38, 0.28);
-      --blue: #0284C7;
       --amber: #D97706;
-      --slate: #64748B;
+      --amber-soft: rgba(217, 119, 6, 0.12);
+      --blue: #0284C7;
       --shadow: 0 6px 20px rgba(15, 34, 29, 0.06);
-      --nav-bg: rgba(255, 255, 255, 0.95);
+      --nav-bg: rgba(255, 255, 255, 0.96);
     }
 
     :root {
@@ -95,7 +95,7 @@
       font-size: 15px;
       line-height: 1.5;
       min-height: 100vh;
-      padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+      padding-bottom: calc(94px + env(safe-area-inset-bottom, 0px));
       -webkit-font-smoothing: antialiased;
       transition: background-color 0.2s ease, color 0.2s ease;
     }
@@ -124,7 +124,15 @@
       padding: 0 1rem;
     }
 
-    /* ---------- HEADERS ---------- */
+    .dashboard-header[hidden],
+    .inner-header[hidden],
+    .page[hidden],
+    .modal-backdrop[hidden],
+    [hidden] {
+      display: none !important;
+    }
+
+    /* ---------- 1. HEADERS ---------- */
     .dashboard-header {
       position: sticky;
       top: 0;
@@ -135,13 +143,6 @@
       padding-top: env(safe-area-inset-top, 0px);
     }
 
-    .dashboard-header[hidden],
-    .inner-header[hidden],
-    .page[hidden],
-    .modal-backdrop[hidden] {
-      display: none !important;
-    }
-
     .dash-header-inner {
       max-width: 520px;
       margin: 0 auto;
@@ -149,7 +150,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.65rem;
+      gap: 0.6rem;
     }
 
     .brand-mark {
@@ -159,16 +160,16 @@
       min-width: 0;
     }
 
-    .pulse-icon {
-      width: 36px;
-      height: 36px;
+    .brand-icon {
+      width: 38px;
+      height: 38px;
       border-radius: 11px;
-      background: var(--emerald-soft);
-      border: 1px solid rgba(16, 185, 129, 0.32);
-      color: var(--emerald);
+      background: linear-gradient(135deg, #10B981 0%, #0E9F6E 55%, #064E3B 100%);
+      color: #FFFFFF;
       display: grid;
       place-items: center;
       flex-shrink: 0;
+      box-shadow: 0 4px 12px var(--emerald-glow);
     }
 
     .brand-title {
@@ -177,6 +178,17 @@
       font-weight: 800;
       letter-spacing: -0.025em;
       color: var(--text);
+    }
+
+    .pro-mini-tag {
+      font-size: 0.64rem;
+      font-weight: 800;
+      padding: 0.1rem 0.42rem;
+      border-radius: 999px;
+      background: var(--emerald-soft);
+      color: var(--emerald);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      text-transform: uppercase;
     }
 
     .dash-header-actions {
@@ -188,15 +200,14 @@
 
     /* Wide Pill Currency Selector — Never truncates */
     .currency-pill {
-      position: relative;
       display: inline-flex;
       align-items: center;
       background: var(--card);
       border: 1.5px solid var(--emerald-strong);
       border-radius: 999px;
-      padding: 0.34rem 0.85rem;
+      padding: 0.34rem 0.9rem;
       min-height: 38px;
-      min-width: 108px;
+      min-width: 112px;
       justify-content: center;
       box-shadow: 0 2px 8px rgba(16, 185, 129, 0.12);
     }
@@ -214,7 +225,6 @@
       cursor: pointer;
       text-align: center;
       width: 100%;
-      padding-inline-end: 0.2rem;
     }
 
     .currency-select option {
@@ -284,7 +294,7 @@
     }
 
     .inner-title {
-      font-size: 1.35rem;
+      font-size: 1.32rem;
       font-weight: 800;
       letter-spacing: -0.02em;
     }
@@ -301,7 +311,6 @@
       cursor: pointer;
     }
 
-    /* ---------- PAGE TRANSITION ---------- */
     .page {
       padding-top: 0.35rem;
       padding-bottom: 1.5rem;
@@ -313,13 +322,13 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ---------- DASHBOARD ---------- */
+    /* ---------- 2. DASHBOARD ---------- */
     .date-filter-bar {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.4rem;
-      margin: 0.35rem 0 1rem;
+      gap: 0.35rem;
+      margin: 0.3rem 0 0.95rem;
       flex-wrap: wrap;
     }
 
@@ -327,9 +336,9 @@
       background: transparent;
       border: none;
       color: var(--text-2);
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       font-weight: 600;
-      padding: 0.38rem 0.95rem;
+      padding: 0.36rem 0.92rem;
       border-radius: 999px;
       cursor: pointer;
       transition: all 0.15s ease;
@@ -344,20 +353,20 @@
 
     .date-sep {
       color: var(--border-strong);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       user-select: none;
     }
 
     .hero-card {
       background: var(--hero-grad);
-      border: 1px solid rgba(16, 185, 129, 0.3);
+      border: 1px solid rgba(16, 185, 129, 0.32);
       border-radius: var(--r-xl);
       padding: 1.25rem 1.25rem 1rem;
       color: #F1F8F6;
       box-shadow: var(--shadow);
       position: relative;
       overflow: hidden;
-      margin-bottom: 0.95rem;
+      margin-bottom: 0.9rem;
     }
 
     .hero-top {
@@ -371,7 +380,7 @@
     .hero-label {
       font-size: 0.95rem;
       font-weight: 600;
-      color: rgba(241, 248, 246, 0.82);
+      color: rgba(241, 248, 246, 0.85);
     }
 
     .hero-pct-badge {
@@ -391,7 +400,7 @@
     }
 
     .hero-value {
-      font-size: 2.25rem;
+      font-size: 2.22rem;
       font-weight: 800;
       line-height: 1.15;
       letter-spacing: -0.02em;
@@ -401,56 +410,101 @@
 
     .hero-spark {
       width: 100%;
-      height: 64px;
+      height: 62px;
       display: block;
     }
 
     .kpi-grid-4 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.8rem;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
     }
 
     .kpi-box {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--r-lg);
-      padding: 1.05rem 1.1rem;
+      padding: 1rem 1.05rem;
       box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
+      gap: 0.35rem;
     }
 
     .kpi-box-label {
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 600;
       color: var(--text-2);
     }
 
     .kpi-box-val {
-      font-size: 1.55rem;
+      font-size: 1.5rem;
       font-weight: 800;
       color: var(--text);
       line-height: 1.2;
     }
 
-    /* ---------- ADD DAILY ENTRY (COD FORM) ---------- */
+    /* COD Cashflow Summary Strip */
+    .cashflow-strip {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 0.95rem 1.05rem;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .cf-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .cf-col:last-child {
+      border-inline-start: 1px solid var(--border);
+      padding-inline-start: 0.85rem;
+    }
+
+    .cf-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-2);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .cf-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .cf-val {
+      font-size: 1.12rem;
+      font-weight: 800;
+    }
+
+    /* ---------- 3. ADD DAILY ENTRY (COD SYSTEM) ---------- */
     .cod-form {
       display: flex;
       flex-direction: column;
-      gap: 0.9rem;
+      gap: 0.85rem;
     }
 
     .form-field {
       display: flex;
       flex-direction: column;
-      gap: 0.38rem;
+      gap: 0.35rem;
       min-width: 0;
     }
 
     .form-label {
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 600;
       color: var(--text);
       display: flex;
@@ -462,7 +516,7 @@
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.75rem;
+      gap: 0.7rem;
     }
 
     .input-wrap {
@@ -472,8 +526,8 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--r-sm);
-      min-height: 48px;
-      padding: 0 0.8rem;
+      min-height: 46px;
+      padding: 0 0.75rem;
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
@@ -487,10 +541,10 @@
       background: transparent;
       border: none;
       outline: none;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--text);
-      padding: 0.6rem 0;
+      padding: 0.55rem 0;
     }
 
     .input-clean::placeholder {
@@ -499,10 +553,10 @@
     }
 
     .unit-tag {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       color: var(--text-2);
-      margin-inline-start: 0.45rem;
+      margin-inline-start: 0.4rem;
       white-space: nowrap;
       flex-shrink: 0;
     }
@@ -514,10 +568,25 @@
       background: var(--emerald-soft);
       border: 1px solid rgba(16, 185, 129, 0.28);
       border-radius: var(--r-sm);
-      padding: 0.5rem 0.85rem;
-      font-size: 0.8rem;
+      padding: 0.48rem 0.85rem;
+      font-size: 0.79rem;
       font-weight: 600;
       color: var(--emerald);
+    }
+
+    /* Smart Loss / Kill-Switch Alert Banner */
+    .kill-switch-alert {
+      background: var(--danger-soft);
+      border: 1px solid var(--danger-border);
+      border-inline-start: 4px solid var(--danger);
+      border-radius: var(--r-sm);
+      padding: 0.65rem 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--danger);
+      font-size: 0.8rem;
+      font-weight: 700;
     }
 
     .usd-toggle-row {
@@ -525,11 +594,11 @@
       align-items: center;
       justify-content: flex-end;
       gap: 0.6rem;
-      margin-top: -0.2rem;
+      margin-top: -0.15rem;
     }
 
     .usd-toggle-label {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
       color: var(--text-2);
     }
@@ -541,7 +610,6 @@
       margin-inline-end: auto;
     }
 
-    /* Toggle Switch */
     .switch {
       position: relative;
       width: 48px;
@@ -593,11 +661,10 @@
     .live-profit-banner {
       background: linear-gradient(135deg, #0E9F6E 0%, #057A55 100%);
       border-radius: var(--r-md);
-      padding: 1rem 1.15rem;
+      padding: 0.95rem 1.1rem;
       text-align: center;
       color: #FFFFFF;
       box-shadow: 0 6px 18px var(--emerald-glow);
-      margin-top: 0.2rem;
     }
 
     .live-profit-banner.loss {
@@ -607,14 +674,14 @@
 
     .live-profit-banner span {
       display: block;
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 600;
       opacity: 0.92;
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.1rem;
     }
 
     .live-profit-banner strong {
-      font-size: 1.7rem;
+      font-size: 1.65rem;
       font-weight: 800;
       letter-spacing: -0.02em;
     }
@@ -626,23 +693,46 @@
       color: #FFFFFF;
       border: none;
       border-radius: 999px;
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 800;
       cursor: pointer;
       box-shadow: 0 6px 16px var(--emerald-glow);
-      transition: transform 0.1s ease, filter 0.15s ease;
+      transition: transform 0.1s ease;
     }
 
     .btn-save-entry:active {
       transform: scale(0.98);
     }
 
-    /* ---------- PRODUCTS & CAMPAIGNS ---------- */
+    /* ---------- 4. PRODUCTS & CAMPAIGNS + BREAK-EVEN CALCULATOR ---------- */
+    .quick-tool-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--hero-grad);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #FFFFFF;
+      border-radius: var(--r-md);
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.85rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+
+    .quick-tool-left {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
     .search-filter-row {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 0.9rem;
+      gap: 0.55rem;
+      margin-bottom: 0.85rem;
     }
 
     .search-box {
@@ -667,7 +757,7 @@
       background: transparent;
       border: none;
       outline: none;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text);
     }
 
@@ -676,9 +766,9 @@
       border: 1.5px solid var(--emerald-strong);
       color: var(--emerald);
       border-radius: 999px;
-      padding: 0.45rem 0.95rem;
+      padding: 0.42rem 0.9rem;
       min-height: 42px;
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 700;
       cursor: pointer;
       outline: none;
@@ -698,26 +788,26 @@
       box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.72rem;
     }
 
     .prod-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.75rem;
+      gap: 0.65rem;
     }
 
     .prod-identity {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.7rem;
       min-width: 0;
     }
 
     .prod-avatar {
-      width: 46px;
-      height: 46px;
+      width: 44px;
+      height: 44px;
       border-radius: 12px;
       background: var(--bg-elevated);
       border: 1px solid var(--border);
@@ -732,7 +822,7 @@
     }
 
     .prod-titles h3 {
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 700;
       color: var(--text);
       white-space: nowrap;
@@ -741,9 +831,25 @@
     }
 
     .prod-titles p {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--text-2);
-      font-weight: 500;
+    }
+
+    .stock-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.22rem 0.55rem;
+      border-radius: 999px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-2);
+      white-space: nowrap;
+    }
+
+    .stock-badge.low {
+      background: var(--amber-soft);
+      border-color: rgba(251, 191, 36, 0.35);
+      color: var(--amber);
     }
 
     .prod-profit-pill {
@@ -753,9 +859,9 @@
       gap: 0.3rem;
       background: var(--emerald-strong);
       color: #FFFFFF;
-      font-size: 0.8rem;
+      font-size: 0.79rem;
       font-weight: 700;
-      padding: 0.26rem 0.75rem;
+      padding: 0.25rem 0.75rem;
       border-radius: 999px;
     }
 
@@ -766,14 +872,14 @@
     .prod-progress-wrap {
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
+      gap: 0.32rem;
     }
 
     .prod-progress-labels {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
       color: var(--text-2);
     }
@@ -813,42 +919,36 @@
     }
 
     .prod-metric span {
-      font-size: 0.76rem;
+      font-size: 0.75rem;
       color: var(--text-2);
-      font-weight: 500;
     }
 
     .prod-metric strong {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       font-weight: 800;
       color: var(--text);
     }
 
-    /* ---------- ANALYTICS ---------- */
+    /* ---------- 5. ANALYTICS ---------- */
     .analytics-stack {
       display: flex;
       flex-direction: column;
-      gap: 0.9rem;
+      gap: 0.85rem;
     }
 
     .analytics-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--r-lg);
-      padding: 1.1rem;
+      padding: 1.05rem;
       box-shadow: var(--shadow);
     }
 
     .analytics-card h3 {
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 700;
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.8rem;
       color: var(--text);
-    }
-
-    .trend-chart-wrap {
-      width: 100%;
-      position: relative;
     }
 
     .trend-svg {
@@ -860,14 +960,14 @@
 
     .donut-layout {
       display: grid;
-      grid-template-columns: 130px 1fr;
+      grid-template-columns: 128px 1fr;
       align-items: center;
       gap: 1rem;
     }
 
     .donut-svg {
-      width: 125px;
-      height: 125px;
+      width: 122px;
+      height: 122px;
       transform: rotate(-90deg);
       margin: 0 auto;
     }
@@ -875,14 +975,14 @@
     .donut-legend {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.48rem;
     }
 
     .legend-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 600;
     }
 
@@ -903,48 +1003,42 @@
     .platform-bars {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.72rem;
     }
 
     .plat-row {
       display: flex;
       flex-direction: column;
-      gap: 0.32rem;
+      gap: 0.3rem;
     }
 
     .plat-row-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 600;
     }
 
-    .plat-row-head span:last-child {
-      color: var(--text-3);
-      font-size: 0.76rem;
-    }
-
-    /* ---------- LEDGER ---------- */
+    /* ---------- 6. LEDGER ---------- */
     .filter-pills-row {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.85rem;
+      gap: 0.45rem;
+      margin-bottom: 0.8rem;
       overflow-x: auto;
-      padding-bottom: 0.15rem;
     }
 
     .filter-chip {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.32rem;
       background: var(--card);
       border: 1px solid var(--border);
       color: var(--text-2);
-      padding: 0.42rem 0.9rem;
+      padding: 0.4rem 0.88rem;
       border-radius: 999px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
       cursor: pointer;
       white-space: nowrap;
@@ -958,39 +1052,39 @@
 
     .export-actions-row {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 0.55rem;
-      margin-bottom: 0.95rem;
+      grid-template-columns: 1fr auto auto;
+      gap: 0.45rem;
+      margin-bottom: 0.9rem;
     }
 
     .btn-export-main {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.45rem;
       background: var(--emerald-strong);
       color: #FFFFFF;
       border: none;
       border-radius: var(--r-sm);
-      min-height: 44px;
-      padding: 0 1rem;
-      font-size: 0.9rem;
+      min-height: 43px;
+      padding: 0 0.85rem;
+      font-size: 0.85rem;
       font-weight: 700;
       cursor: pointer;
     }
 
-    .btn-whatsapp {
+    .btn-outline-action {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.4rem;
+      gap: 0.35rem;
       background: var(--card);
       border: 1px solid var(--emerald-strong);
       color: var(--emerald);
       border-radius: var(--r-sm);
-      min-height: 44px;
-      padding: 0 0.85rem;
-      font-size: 0.84rem;
+      min-height: 43px;
+      padding: 0 0.75rem;
+      font-size: 0.8rem;
       font-weight: 700;
       cursor: pointer;
     }
@@ -998,31 +1092,31 @@
     .ledger-cards {
       display: flex;
       flex-direction: column;
-      gap: 0.7rem;
+      gap: 0.68rem;
     }
 
     .ledger-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--r-md);
-      padding: 0.9rem 1rem;
+      padding: 0.85rem 0.95rem;
       box-shadow: var(--shadow);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.75rem;
+      gap: 0.7rem;
     }
 
     .ledger-left {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.7rem;
       min-width: 0;
     }
 
     .ledger-thumb {
-      width: 46px;
-      height: 46px;
+      width: 44px;
+      height: 44px;
       border-radius: 12px;
       background: var(--bg-elevated);
       border: 1px solid var(--border);
@@ -1037,7 +1131,7 @@
     }
 
     .ledger-info h4 {
-      font-size: 0.96rem;
+      font-size: 0.94rem;
       font-weight: 700;
       color: var(--text);
       white-space: nowrap;
@@ -1046,12 +1140,12 @@
     }
 
     .ledger-info .meta-date {
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       color: var(--text-2);
     }
 
     .ledger-info .meta-deliv {
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       color: var(--text-3);
       font-weight: 600;
     }
@@ -1059,14 +1153,14 @@
     .ledger-right {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
       flex-shrink: 0;
     }
 
     .profit-badge {
-      padding: 0.32rem 0.7rem;
+      padding: 0.3rem 0.65rem;
       border-radius: 10px;
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 800;
       background: var(--emerald-soft);
       color: var(--emerald);
@@ -1080,11 +1174,11 @@
     }
 
     .del-entry-btn {
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       border-radius: 8px;
       background: transparent;
-      border: 1px solid transparent;
+      border: none;
       color: var(--text-3);
       display: grid;
       place-items: center;
@@ -1101,48 +1195,44 @@
       background: var(--card);
       border: 1px dashed var(--border-strong);
       border-radius: var(--r-lg);
-      padding: 2.2rem 1.25rem;
+      padding: 2.1rem 1.2rem;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.55rem;
+      gap: 0.5rem;
       color: var(--text-2);
     }
 
-    .empty-box[hidden] {
-      display: none !important;
-    }
-
     .empty-circle {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
+      width: 50px;
+      height: 50px;
+      border-radius: 15px;
       background: var(--emerald-soft);
       color: var(--emerald);
       display: grid;
       place-items: center;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.15rem;
     }
 
     .empty-box strong {
-      font-size: 1rem;
+      font-size: 0.96rem;
       color: var(--text);
     }
 
     .empty-box p {
-      font-size: 0.83rem;
-      max-width: 280px;
+      font-size: 0.81rem;
+      max-width: 270px;
     }
 
-    /* ---------- SETTINGS ---------- */
+    /* ---------- 7. SETTINGS & FREEMIUM PRO ---------- */
     .pro-banner {
       background: var(--hero-grad);
-      border: 1px solid rgba(16, 185, 129, 0.35);
+      border: 1px solid rgba(16, 185, 129, 0.38);
       border-radius: var(--r-lg);
       padding: 1.15rem;
       color: #FFFFFF;
-      margin-bottom: 1rem;
+      margin-bottom: 0.95rem;
       box-shadow: var(--shadow);
     }
 
@@ -1154,7 +1244,7 @@
 
     .pro-banner p {
       font-size: 0.8rem;
-      color: rgba(241, 248, 246, 0.8);
+      color: rgba(241, 248, 246, 0.82);
       margin-bottom: 0.75rem;
     }
 
@@ -1166,8 +1256,8 @@
       color: #FFFFFF;
       border: none;
       border-radius: 999px;
-      padding: 0.38rem 1rem;
-      font-size: 0.8rem;
+      padding: 0.42rem 1.1rem;
+      font-size: 0.82rem;
       font-weight: 700;
       cursor: pointer;
     }
@@ -1178,15 +1268,15 @@
       border-radius: var(--r-lg);
       overflow: hidden;
       box-shadow: var(--shadow);
-      margin-bottom: 1rem;
+      margin-bottom: 0.95rem;
     }
 
     .setting-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.75rem;
-      padding: 0.95rem 1.05rem;
+      gap: 0.7rem;
+      padding: 0.92rem 1rem;
       border-bottom: 1px solid var(--border);
     }
 
@@ -1197,7 +1287,7 @@
     .setting-left {
       display: flex;
       align-items: center;
-      gap: 0.7rem;
+      gap: 0.65rem;
       min-width: 0;
     }
 
@@ -1207,7 +1297,7 @@
     }
 
     .setting-left strong {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: var(--text);
     }
@@ -1217,16 +1307,16 @@
       background: var(--input);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 0.18rem;
+      padding: 0.16rem;
       gap: 0.15rem;
     }
 
     .lang-btn {
       background: transparent;
       border: none;
-      padding: 0.28rem 0.55rem;
+      padding: 0.26rem 0.55rem;
       border-radius: 7px;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       color: var(--text-2);
       cursor: pointer;
@@ -1238,14 +1328,14 @@
     }
 
     .rate-input {
-      width: 96px;
+      width: 90px;
       background: var(--input);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 0.35rem 0.55rem;
+      padding: 0.34rem 0.5rem;
       text-align: center;
       font-family: var(--font-num);
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 700;
       color: var(--text);
       outline: none;
@@ -1255,35 +1345,35 @@
       background: var(--input);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 0.38rem 0.7rem;
-      font-size: 0.8rem;
+      padding: 0.36rem 0.65rem;
+      font-size: 0.78rem;
       font-weight: 700;
       color: var(--emerald);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.3rem;
     }
 
     .danger-zone {
       background: var(--card);
       border: 1px solid var(--danger-border);
       border-radius: var(--r-lg);
-      padding: 1rem 1.05rem;
+      padding: 0.95rem 1rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.75rem;
+      gap: 0.7rem;
     }
 
     .danger-zone-text strong {
       display: block;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--danger);
     }
 
     .danger-zone-text span {
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       color: var(--text-2);
     }
 
@@ -1292,14 +1382,14 @@
       border: 1px solid var(--danger-border);
       color: var(--danger);
       border-radius: 10px;
-      padding: 0.48rem 0.85rem;
-      font-size: 0.82rem;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.8rem;
       font-weight: 700;
       cursor: pointer;
       white-space: nowrap;
     }
 
-    /* ---------- BOTTOM NAVIGATION WITH FLOATING "+" ---------- */
+    /* ---------- BOTTOM NAVIGATION ---------- */
     .bottom-nav {
       position: fixed;
       inset-inline: 0;
@@ -1365,13 +1455,13 @@
       transform: translateY(-16px) scale(0.95);
     }
 
-    /* ---------- DELETE CONFIRMATION MODAL ---------- */
+    /* ---------- MODALS (Break-Even, Pro Activation, Delete) ---------- */
     .modal-backdrop {
       position: fixed;
       inset: 0;
       z-index: 120;
-      background: rgba(5, 10, 12, 0.75);
-      backdrop-filter: blur(4px);
+      background: rgba(5, 10, 12, 0.78);
+      backdrop-filter: blur(5px);
       display: grid;
       place-items: center;
       padding: 1rem;
@@ -1381,7 +1471,7 @@
       background: var(--card);
       border: 1px solid var(--border-strong);
       border-radius: var(--r-lg);
-      max-width: 380px;
+      max-width: 400px;
       width: 100%;
       padding: 1.25rem;
       box-shadow: var(--shadow);
@@ -1390,14 +1480,64 @@
       gap: 0.85rem;
     }
 
-    .modal-card h3 {
-      font-size: 1.05rem;
-      color: var(--danger);
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
     }
 
-    .modal-card p {
-      font-size: 0.84rem;
+    .modal-head h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
       color: var(--text-2);
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .be-results {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 0.85rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+      text-align: center;
+    }
+
+    .be-res-box span {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--text-2);
+      margin-bottom: 0.15rem;
+    }
+
+    .be-res-box strong {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--emerald);
+    }
+
+    .pro-perks-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.42rem;
+      font-size: 0.82rem;
+      color: var(--text-2);
+    }
+
+    .pro-perks-list li::before {
+      content: "✓ ";
+      color: var(--emerald);
+      font-weight: 800;
     }
 
     .modal-actions {
@@ -1410,8 +1550,8 @@
     .toast-area {
       position: fixed;
       inset-inline: 1rem;
-      bottom: calc(88px + env(safe-area-inset-bottom, 0px));
-      z-index: 110;
+      bottom: calc(90px + env(safe-area-inset-bottom, 0px));
+      z-index: 130;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1433,20 +1573,33 @@
       width: 100%;
       text-align: center;
     }
+
+    @media print {
+      .bottom-nav, .dashboard-header, .inner-header, .search-filter-row, .filter-pills-row, .export-actions-row {
+        display: none !important;
+      }
+      body {
+        background: #FFFFFF;
+        color: #000000;
+        padding: 0;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- 1. MAIN DASHBOARD HEADER (Shown ONLY on Dashboard tab) -->
+  <!-- 1. DASHBOARD HEADER (ONLY on Dashboard tab) -->
   <header class="dashboard-header" id="dashboardHeader">
     <div class="dash-header-inner">
       <div class="brand-mark">
-        <div class="pulse-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+            <polyline points="16 7 22 7 22 13"></polyline>
           </svg>
         </div>
         <span class="brand-title">ProfitPulse</span>
+        <span class="pro-mini-tag" id="headerProTag" hidden>PRO</span>
       </div>
 
       <div class="dash-header-actions">
@@ -1473,7 +1626,7 @@
     </div>
   </header>
 
-  <!-- 2. COMPACT INNER PAGE HEADER (Shown on Add, Products, Analytics, Ledger, Settings) -->
+  <!-- 2. COMPACT INNER HEADER -->
   <header class="inner-header" id="innerHeader" hidden>
     <div class="inner-header-inner">
       <div class="inner-header-left">
@@ -1515,15 +1668,15 @@
           <span class="hero-pct-badge num" id="heroMarginBadge">+0.0%</span>
         </div>
         <div class="hero-value"><span class="num" id="valNetProfit">+0.00 د.م</span></div>
-        <svg class="hero-spark" id="heroSparkSvg" viewBox="0 0 320 64" preserveAspectRatio="none" aria-hidden="true">
+        <svg class="hero-spark" id="heroSparkSvg" viewBox="0 0 320 62" preserveAspectRatio="none" aria-hidden="true">
           <defs>
             <linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stop-color="#10B981" stop-opacity="0.38" />
               <stop offset="100%" stop-color="#10B981" stop-opacity="0.0" />
             </linearGradient>
           </defs>
-          <path id="heroSparkArea" d="M0,52 L320,52 L320,64 L0,64 Z" fill="url(#sparkFill)"></path>
-          <path id="heroSparkLine" d="M0,52 L320,52" fill="none" stroke="#34D399" stroke-width="2.6" stroke-linecap="round"></path>
+          <path id="heroSparkArea" d="M0,50 L320,50 L320,62 L0,62 Z" fill="url(#sparkFill)"></path>
+          <path id="heroSparkLine" d="M0,50 L320,50" fill="none" stroke="#34D399" stroke-width="2.6" stroke-linecap="round"></path>
         </svg>
       </article>
 
@@ -1549,6 +1702,24 @@
           <strong class="kpi-box-val num" id="valRoas">0.0x</strong>
         </article>
       </div>
+
+      <!-- COD Cashflow Summary Strip -->
+      <article class="cashflow-strip">
+        <div class="cf-col">
+          <span class="cf-label">
+            <span class="cf-dot" style="background:var(--emerald)"></span>
+            <span data-i18n="cfCollected">المداخيل المحصلة</span>
+          </span>
+          <strong class="cf-val num" id="valCollectedCash">0.00 د.م</strong>
+        </div>
+        <div class="cf-col">
+          <span class="cf-label">
+            <span class="cf-dot" style="background:var(--amber)"></span>
+            <span data-i18n="cfPending">الفلوس عند شركات التوصيل</span>
+          </span>
+          <strong class="cf-val num" id="valPendingCash">0.00 د.م</strong>
+        </div>
+      </article>
     </section>
 
     <!-- ==================== TAB 2: ADD DAILY ENTRY (COD) ==================== -->
@@ -1571,7 +1742,6 @@
                 <option value="Meta Ads">Meta / Facebook</option>
                 <option value="Snapchat">Snapchat Ads</option>
                 <option value="Google Ads">Google Ads</option>
-                <option value="Organic">Organic / Store</option>
               </select>
             </div>
           </div>
@@ -1611,7 +1781,6 @@
           </div>
         </div>
 
-        <!-- Auto Delivery Rate & Returned Orders Bar -->
         <div class="cod-auto-bar">
           <span><span data-i18n="deliveryRate">نسبة التوصيل</span>: <strong class="num" id="formDelivRate">0%</strong></span>
           <span><span data-i18n="returnedOrders">المرتجعات (Retour)</span>: <strong class="num" id="formReturnedQty">0</strong></span>
@@ -1654,11 +1823,24 @@
           </div>
 
           <div class="form-field">
-            <label class="form-label" for="inpDate" data-i18n="lblDate">التاريخ</label>
+            <label class="form-label" for="inpStock" data-i18n="lblStock">المخزون المتبقي (اختياري)</label>
             <div class="input-wrap">
-              <input type="date" id="inpDate" class="input-clean num" required />
+              <input type="number" inputmode="numeric" id="inpStock" class="input-clean num" min="0" step="1" placeholder="50" />
             </div>
           </div>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="inpDate" data-i18n="lblDate">التاريخ</label>
+          <div class="input-wrap">
+            <input type="date" id="inpDate" class="input-clean num" required />
+          </div>
+        </div>
+
+        <!-- Smart Loss / Kill-Switch Alert -->
+        <div class="kill-switch-alert" id="killSwitchAlert" hidden>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          <span id="killSwitchText" data-i18n="killSwitchWarn">تنبيه Kill-Switch: الحملة خاسرة أو نسبة التوصيل أقل من 50%! يُنصح بإيقاف الإعلان أو تحسين التأكيد.</span>
         </div>
 
         <div class="live-profit-banner" id="liveProfitBanner">
@@ -1672,6 +1854,14 @@
 
     <!-- ==================== TAB 3: PRODUCTS & CAMPAIGNS ==================== -->
     <section class="page" data-page="products" hidden>
+      <button type="button" class="quick-tool-btn" id="btnOpenBreakEven">
+        <span class="quick-tool-left">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="8" y1="14" x2="16" y2="14"></line><line x1="8" y1="18" x2="12" y2="18"></line></svg>
+          <span data-i18n="btnBreakEvenCalc">حاسبة نقطة التعادل (Break-Even Calculator)</span>
+        </span>
+        <span>→</span>
+      </button>
+
       <div class="search-filter-row">
         <div class="search-box">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
@@ -1701,7 +1891,6 @@
     <!-- ==================== TAB 4: ANALYTICS ==================== -->
     <section class="page" data-page="analytics" hidden>
       <div class="analytics-stack">
-        <!-- Monthly Net Profit Trend -->
         <article class="analytics-card">
           <h3 data-i18n="monthlyProfitTrend">منحنى صافي الربح</h3>
           <div class="trend-chart-wrap">
@@ -1709,7 +1898,6 @@
           </div>
         </article>
 
-        <!-- Expense Breakdown Donut -->
         <article class="analytics-card">
           <h3 data-i18n="expenseBreakdown">تفصيل المصاريف</h3>
           <div class="donut-layout">
@@ -1742,7 +1930,6 @@
           </div>
         </article>
 
-        <!-- Best Platform ROAS -->
         <article class="analytics-card">
           <h3 data-i18n="bestPlatform">أفضل منصة إعلانية</h3>
           <div class="platform-bars" id="platformBarsList"></div>
@@ -1773,11 +1960,15 @@
 
       <div class="export-actions-row">
         <button type="button" class="btn-export-main" id="btnExportCsv">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
           <span data-i18n="btnExportPdfExcel">تصدير PDF / Excel</span>
         </button>
 
-        <button type="button" class="btn-whatsapp" id="btnShareWhatsApp" title="WhatsApp Report">
+        <button type="button" class="btn-outline-action" id="btnPrintPdf" title="Print PDF">
+          <span>PDF</span>
+        </button>
+
+        <button type="button" class="btn-outline-action" id="btnShareWhatsApp" title="WhatsApp Report">
           <span>WhatsApp</span>
         </button>
       </div>
@@ -1796,15 +1987,14 @@
     <!-- ==================== TAB 6: SETTINGS ==================== -->
     <section class="page" data-page="settings" hidden>
       <div class="pro-banner">
-        <h3>ProfitPulse Pro — 29 د.م/mo</h3>
-        <p data-i18n="proSub">نسخ احتياطي سحابي وتحليلات غير محدودة لمتاجر COD</p>
-        <button type="button" class="pro-pill-btn" id="btnBackupJson">
-          <span data-i18n="btnExportBackup">حفظ نسخة احتياطية</span>
+        <h3 id="proBannerTitle">ProfitPulse Pro — 29 د.م/mo</h3>
+        <p id="proBannerSub" data-i18n="proSub">نسخ احتياطي سحابي وتحليلات غير محدودة لمتاجر COD</p>
+        <button type="button" class="pro-pill-btn" id="btnOpenProModal">
+          <span id="txtUpgradeBtn" data-i18n="btnUpgrade">Upgrade</span>
         </button>
       </div>
 
       <div class="settings-card">
-        <!-- Language -->
         <div class="setting-item">
           <div class="setting-left">
             <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
@@ -1817,7 +2007,6 @@
           </div>
         </div>
 
-        <!-- USD to MAD Rate -->
         <div class="setting-item">
           <div class="setting-left">
             <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
@@ -1829,22 +2018,23 @@
           </div>
         </div>
 
-        <!-- Google Drive / JSON Restore -->
         <div class="setting-item">
           <div class="setting-left">
             <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 19 22 19 12 2"></polygon></svg>
-            <strong data-i18n="setGDrive">Google Drive / استرجاع</strong>
+            <strong data-i18n="setGDrive">Google Drive Backup</strong>
           </div>
-          <div>
+          <div style="display:flex;gap:0.35rem;">
             <input type="file" id="inpRestoreFile" accept=".json" hidden />
+            <button type="button" class="sync-btn" id="btnBackupJson">
+              <span data-i18n="btnBackup">نسخ</span>
+            </button>
             <button type="button" class="sync-btn" id="btnRestoreJson">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
-              <span data-i18n="btnSync">مزامنة</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+              <span data-i18n="btnSync">استرجاع</span>
             </button>
           </div>
         </div>
 
-        <!-- Dark Mode -->
         <div class="setting-item">
           <div class="setting-left">
             <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -1857,7 +2047,6 @@
         </div>
       </div>
 
-      <!-- Danger Zone -->
       <div class="danger-zone">
         <div class="danger-zone-text">
           <strong data-i18n="dangerTitle">منطقة الخطر (مسح البيانات)</strong>
@@ -1868,10 +2057,82 @@
     </section>
   </main>
 
-  <!-- DELETE CONFIRMATION MODAL (Requires typing DELETE) -->
+  <!-- MODAL 1: BREAK-EVEN CALCULATOR -->
+  <div class="modal-backdrop" id="breakEvenModal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <h3 data-i18n="beModalTitle">حاسبة نقطة التعادل (Break-Even)</h3>
+        <button type="button" class="modal-close" id="btnCloseBreakEven">✕</button>
+      </div>
+      <div class="grid-2">
+        <div class="form-field">
+          <label class="form-label" data-i18n="lblSellingPrice">سعر البيع</label>
+          <div class="input-wrap">
+            <input type="number" id="bePrice" class="input-clean num" value="299" min="1" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="form-label" data-i18n="lblUnitCost">تكلفة المنتج</label>
+          <div class="input-wrap">
+            <input type="number" id="beCogs" class="input-clean num" value="90" min="0" />
+          </div>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="form-field">
+          <label class="form-label" data-i18n="beDelivFee">تكلفة توصيل الطلب</label>
+          <div class="input-wrap">
+            <input type="number" id="beDelivery" class="input-clean num" value="35" min="0" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="form-label" data-i18n="beTargetDeliv">نسبة التوصيل المتوقعة %</label>
+          <div class="input-wrap">
+            <input type="number" id="beExpectedRate" class="input-clean num" value="65" min="10" max="100" />
+          </div>
+        </div>
+      </div>
+      <div class="be-results">
+        <div class="be-res-box">
+          <span data-i18n="beMaxCpa">أقصى CPA مسموح ($)</span>
+          <strong class="num" id="beOutMaxCpa">$0.00</strong>
+        </div>
+        <div class="be-res-box">
+          <span data-i18n="beMinDelivRate">أقل نسبة توصيل للتعادل</span>
+          <strong class="num" id="beOutMinRate">0%</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: PRO SUBSCRIPTION ACTIVATION -->
+  <div class="modal-backdrop" id="proModal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <h3>ProfitPulse Pro — 29 د.م/mo</h3>
+        <button type="button" class="modal-close" id="btnCloseProModal">✕</button>
+      </div>
+      <ul class="pro-perks-list">
+        <li data-i18n="perk1">منتجات ومعاملات يومية غير محدودة (Unlimited)</li>
+        <li data-i18n="perk2">حاسبة نقطة التعادل وتنبيهات Kill-Switch الذكية</li>
+        <li data-i18n="perk3">تصدير تقارير PDF / Excel ومشاركة WhatsApp</li>
+        <li data-i18n="perk4">نسخ احتياطي سحابي واسترجاع فوري للبيانات</li>
+      </ul>
+      <div class="form-field">
+        <label class="form-label" data-i18n="lblLicenseKey">كود التفعيل (License Key)</label>
+        <div class="input-wrap">
+          <input type="text" id="inpLicenseKey" class="input-clean num" placeholder="PRO-2026-VIP" autocomplete="off" />
+        </div>
+      </div>
+      <button type="button" class="btn-save-entry" id="btnActivatePro" data-i18n="btnActivateKey">تفعيل النسخة الاحترافية</button>
+      <button type="button" class="btn-outline-action" id="btnWhatsAppLicense" style="width:100%;" data-i18n="btnContactWaKey">تواصل عبر WhatsApp للحصول على كود التفعيل</button>
+    </div>
+  </div>
+
+  <!-- MODAL 3: DELETE CONFIRMATION -->
   <div class="modal-backdrop" id="deleteModal" hidden>
     <div class="modal-card" role="dialog" aria-modal="true">
-      <h3 data-i18n="modalDeleteTitle">تأكيد مسح جميع البيانات</h3>
+      <h3 style="color:var(--danger);" data-i18n="modalDeleteTitle">تأكيد مسح جميع البيانات</h3>
       <p data-i18n="modalDeleteDesc">اكتب كلمة DELETE بالحروف الكبيرة لتأكيد الحذف النهائي:</p>
       <div class="input-wrap">
         <input type="text" id="inpConfirmDeleteWord" class="input-clean num" placeholder="DELETE" autocomplete="off" />
@@ -1883,7 +2144,7 @@
     </div>
   </div>
 
-  <!-- BOTTOM NAVIGATION BAR (4 Tabs + Centered Floating Green "+") -->
+  <!-- BOTTOM NAVIGATION BAR -->
   <nav class="bottom-nav" aria-label="Bottom Navigation">
     <div class="bottom-nav-inner" id="bottomNav">
       <button type="button" class="nav-item active" data-nav="dashboard">
@@ -1921,12 +2182,15 @@
       "use strict";
 
       const STORAGE_KEYS = {
-        ENTRIES: "profitpulse_cod_entries_v3",
-        THEME: "profitpulse_theme_v3",
-        LANG: "profitpulse_lang_v3",
-        CURRENCY: "profitpulse_currency_v3",
-        USD_RATE: "profitpulse_usd_rate_v3"
+        ENTRIES: "profitpulse_cod_entries_v35",
+        THEME: "profitpulse_theme_v35",
+        LANG: "profitpulse_lang_v35",
+        CURRENCY: "profitpulse_currency_v35",
+        USD_RATE: "profitpulse_usd_rate_v35",
+        PRO_ACTIVE: "profitpulse_pro_active_v35"
       };
+
+      const VALID_LICENSE_KEYS = ["PRO-2026-VIP", "PULSE-PRO-30", "PROFITPULSE-VIP"];
 
       const CURRENCIES = {
         MAD: { symbol: "د.م", before: false },
@@ -1960,6 +2224,8 @@
           deliveryRate: "نسبة التوصيل",
           adSpend: "الإنفاق الإعلاني",
           roas: "العائد ROAS",
+          cfCollected: "المداخيل المحصلة",
+          cfPending: "الفلوس عند شركات التوصيل",
           lblProduct: "المنتج / الحملة",
           phProduct: "مثال: Smart Watch Ultra",
           lblPlatform: "منصة الإعلان",
@@ -1971,16 +2237,25 @@
           lblLivraison: "التوصيل والكول سنتر",
           lblAdSpend: "الإنفاق الإعلاني",
           lblReturnCost: "تكلفة المرتجعات والتغليف",
+          lblStock: "المخزون المتبقي (اختياري)",
           lblDate: "التاريخ",
+          killSwitchWarn: "تنبيه Kill-Switch: الحملة خاسرة أو نسبة التوصيل أقل من 50%! يُنصح بإيقاف الإعلان أو تحسين التأكيد.",
           liveEstProfit: "صافي الربح المتوقع:",
           btnSaveEntry: "حفظ المعاملة",
-          phSearch: "بحث عن منتج أو تاريخ...",
+          btnBreakEvenCalc: "حاسبة نقطة التعادل (Break-Even Calculator)",
+          beModalTitle: "حاسبة نقطة التعادل (Break-Even)",
+          beDelivFee: "تكلفة توصيل الطلب",
+          beTargetDeliv: "نسبة التوصيل المتوقعة %",
+          beMaxCpa: "أقصى CPA مسموح ($)",
+          beMinDelivRate: "أقل نسبة توصيل للتعادل",
+          phSearch: "بحث...",
           filterAll: "الكل",
           filterProfitable: "رابحة",
           filterLoss: "خاسرة",
           deliveredWord: "تم التوصيل",
           returnedWord: "مرتجع",
           progressWord: "نسبة التسليم",
+          stockWord: "المخزون",
           emptyProductsTitle: "لا توجد منتجات أو حملات بعد",
           emptyProductsSub: "اضغط على زر (+) الأخضر في الأسفل لإضافة أول معاملة يومية.",
           monthlyProfitTrend: "منحنى صافي الربح",
@@ -1993,12 +2268,21 @@
           btnExportPdfExcel: "تصدير PDF / Excel",
           emptyLedgerTitle: "السجل فارغ حالياً",
           emptyLedgerSub: "اضغط على الزر الأخضر (+) لإضافة معاملاتك اليومية.",
-          proSub: "نسخ احتياطي وتحليلات متكاملة لمتاجر الدفع عند الاستلام COD",
-          btnExportBackup: "تصدير نسخة احتياطية JSON",
+          proSub: "نسخ احتياطي سحابي وتحليلات غير محدودة لمتاجر COD",
+          btnUpgrade: "ترقية الآن Upgrade",
+          proActiveText: "النسخة الاحترافية مفعّلة ✓",
+          perk1: "منتجات ومعاملات يومية غير محدودة (Unlimited)",
+          perk2: "حاسبة نقطة التعادل وتنبيهات Kill-Switch الذكية",
+          perk3: "تصدير تقارير PDF / Excel ومشاركة WhatsApp",
+          perk4: "نسخ احتياطي سحابي واسترجاع فوري للبيانات",
+          lblLicenseKey: "كود التفعيل (License Key)",
+          btnActivateKey: "تفعيل النسخة الاحترافية",
+          btnContactWaKey: "تواصل عبر WhatsApp للحصول على كود التفعيل",
           setLanguage: "اللغة",
           setUsdRate: "سعر صرف الدولار (USD → MAD)",
-          setGDrive: "استرجاع نسخة احتياطية",
-          btnSync: "استيراد ملف",
+          setGDrive: "Google Drive Backup",
+          btnBackup: "نسخ",
+          btnSync: "استرجاع",
           setDarkMode: "الوضع الليلي (Dark Mode)",
           dangerTitle: "منطقة الخطر (مسح البيانات)",
           dangerSub: "حذف جميع المعاملات المسجلة نهائياً",
@@ -2017,7 +2301,10 @@
           toastInvalid: "يرجى إدخال اسم المنتج والأرقام بشكل صحيح",
           toastNoExport: "لا توجد معاملات لتصديرها",
           toastExported: "تم تصدير ملف Excel CSV بنجاح",
-          toastTypeDelete: "يرجى كتابة كلمة DELETE بشكل صحيح للتأكيد"
+          toastTypeDelete: "يرجى كتابة كلمة DELETE بشكل صحيح للتأكيد",
+          toastProUnlocked: "تم تفعيل ProfitPulse Pro بنجاح! 🎉",
+          toastInvalidKey: "كود التفعيل غير صحيح (جرّب PRO-2026-VIP)",
+          toastFreeLimit: "النسخة المجانية تدعم منتجاً واحداً و15 معاملة. قم بالترقية إلى Pro!"
         },
         en: {
           dir: "ltr",
@@ -2039,6 +2326,8 @@
           deliveryRate: "Delivery Rate",
           adSpend: "Ad Spend",
           roas: "ROAS",
+          cfCollected: "Collected Cash",
+          cfPending: "Pending at Delivery Co.",
           lblProduct: "Product / Campaign",
           phProduct: "e.g. Smart Watch Ultra",
           lblPlatform: "Ad Platform",
@@ -2050,9 +2339,17 @@
           lblLivraison: "Livraison & Call Center",
           lblAdSpend: "Ad Spend",
           lblReturnCost: "Return & Packaging Cost",
+          lblStock: "Remaining Stock (Optional)",
           lblDate: "Date",
+          killSwitchWarn: "Kill-Switch Alert: Negative profit or Delivery Rate under 50%! Consider pausing or optimizing this campaign.",
           liveEstProfit: "Live Estimated Profit:",
           btnSaveEntry: "Save Entry",
+          btnBreakEvenCalc: "Break-Even Calculator",
+          beModalTitle: "COD Break-Even Calculator",
+          beDelivFee: "Delivery Fee / Order",
+          beTargetDeliv: "Expected Delivery Rate %",
+          beMaxCpa: "Max Allowable CPA ($)",
+          beMinDelivRate: "Min Break-Even Delivery %",
           phSearch: "Search...",
           filterAll: "All",
           filterProfitable: "Profitable",
@@ -2060,6 +2357,7 @@
           deliveredWord: "Delivered",
           returnedWord: "Returned",
           progressWord: "Progress",
+          stockWord: "Stock",
           emptyProductsTitle: "No products or campaigns yet",
           emptyProductsSub: "Tap the green (+) button below to log your first daily COD entry.",
           monthlyProfitTrend: "Monthly Net Profit Trend",
@@ -2072,11 +2370,20 @@
           btnExportPdfExcel: "Export PDF / Excel",
           emptyLedgerTitle: "No ledger entries yet",
           emptyLedgerSub: "Tap the green (+) button to add your first daily transaction.",
-          proSub: "Local & Cloud Backup & Unlimited COD Analytics",
-          btnExportBackup: "Export Backup JSON",
+          proSub: "Cloud Backup & Unlimited Analytics",
+          btnUpgrade: "Upgrade",
+          proActiveText: "VIP Pro Unlocked ✓",
+          perk1: "Unlimited Products & Daily COD Entries",
+          perk2: "Break-Even Calculator & Smart Kill-Switch Alerts",
+          perk3: "PDF / Excel Exports & Instant WhatsApp Reports",
+          perk4: "Cloud & Local JSON Backup & Restore",
+          lblLicenseKey: "License Key",
+          btnActivateKey: "Activate Pro License",
+          btnContactWaKey: "Contact via WhatsApp to Get License Key",
           setLanguage: "Language",
           setUsdRate: "USD to MAD Rate",
           setGDrive: "Google Drive Backup",
+          btnBackup: "Export",
           btnSync: "Restore",
           setDarkMode: "Dark Mode",
           dangerTitle: "Danger Zone",
@@ -2096,7 +2403,10 @@
           toastInvalid: "Please enter a product name and valid numbers",
           toastNoExport: "No entries available to export",
           toastExported: "CSV / Excel file exported",
-          toastTypeDelete: "Please type DELETE in uppercase to confirm"
+          toastTypeDelete: "Please type DELETE in uppercase to confirm",
+          toastProUnlocked: "ProfitPulse Pro activated! 🎉",
+          toastInvalidKey: "Invalid license key (Try PRO-2026-VIP)",
+          toastFreeLimit: "Free plan allows 1 product & 15 entries. Upgrade to Pro!"
         },
         fr: {
           dir: "ltr",
@@ -2118,6 +2428,8 @@
           deliveryRate: "Taux de Livraison",
           adSpend: "Budget Pub (Ads)",
           roas: "ROAS",
+          cfCollected: "Cash Encaissé",
+          cfPending: "En Attente (Sociétés Liv.)",
           lblProduct: "Produit / Campagne",
           phProduct: "ex. Smart Watch Ultra",
           lblPlatform: "Plateforme Pub",
@@ -2129,9 +2441,17 @@
           lblLivraison: "Livraison & Call Center",
           lblAdSpend: "Dépense Pub (Ads)",
           lblReturnCost: "Coût Retours & Emballage",
+          lblStock: "Stock Restant (Optionnel)",
           lblDate: "Date",
+          killSwitchWarn: "Alerte Kill-Switch: Campagne déficitaire ou livraison < 50% ! Coupez ou optimisez la pub.",
           liveEstProfit: "Bénéfice Net Estimé:",
           btnSaveEntry: "Enregistrer l'Entrée",
+          btnBreakEvenCalc: "Calculateur Break-Even (Seuil de Rentabilité)",
+          beModalTitle: "Calculateur Break-Even COD",
+          beDelivFee: "Frais Livraison / Cmd",
+          beTargetDeliv: "Taux de Livraison Prévu %",
+          beMaxCpa: "CPA Max Autorisé ($)",
+          beMinDelivRate: "Taux Livraison Min %",
           phSearch: "Rechercher...",
           filterAll: "Tout",
           filterProfitable: "Rentable",
@@ -2139,6 +2459,7 @@
           deliveredWord: "Livré",
           returnedWord: "Retourné",
           progressWord: "Progression",
+          stockWord: "Stock",
           emptyProductsTitle: "Aucun produit ou campagne",
           emptyProductsSub: "Appuyez sur le bouton vert (+) pour ajouter votre première journée COD.",
           monthlyProfitTrend: "Tendance du Bénéfice Net",
@@ -2151,11 +2472,20 @@
           btnExportPdfExcel: "Exporter PDF / Excel",
           emptyLedgerTitle: "Aucune opération enregistrée",
           emptyLedgerSub: "Appuyez sur le bouton (+) pour ajouter une transaction quotidienne.",
-          proSub: "Sauvegarde locale/cloud & analytique COD illimitée",
-          btnExportBackup: "Sauvegarder JSON",
+          proSub: "Sauvegarde Cloud & Analytique Illimitée",
+          btnUpgrade: "Passer à Pro",
+          proActiveText: "Version Pro Activée ✓",
+          perk1: "Produits & Entrées Quotidiennes Illimités",
+          perk2: "Calculateur Break-Even & Alertes Kill-Switch",
+          perk3: "Exports PDF / Excel & Rapports WhatsApp",
+          perk4: "Sauvegarde & Restauration Cloud JSON",
+          lblLicenseKey: "Clé de Licence",
+          btnActivateKey: "Activer ProfitPulse Pro",
+          btnContactWaKey: "Contacter via WhatsApp pour une Clé",
           setLanguage: "Langue",
           setUsdRate: "Taux USD vers MAD",
-          setGDrive: "Sauvegarde Google Drive",
+          setGDrive: "Google Drive Backup",
+          btnBackup: "Exporter",
           btnSync: "Importer",
           setDarkMode: "Mode Sombre",
           dangerTitle: "Zone de Danger",
@@ -2175,7 +2505,10 @@
           toastInvalid: "Veuillez remplir le nom du produit et des valeurs valides",
           toastNoExport: "Aucune donnée à exporter",
           toastExported: "Fichier CSV exporté",
-          toastTypeDelete: "Veuillez taper DELETE en majuscules"
+          toastTypeDelete: "Veuillez taper DELETE en majuscules",
+          toastProUnlocked: "ProfitPulse Pro activé avec succès ! 🎉",
+          toastInvalidKey: "Clé invalide (Essayez PRO-2026-VIP)",
+          toastFreeLimit: "Version gratuite limitée à 1 produit et 15 entrées. Passez à Pro !"
         }
       };
 
@@ -2185,6 +2518,7 @@
         lang: "ar",
         currency: "MAD",
         usdRate: 10.20,
+        isPro: false,
         activePage: "dashboard",
         previousPage: "dashboard",
         dashPeriod: "30d",
@@ -2256,6 +2590,7 @@
         const adSpend = Number(item.adSpend) || 0;
 
         const revenue = price * delivered;
+        const pendingCash = price * returned;
         const cogsTotal = unitCost * delivered;
         const totalExpenses = cogsTotal + livraison + returnCost + adSpend;
         const netProfit = revenue - totalExpenses;
@@ -2268,6 +2603,7 @@
           delivered,
           returned,
           revenue,
+          pendingCash,
           cogsTotal,
           livraison,
           returnCost,
@@ -2287,9 +2623,7 @@
 
         return entries.filter((e) => {
           if (!e.date) return true;
-          if (periodKey === "today") {
-            return e.date === todayStr;
-          }
+          if (periodKey === "today") return e.date === todayStr;
           const d = new Date(e.date + "T00:00:00");
           if (Number.isNaN(d.getTime())) return true;
           const diffDays = (now - d) / (1000 * 60 * 60 * 24);
@@ -2307,10 +2641,10 @@
         div.className = "toast-msg";
         div.textContent = msg;
         $("toastArea").appendChild(div);
-        setTimeout(() => div.remove(), 2500);
+        setTimeout(() => div.remove(), 2600);
       }
 
-      /* ---------- NAVIGATION & HEADER SWITCHING ---------- */
+      /* ---------- NAVIGATION ---------- */
       function navigateTo(pageName) {
         if (pageName !== state.activePage && state.activePage !== "add" && state.activePage !== "settings") {
           state.previousPage = state.activePage;
@@ -2345,11 +2679,20 @@
         renderAll();
       }
 
-      /* ---------- THEME & LANGUAGE ---------- */
+      /* ---------- THEME, LANGUAGE & PRO UI ---------- */
       function applyTheme() {
         document.documentElement.setAttribute("data-theme", state.theme);
         $("metaThemeColor").setAttribute("content", state.theme === "dark" ? "#0D1619" : "#F2F7F5");
         $("themeToggleSwitch").checked = state.theme === "dark";
+      }
+
+      function applyProStatus() {
+        $("headerProTag").hidden = !state.isPro;
+        if (state.isPro) {
+          $("txtUpgradeBtn").textContent = t("proActiveText");
+        } else {
+          $("txtUpgradeBtn").textContent = t("btnUpgrade");
+        }
       }
 
       function applyLanguage() {
@@ -2367,6 +2710,8 @@
         document.querySelectorAll("#langQuickBar .lang-btn").forEach((b) => {
           b.classList.toggle("active", b.getAttribute("data-lang") === state.lang);
         });
+
+        applyProStatus();
 
         if (state.activePage !== "dashboard") {
           const titleMap = {
@@ -2393,6 +2738,7 @@
       function renderDashboard() {
         const list = filterByPeriod(state.entries, state.dashPeriod);
         let revenue = 0;
+        let pendingCash = 0;
         let confirmed = 0;
         let delivered = 0;
         let adSpend = 0;
@@ -2401,6 +2747,7 @@
         list.forEach((e) => {
           const m = computeEntry(e);
           revenue += m.revenue;
+          pendingCash += m.pendingCash;
           confirmed += m.confirmed;
           delivered += m.delivered;
           adSpend += m.adSpend;
@@ -2421,11 +2768,13 @@
         $("valAdSpend").textContent = formatMoney(adSpend, false);
         $("valRoas").textContent = `${roas.toFixed(1)}x`;
 
-        // Sparkline SVG path
+        $("valCollectedCash").textContent = formatMoney(revenue, false);
+        $("valPendingCash").textContent = formatMoney(pendingCash, false);
+
         const chronological = [...list].reverse();
         if (chronological.length === 0) {
-          $("heroSparkLine").setAttribute("d", "M0,52 L320,52");
-          $("heroSparkArea").setAttribute("d", "M0,52 L320,52 L320,64 L0,64 Z");
+          $("heroSparkLine").setAttribute("d", "M0,50 L320,50");
+          $("heroSparkArea").setAttribute("d", "M0,50 L320,50 L320,62 L0,62 Z");
         } else {
           const pts = chronological.map((item) => computeEntry(item).netProfit);
           if (pts.length === 1) pts.unshift(0);
@@ -2434,17 +2783,17 @@
           const span = Math.max(1, max - min);
           const coords = pts.map((v, idx) => {
             const x = (idx / (pts.length - 1)) * 320;
-            const y = 54 - ((v - min) / span) * 42;
+            const y = 52 - ((v - min) / span) * 40;
             return [Number(x.toFixed(1)), Number(y.toFixed(1))];
           });
           const lineD = coords.map((p, i) => `${i === 0 ? "M" : "L"}${p[0]},${p[1]}`).join(" ");
-          const areaD = `${lineD} L320,64 L0,64 Z`;
+          const areaD = `${lineD} L320,62 L0,62 Z`;
           $("heroSparkLine").setAttribute("d", lineD);
           $("heroSparkArea").setAttribute("d", areaD);
         }
       }
 
-      /* ---------- RENDER ADD ENTRY LIVE PREVIEW ---------- */
+      /* ---------- ADD ENTRY LIVE PREVIEW & KILL-SWITCH ---------- */
       function updateFormLivePreview() {
         const cur = CURRENCIES[state.currency] || CURRENCIES.MAD;
         const isUsd = $("usdAdToggle").checked;
@@ -2455,7 +2804,7 @@
         const effectiveAdSpend = isUsd ? rawAd * rate : rawAd;
 
         if (isUsd && rawAd > 0) {
-          $("usdConvertedHint").textContent = `≈ ${ effectiveAdSpend.toFixed(2) } ${cur.symbol}`;
+          $("usdConvertedHint").textContent = `≈ ${effectiveAdSpend.toFixed(2)} ${cur.symbol}`;
         } else {
           $("usdConvertedHint").textContent = "";
         }
@@ -2475,6 +2824,28 @@
 
         $("liveProfitValue").textContent = formatMoney(m.netProfit, true);
         $("liveProfitBanner").classList.toggle("loss", m.netProfit < 0);
+
+        const hasInput = m.confirmed > 0 || m.adSpend > 0 || m.revenue > 0;
+        const triggerKillSwitch = hasInput && (m.netProfit < 0 || (m.confirmed > 0 && m.deliveryRate < 50));
+        $("killSwitchAlert").hidden = !triggerKillSwitch;
+      }
+
+      /* ---------- BREAK-EVEN CALCULATOR ---------- */
+      function updateBreakEvenCalc() {
+        const price = parseFloat($("bePrice").value) || 0;
+        const cogs = parseFloat($("beCogs").value) || 0;
+        const deliv = parseFloat($("beDelivery").value) || 0;
+        const expRate = Math.min(100, Math.max(1, parseFloat($("beExpectedRate").value) || 65)) / 100;
+        const usdRate = Number(state.usdRate) || 10.20;
+
+        const marginPerDeliveredMad = Math.max(0, price - cogs - deliv);
+        const maxCpaMadPerConfirmed = marginPerDeliveredMad * expRate;
+        const maxCpaUsd = usdRate > 0 ? maxCpaMadPerConfirmed / usdRate : 0;
+
+        const minDelivPct = price > 0 ? Math.min(100, Math.round(((cogs + deliv) / price) * 100)) : 0;
+
+        $("beOutMaxCpa").textContent = `$${maxCpaUsd.toFixed(2)}`;
+        $("beOutMinRate").textContent = `${minDelivPct}%`;
       }
 
       /* ---------- RENDER PRODUCTS & CAMPAIGNS ---------- */
@@ -2493,7 +2864,8 @@
               delivered: 0,
               revenue: 0,
               adSpend: 0,
-              netProfit: 0
+              netProfit: 0,
+              stock: e.stock !== undefined && e.stock !== "" ? Number(e.stock) : null
             });
           }
           const g = groups.get(key);
@@ -2525,19 +2897,24 @@
               : (item.delivered > 0 ? 100 : 0);
             const roas = item.adSpend > 0 ? item.revenue / item.adSpend : 0;
             const isLoss = item.netProfit < 0;
+            const remStock = item.stock !== null ? Math.max(0, item.stock - item.delivered) : null;
+            const stockHtml = remStock !== null
+              ? `<span class="stock-badge ${remStock <= 10 ? "low" : ""}">${esc(t("stockWord"))}: <span class="num">${remStock}</span></span>`
+              : "";
 
             return `
               <article class="product-card">
                 <div class="prod-top">
                   <div class="prod-identity">
                     <div class="prod-avatar" aria-hidden="true">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"></rect><circle cx="12" cy="12" r="3"></circle></svg>
+                      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"></rect><circle cx="12" cy="12" r="3"></circle></svg>
                     </div>
                     <div class="prod-titles">
                       <h3>${esc(item.product)}</h3>
                       <p>— ${esc(item.platform)}</p>
                     </div>
                   </div>
+                  ${stockHtml}
                 </div>
 
                 <div class="prod-profit-pill ${isLoss ? "loss" : ""}">
@@ -2570,7 +2947,6 @@
           })
           .join("");
 
-        // Populate datalist suggestions for Add Entry form
         const uniqueNames = Array.from(new Set(state.entries.map((e) => e.product)));
         $("productSuggestions").innerHTML = uniqueNames
           .map((name) => `<option value="${esc(name)}"></option>`)
@@ -2580,11 +2956,7 @@
       /* ---------- RENDER ANALYTICS ---------- */
       function renderAnalytics() {
         const list = filterByPeriod(state.entries, state.analyticsPeriod);
-        let cogs = 0;
-        let ads = 0;
-        let liv = 0;
-        let ret = 0;
-
+        let cogs = 0, ads = 0, liv = 0, ret = 0;
         const platMap = new Map();
 
         list.forEach((e) => {
@@ -2595,15 +2967,12 @@
           ret += m.returnCost;
 
           const p = e.platform || "TikTok";
-          if (!platMap.has(p)) {
-            platMap.set(p, { revenue: 0, ads: 0 });
-          }
+          if (!platMap.has(p)) platMap.set(p, { revenue: 0, ads: 0 });
           const pm = platMap.get(p);
           pm.revenue += m.revenue;
           pm.ads += m.adSpend;
         });
 
-        // 1. Trend SVG Chart
         const svg = $("analyticsTrendSvg");
         const chrono = [...list].reverse();
         if (chrono.length === 0) {
@@ -2616,9 +2985,7 @@
           `;
         } else {
           const pts = chrono.map((e) => ({ date: e.date, profit: computeEntry(e).netProfit }));
-          if (pts.length === 1) {
-            pts.unshift({ date: pts[0].date, profit: 0 });
-          }
+          if (pts.length === 1) pts.unshift({ date: pts[0].date, profit: 0 });
           const vals = pts.map((p) => p.profit);
           const min = Math.min(...vals, 0);
           const max = Math.max(...vals, 100);
@@ -2655,7 +3022,6 @@
           `;
         }
 
-        // 2. Expense Breakdown Donut
         const totalExp = cogs + ads + liv + ret;
         const pCogs = totalExp > 0 ? Math.round((cogs / totalExp) * 100) : 0;
         const pAds = totalExp > 0 ? Math.round((ads / totalExp) * 100) : 0;
@@ -2677,9 +3043,7 @@
         setSeg("donutSegLiv", pLiv, pCogs + pAds);
         setSeg("donutSegRet", pRet, pCogs + pAds + pLiv);
 
-        // 3. Best Platform ROAS Bars
-        const defaultPlatforms = ["TikTok", "Meta Ads"];
-        defaultPlatforms.forEach((dp) => {
+        ["TikTok", "Meta Ads"].forEach((dp) => {
           if (!platMap.has(dp)) platMap.set(dp, { revenue: 0, ads: 0 });
         });
 
@@ -2766,29 +3130,16 @@
         renderLedger();
       }
 
-      /* ---------- EXPORT CSV & WHATSAPP ---------- */
+      /* ---------- EXPORT CSV, PDF & WHATSAPP ---------- */
       function exportCsv() {
         if (state.entries.length === 0) {
           showToast(t("toastNoExport"));
           return;
         }
         const headers = [
-          "Date",
-          "Product / Campaign",
-          "Platform",
-          "Selling Price",
-          "Unit Cost (COGS)",
-          "Confirmed Orders",
-          "Delivered Orders",
-          "Returned Orders",
-          "Delivery Rate (%)",
-          "Livraison & Call Center",
-          "Return & Packaging Cost",
-          "Ad Spend",
-          "Revenue",
-          "Net Profit",
-          "ROAS",
-          "Currency"
+          "Date", "Product / Campaign", "Platform", "Selling Price", "Unit Cost (COGS)",
+          "Confirmed Orders", "Delivered Orders", "Returned Orders", "Delivery Rate (%)",
+          "Livraison & Call Center", "Return & Packaging Cost", "Ad Spend", "Revenue", "Net Profit", "ROAS", "Currency"
         ];
         const escCell = (v) => {
           const s = String(v ?? "");
@@ -2798,22 +3149,11 @@
         state.entries.forEach((e) => {
           const m = computeEntry(e);
           rows.push([
-            e.date,
-            e.product,
-            e.platform || "TikTok",
-            Number(e.sellingPrice).toFixed(2),
-            Number(e.unitCost).toFixed(2),
-            m.confirmed,
-            m.delivered,
-            m.returned,
-            m.deliveryRate.toFixed(1),
-            m.livraison.toFixed(2),
-            m.returnCost.toFixed(2),
-            m.adSpend.toFixed(2),
-            m.revenue.toFixed(2),
-            m.netProfit.toFixed(2),
-            m.roas.toFixed(2),
-            state.currency
+            e.date, e.product, e.platform || "TikTok",
+            Number(e.sellingPrice).toFixed(2), Number(e.unitCost).toFixed(2),
+            m.confirmed, m.delivered, m.returned, m.deliveryRate.toFixed(1),
+            m.livraison.toFixed(2), m.returnCost.toFixed(2), m.adSpend.toFixed(2),
+            m.revenue.toFixed(2), m.netProfit.toFixed(2), m.roas.toFixed(2), state.currency
           ].map(escCell).join(","));
         });
 
@@ -2844,30 +3184,20 @@
         });
         const rate = conf > 0 ? Math.round((deliv / conf) * 100) : 0;
         const text = `📊 *ProfitPulse COD Report (${todayIso()})*\n• Net Profit: ${formatMoney(profit, true)}\n• Revenue: ${formatMoney(rev)}\n• Delivered: ${deliv}/${conf} (${rate}%)`;
-        const waUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
-        window.open(waUrl, "_blank");
+        window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
       }
 
       /* ---------- EVENTS ---------- */
       function bindEvents() {
-        // Bottom Nav tabs
         $("bottomNav").addEventListener("click", (e) => {
           const btn = e.target.closest("[data-nav]");
           if (btn) navigateTo(btn.getAttribute("data-nav"));
         });
 
-        // Floating "+" Add Entry button
         $("btnFabAdd").addEventListener("click", () => navigateTo("add"));
-
-        // Top Gear Settings button
         $("btnOpenSettings").addEventListener("click", () => navigateTo("settings"));
+        $("btnInnerBack").addEventListener("click", () => navigateTo(state.previousPage || "dashboard"));
 
-        // Inner Header Back button
-        $("btnInnerBack").addEventListener("click", () => {
-          navigateTo(state.previousPage || "dashboard");
-        });
-
-        // Currency Selector
         $("currencySelect").addEventListener("change", (e) => {
           if (CURRENCIES[e.target.value]) {
             state.currency = e.target.value;
@@ -2876,24 +3206,19 @@
           }
         });
 
-        // Dashboard Period Pills
         $("dashPeriodBar").addEventListener("click", (e) => {
           const pill = e.target.closest("[data-period]");
           if (!pill) return;
           state.dashPeriod = pill.getAttribute("data-period");
-          document.querySelectorAll("#dashPeriodBar .date-pill").forEach((p) => {
-            p.classList.toggle("active", p === pill);
-          });
+          document.querySelectorAll("#dashPeriodBar .date-pill").forEach((p) => p.classList.toggle("active", p === pill));
           renderDashboard();
         });
 
-        // Analytics Period Select
         $("analyticsPeriodSelect").addEventListener("change", (e) => {
           state.analyticsPeriod = e.target.value;
           renderAnalytics();
         });
 
-        // Add Daily Entry Form live preview & submit
         $("codForm").addEventListener("input", updateFormLivePreview);
         $("usdAdToggle").addEventListener("change", updateFormLivePreview);
 
@@ -2907,6 +3232,7 @@
           const deliveredOrders = parseInt($("inpDelivered").value, 10);
           const livraisonCost = parseFloat($("inpLivraison").value) || 0;
           const returnCost = parseFloat($("inpReturnCost").value) || 0;
+          const stock = $("inpStock").value !== "" ? parseInt($("inpStock").value, 10) : "";
           const rawAdSpend = parseFloat($("inpAdSpend").value);
           const date = $("inpDate").value || todayIso();
 
@@ -2922,6 +3248,17 @@
             return;
           }
 
+          // Freemium check: Free tier allows up to 15 entries and 1 unique product
+          if (!state.isPro) {
+            const existingProds = new Set(state.entries.map((it) => it.product.trim().toLowerCase()));
+            const isNewProd = !existingProds.has(product.toLowerCase());
+            if (state.entries.length >= 15 || (existingProds.size >= 1 && isNewProd)) {
+              showToast(t("toastFreeLimit"));
+              $("proModal").hidden = false;
+              return;
+            }
+          }
+
           const isUsd = $("usdAdToggle").checked;
           const adSpend = isUsd ? rawAdSpend * (Number(state.usdRate) || 10.20) : rawAdSpend;
 
@@ -2935,6 +3272,7 @@
             deliveredOrders,
             livraisonCost,
             returnCost,
+            stock,
             adSpend,
             date
           });
@@ -2947,7 +3285,43 @@
           navigateTo("dashboard");
         });
 
-        // Products Search & Filter
+        // Break-Even Calculator Modal
+        $("btnOpenBreakEven").addEventListener("click", () => {
+          updateBreakEvenCalc();
+          $("breakEvenModal").hidden = false;
+        });
+        $("btnCloseBreakEven").addEventListener("click", () => {
+          $("breakEvenModal").hidden = true;
+        });
+        ["bePrice", "beCogs", "beDelivery", "beExpectedRate"].forEach((id) => {
+          $(id).addEventListener("input", updateBreakEvenCalc);
+        });
+
+        // Pro Subscription Modal
+        $("btnOpenProModal").addEventListener("click", () => {
+          $("proModal").hidden = false;
+        });
+        $("btnCloseProModal").addEventListener("click", () => {
+          $("proModal").hidden = true;
+        });
+        $("btnActivatePro").addEventListener("click", () => {
+          const code = $("inpLicenseKey").value.trim().toUpperCase();
+          if (VALID_LICENSE_KEYS.includes(code)) {
+            state.isPro = true;
+            saveStorage(STORAGE_KEYS.PRO_ACTIVE, true);
+            applyProStatus();
+            $("proModal").hidden = true;
+            showToast(t("toastProUnlocked"));
+          } else {
+            showToast(t("toastInvalidKey"));
+          }
+        });
+        $("btnWhatsAppLicense").addEventListener("click", () => {
+          const msg = "Hello! I want to get a ProfitPulse Pro License Key (29 MAD/mo).";
+          window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, "_blank");
+        });
+
+        // Products & Ledger filters
         $("prodSearchInput").addEventListener("input", (e) => {
           state.prodSearch = e.target.value;
           renderProducts();
@@ -2957,7 +3331,6 @@
           renderProducts();
         });
 
-        // Ledger Search & Filter & Delete
         $("ledgerSearchInput").addEventListener("input", (e) => {
           state.ledgerSearch = e.target.value;
           renderLedger();
@@ -2966,9 +3339,7 @@
           const chip = e.target.closest("[data-filter]");
           if (!chip) return;
           state.ledgerFilter = chip.getAttribute("data-filter");
-          document.querySelectorAll("#ledgerStatusFilters .filter-chip").forEach((c) => {
-            c.classList.toggle("active", c === chip);
-          });
+          document.querySelectorAll("#ledgerStatusFilters .filter-chip").forEach((c) => c.classList.toggle("active", c === chip));
           renderLedger();
         });
         $("ledgerCardsList").addEventListener("click", (e) => {
@@ -2982,9 +3353,9 @@
         });
 
         $("btnExportCsv").addEventListener("click", exportCsv);
+        $("btnPrintPdf").addEventListener("click", () => window.print());
         $("btnShareWhatsApp").addEventListener("click", shareWhatsApp);
 
-        // Settings: Language, USD Rate, Theme, Backup, Delete Modal
         $("langQuickBar").addEventListener("click", (e) => {
           const btn = e.target.closest("[data-lang]");
           if (!btn) return;
@@ -3003,6 +3374,7 @@
             state.usdRate = val;
             saveStorage(STORAGE_KEYS.USD_RATE, state.usdRate);
             updateFormLivePreview();
+            updateBreakEvenCalc();
           }
         });
 
@@ -3013,7 +3385,7 @@
         });
 
         $("btnBackupJson").addEventListener("click", () => {
-          const payload = JSON.stringify({ entries: state.entries, usdRate: state.usdRate }, null, 2);
+          const payload = JSON.stringify({ entries: state.entries, usdRate: state.usdRate, isPro: state.isPro }, null, 2);
           const blob = new Blob([payload], { type: "application/json" });
           const url = URL.createObjectURL(blob);
           const a = document.createElement("a");
@@ -3040,13 +3412,12 @@
                 showToast(t("toastSaved"));
               }
             } catch (_err) {
-              /* ignore invalid JSON */
+              /* ignore */
             }
           };
           reader.readAsText(file);
         });
 
-        // Danger Zone Delete Modal requiring "DELETE"
         $("btnOpenDeleteModal").addEventListener("click", () => {
           $("inpConfirmDeleteWord").value = "";
           $("deleteModal").hidden = false;
@@ -3076,6 +3447,7 @@
         state.currency = CURRENCIES[savedCur] ? savedCur : "MAD";
         const savedRate = parseFloat(loadStorage(STORAGE_KEYS.USD_RATE, 10.20));
         state.usdRate = savedRate > 0 ? savedRate : 10.20;
+        state.isPro = Boolean(loadStorage(STORAGE_KEYS.PRO_ACTIVE, false));
 
         // Start completely empty (zero pre-loaded sample data)
         const savedEntries = loadStorage(STORAGE_KEYS.ENTRIES, []);
